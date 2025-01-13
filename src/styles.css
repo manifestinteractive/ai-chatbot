@@ -4,8 +4,8 @@
 
 :root {
   --angry-color-fg: #e97070;
-  --angry-color-bg1: rgb(75, 12, 12);
-  --angry-color-bg2: rgb(22, 3, 3);
+  --angry-color-bg1: 75, 12, 12;
+  --angry-color-bg2: 22, 3, 3;
   --angry-color1: 61, 10, 10;
   --angry-color2: 109, 28, 28;
   --angry-color3: 182, 43, 43;
@@ -13,8 +13,8 @@
   --angry-color5: 255, 143, 143;
 
   --bored-color-fg: #e6d1e6;
-  --bored-color-bg1: rgb(82, 60, 119);
-  --bored-color-bg2: rgb(46, 29, 93);
+  --bored-color-bg1: 82, 60, 119;
+  --bored-color-bg2: 46, 29, 93;
   --bored-color1: 97, 77, 153;
   --bored-color2: 124, 112, 164;
   --bored-color3: 175, 162, 195;
@@ -22,8 +22,8 @@
   --bored-color5: 239, 164, 181;
 
   --happy-color-fg: #ffe948;
-  --happy-color-bg1: rgb(46, 107, 91);
-  --happy-color-bg2: rgb(15, 43, 46);
+  --happy-color-bg1: 46, 107, 9;
+  --happy-color-bg2: 15, 43, 46;
   --happy-color1: 249, 226, 78;
   --happy-color2: 247, 183, 43;
   --happy-color3: 246, 127, 30;
@@ -31,8 +31,8 @@
   --happy-color5: 224, 41, 59;
 
   --jealous-color-fg: #bd71a0;
-  --jealous-color-bg1: rgb(135, 79, 131);
-  --jealous-color-bg2: rgb(45, 29, 63);
+  --jealous-color-bg1: 135, 79, 131;
+  --jealous-color-bg2: 45, 29, 63;
   --jealous-color1: 75, 61, 92;
   --jealous-color2: 141, 109, 156;
   --jealous-color3: 195, 167, 193;
@@ -40,8 +40,8 @@
   --jealous-color5: 242, 181, 197;
 
   --love-color-fg: #dce258;
-  --love-color-bg1: rgb(110, 78, 141);
-  --love-color-bg2: rgb(78, 42, 91);
+  --love-color-bg1: 110, 78, 141;
+  --love-color-bg2: 78, 42, 91;
   --love-color1: 255, 0, 158;
   --love-color2: 255, 129, 159;
   --love-color3: 254, 160, 255;
@@ -49,8 +49,8 @@
   --love-color5: 203, 178, 255;
 
   --neutral-color-fg: #ffffff;
-  --neutral-color-bg1: rgb(108, 0, 162);
-  --neutral-color-bg2: rgb(0, 17, 82);
+  --neutral-color-bg1: 108, 0, 162;
+  --neutral-color-bg2: 0, 17, 82;
   --neutral-color1: 18, 113, 255;
   --neutral-color2: 221, 74, 255;
   --neutral-color3: 100, 220, 255;
@@ -58,8 +58,8 @@
   --neutral-color5: 180, 180, 50;
 
   --relaxed-color-fg: #d1e89a;
-  --relaxed-color-bg1: rgb(103, 132, 150);
-  --relaxed-color-bg2: rgb(54, 86, 121);
+  --relaxed-color-bg1: 103, 132, 150;
+  --relaxed-color-bg2: 54, 86, 121;
   --relaxed-color1: 140, 185, 232;
   --relaxed-color2: 231, 242, 249;
   --relaxed-color3: 249, 225, 180;
@@ -67,8 +67,8 @@
   --relaxed-color5: 241, 200, 75;
 
   --sad-color-fg: #8ebbec;
-  --sad-color-bg1: rgb(26, 53, 81);
-  --sad-color-bg2: rgb(17, 38, 80);
+  --sad-color-bg1: 26, 53, 81;
+  --sad-color-bg2: 17, 38, 80;
   --sad-color1: 62, 92, 152;
   --sad-color2: 92, 122, 153;
   --sad-color3: 143, 168, 183;
@@ -76,8 +76,8 @@
   --sad-color5: 241, 177, 195;
 
   --serious-color-fg: #ffc091;
-  --serious-color-bg1: rgb(59, 104, 135);
-  --serious-color-bg2: rgb(36, 76, 127);
+  --serious-color-bg1: 59, 104, 135;
+  --serious-color-bg2: 36, 76, 127;
   --serious-color1: 106, 156, 220;
   --serious-color2: 174, 210, 234;
   --serious-color3: 242, 229, 161;
@@ -85,8 +85,8 @@
   --serious-color5: 240, 140, 0;
 
   --shy-color-fg: #ccdef0;
-  --shy-color-bg1: rgb(7, 64, 105);
-  --shy-color-bg2: rgb(3, 44, 73);
+  --shy-color-bg1: 7, 64, 105;
+  --shy-color-bg2: 3, 44, 73;
   --shy-color1: 87, 149, 193;
   --shy-color2: 57, 135, 177;
   --shy-color3: 38, 122, 171;
@@ -94,8 +94,8 @@
   --shy-color5: 9, 76, 124;
 
   --sleep-color-fg: #f1e7ff;
-  --sleep-color-bg1: rgb(25, 52, 82);
-  --sleep-color-bg2: rgb(9, 36, 47);
+  --sleep-color-bg1: 25, 52, 82;
+  --sleep-color-bg2: 9, 36, 47;
   --sleep-color1: 199, 211, 229;
   --sleep-color2: 165, 186, 213;
   --sleep-color3: 125, 151, 181;
@@ -103,8 +103,8 @@
   --sleep-color5: 44, 89, 109;
 
   --surprised-color-fg: #c3effb;
-  --surprised-color-bg1: rgb(36, 88, 112);
-  --surprised-color-bg2: rgb(19, 44, 94);
+  --surprised-color-bg1: 36, 88, 112;
+  --surprised-color-bg2: 19, 44, 94;
   --surprised-color1: 255, 236, 61;
   --surprised-color2: 255, 153, 0;
   --surprised-color3: 255, 87, 36;
@@ -112,8 +112,8 @@
   --surprised-color5: 233, 32, 99;
 
   --suspicious-color-fg: #9171ce;
-  --suspicious-color-bg1: rgb(70, 35, 108);
-  --suspicious-color-bg2: rgb(47, 22, 106);
+  --suspicious-color-bg1: 70, 35, 108;
+  --suspicious-color-bg2: 47, 22, 106;
   --suspicious-color1: 61, 41, 46;
   --suspicious-color2: 123, 76, 78;
   --suspicious-color3: 183, 123, 126;
@@ -121,15 +121,18 @@
   --suspicious-color5: 239, 197, 195;
 
   --victory-color-fg: #fe9e5b;
-  --victory-color-bg1: rgb(32, 79, 91);
-  --victory-color-bg2: rgb(12, 36, 70);
+  --victory-color-bg1: 32, 79, 91;
+  --victory-color-bg2: 12, 36, 70;
   --victory-color1: 28, 63, 109;
   --victory-color2: 75, 126, 139;
   --victory-color3: 105, 191, 158;
   --victory-color4: 255, 184, 77;
   --victory-color5: 255, 110, 97;
 
-  --circle-size: 80%;
+  --input-color-text: 255, 255, 255;
+  --input-color-bg: 0, 0, 0;
+
+  --circle-size: 100vh;
   --blending: hard-light;
   --transition: 0.25s;
 }
@@ -145,6 +148,11 @@ body {
   height: 100vh;
   min-height: 100vh;
   transition: background 2s;
+  font-family: "Open Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
 }
 
 canvas {
@@ -153,9 +161,144 @@ canvas {
   left: 0;
   width: 100vw;
   height: 100vh;
-  /* pointer-events: none; */
   z-index: 5;
 }
+
+/* CHAT */
+
+.chat-ui, .chat-ui > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.chat-ui .input {
+  bottom: 16px;
+  background: rgba(var(--input-color-bg), 0.85);
+  box-shadow: rgba(255, 255, 255, 0) 0 0 0 0;
+  position: absolute;
+  width: 50vw;
+  min-width: 360px;
+  max-width: 768px;
+  border-radius: 25px;
+  height: 50px;
+  padding: 0 10px 0 30px;
+  white-space: no-wrap;
+  transition: all 0.25s;
+}
+
+.chat-ui .input:focus-within {
+  background: rgba(var(--input-color-bg), 1);
+  box-shadow: rgba(255, 255, 255, 0.65) 0 0 6px 1px;
+}
+
+.chat-ui .input > form > textarea {
+  padding: 10px;
+  font-size: 16px;
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: rgb(var(--input-color-text));
+  width: calc(100% - 50px);
+  font-weight: lighter;
+  height: 30px;
+  vertical-align: middle;
+  font-family: "Open Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  padding: 2px 0 0 0;
+  margin: 0;
+  pointer-events: all;
+  resize: none;
+  line-height: 26px;
+  white-space: normal;
+}
+
+.chat-ui .input > form > textarea::placeholder {
+  color: rgba(var(--input-color-text), 0.75);
+}
+
+.input > form > textarea:focus {
+  outline: none;
+}
+
+.input > form > button {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  color: rgb(var(--input-color-text));
+  font-size: 20px;
+  cursor: pointer;
+  vertical-align: middle;
+  pointer-events: all;
+  opacity: 0.5;
+  transition: opacity 0.25s;
+}
+.input > form > button:hover, .input > form > button:focus {
+  opacity: 1;
+}
+
+.input > form > button:focus {
+  outline: none;
+}
+
+.chat-ui .input.tall {
+  height: 120px;
+  padding-top: 10px;
+}
+.chat-ui .input.tall > form > textarea {
+  height: 100px;
+}
+
+/* MESSAGES */
+
+.messages {
+  bottom: 80px;
+  position: absolute;
+  width: 50vw;
+  min-width: 360px;
+  max-width: 768px;
+  max-height: calc(100% - 80px);
+  padding: 0;
+  overflow: auto;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  pointer-events: all;
+  transition: all;
+}
+
+.messages.short {
+  max-height: calc(100% - 150px);
+  bottom: 150px;
+}
+
+.bot-message {
+  float: left;
+  padding: 12px 20px;
+  margin: 5px;
+  border-radius: 24px 24px 24px 0;
+  background: rgba(var(--input-color-bg), 0.85);
+  color: rgb(var(--input-color-text));
+  min-width: 40px;
+}
+
+.user-message {
+  float: right;
+  padding: 12px 20px;
+  margin: 5px;
+  border-radius: 24px 24px 0 24px;
+  background: rgba(var(--input-color-text), 0.85);
+  color: rgb(var(--input-color-bg));
+}
+
+/* EMOTION GRADIENT */
 
 .gradient-bg {
   width: 100vw;
@@ -165,10 +308,8 @@ canvas {
   top: 0;
   left: 0;
   z-index: 1;
-  pointer-events: none;
   transition: opacity 2s;
   opacity: 0;
-  backface-visibility: visible;
   display: flex;
 }
 svg#gradient-overlay {
@@ -194,6 +335,7 @@ svg#gradient-overlay {
   animation: moveVertical 30s ease infinite;
   opacity: 1;
   animation-play-state: paused;
+  overflow: visible;
 }
 .gradients-container .g2 {
   position: absolute;
@@ -247,10 +389,10 @@ svg#gradient-overlay {
 
 /* ANGRY */
 body.angry {
-  background: var(--angry-color-bg1);
+  background: rgb(var(--angry-color-bg1));
 }
 body.angry .gradient-bg.angry {
-  background: linear-gradient(40deg, var(--angry-color-bg1), var(--angry-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--angry-color-bg1)), rgb(var(--angry-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -277,10 +419,10 @@ body.angry .gradient-bg.angry .g5 {
 
 /* BORED */
 body.bored {
-  background: var(--bored-color-bg1);
+  background: rgb(var(--bored-color-bg1));
 }
 body.bored .gradient-bg.bored {
-  background: linear-gradient(40deg, var(--bored-color-bg1), var(--bored-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--bored-color-bg1)), rgb(var(--bored-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -307,10 +449,10 @@ body.bored .gradient-bg.bored .g5 {
 
 /* HAPPY */
 body.happy {
-  background: var(--happy-color-bg1);
+  background: rgb(var(--happy-color-bg1));
 }
 body.happy .gradient-bg.happy {
-  background: linear-gradient(40deg, var(--happy-color-bg1), var(--happy-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--happy-color-bg1)), rgb(var(--happy-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -337,10 +479,10 @@ body.happy .gradient-bg.happy .g5 {
 
 /* JEALOUS */
 body.jealous {
-  background: var(--jealous-color-bg1);
+  background: rgb(var(--jealous-color-bg1));
 }
 body.jealous .gradient-bg.jealous {
-  background: linear-gradient(40deg, var(--jealous-color-bg1), var(--jealous-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--jealous-color-bg1)), rgb(var(--jealous-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -367,10 +509,10 @@ body.jealous .gradient-bg.jealous .g5 {
 
 /* LOVE */
 body.love {
-  background: var(--love-color-bg1);
+  background: rgb(var(--love-color-bg1));
 }
 body.love .gradient-bg.love {
-  background: linear-gradient(40deg, var(--love-color-bg1), var(--love-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--love-color-bg1)), rgb(var(--love-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -397,10 +539,10 @@ body.love .gradient-bg.love .g5 {
 
 /* NEUTRAL */
 body.neutral {
-  background: var(--neutral-color-bg1);
+  background: rgb(var(--neutral-color-bg1));
 }
 body.neutral .gradient-bg.neutral {
-  background: linear-gradient(40deg, var(--neutral-color-bg1), var(--neutral-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--neutral-color-bg1)), rgb(var(--neutral-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -427,10 +569,10 @@ body.neutral .gradient-bg.neutral .g5 {
 
 /* RELAXED */
 body.relaxed {
-  background: var(--relaxed-color-bg1);
+  background: rgb(var(--relaxed-color-bg1));
 }
 body.relaxed .gradient-bg.relaxed {
-  background: linear-gradient(40deg, var(--relaxed-color-bg1), var(--relaxed-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--relaxed-color-bg1)), rgb(var(--relaxed-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -457,10 +599,10 @@ body.relaxed .gradient-bg.relaxed .g5 {
 
 /* SAD */
 body.sad {
-  background: var(--sad-color-bg1);
+  background: rgb(var(--sad-color-bg1));
 }
 body.sad .gradient-bg.sad {
-  background: linear-gradient(40deg, var(--sad-color-bg1), var(--sad-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--sad-color-bg1)), rgb(var(--sad-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -487,10 +629,10 @@ body.sad .gradient-bg.sad .g5 {
 
 /* SERIOUS */
 body.serious {
-  background: var(--serious-color-bg1);
+  background: rgb(var(--serious-color-bg1));
 }
 body.serious .gradient-bg.serious {
-  background: linear-gradient(40deg, var(--serious-color-bg1), var(--serious-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--serious-color-bg1)), rgb(var(--serious-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -517,10 +659,10 @@ body.serious .gradient-bg.serious .g5 {
 
 /* SHY */
 body.shy {
-  background: var(--shy-color-bg1);
+  background: rgb(var(--shy-color-bg1));
 }
 body.shy .gradient-bg.shy {
-  background: linear-gradient(40deg, var(--shy-color-bg1), var(--shy-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--shy-color-bg1)), rgb(var(--shy-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -547,10 +689,10 @@ body.shy .gradient-bg.shy .g5 {
 
 /* SLEEP */
 body.sleep {
-  background: var(--sleep-color-bg1);
+  background: rgb(var(--sleep-color-bg1));
 }
 body.sleep .gradient-bg.sleep {
-  background: linear-gradient(40deg, var(--sleep-color-bg1), var(--sleep-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--sleep-color-bg1)), rgb(var(--sleep-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -577,10 +719,10 @@ body.sleep .gradient-bg.sleep .g5 {
 
 /* SURPRISED */
 body.surprised {
-  background: var(--surprised-color-bg1);
+  background: rgb(var(--surprised-color-bg1));
 }
 body.surprised .gradient-bg.surprised {
-  background: linear-gradient(40deg, var(--surprised-color-bg1), var(--surprised-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--surprised-color-bg1)), rgb(var(--surprised-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -607,10 +749,10 @@ body.surprised .gradient-bg.surprised .g5 {
 
 /* SUSPICIOUS */
 body.suspicious {
-  background: var(--suspicious-color-bg1);
+  background: rgb(var(--suspicious-color-bg1));
 }
 body.suspicious .gradient-bg.suspicious {
-  background: linear-gradient(40deg, var(--suspicious-color-bg1), var(--suspicious-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--suspicious-color-bg1)), rgb(var(--suspicious-color-bg2)));
   opacity: 1;
   z-index: 2;
 }
@@ -637,10 +779,10 @@ body.suspicious .gradient-bg.suspicious .g5 {
 
 /* VICTORY */
 body.victory {
-  background: var(--victory-color-bg1);
+  background: rgb(var(--victory-color-bg1));
 }
 body.victory .gradient-bg.victory {
-  background: linear-gradient(40deg, var(--victory-color-bg1), var(--victory-color-bg2));
+  background: linear-gradient(40deg, rgb(var(--victory-color-bg1)), rgb(var(--victory-color-bg2)));
   opacity: 1;
   z-index: 2;
 }

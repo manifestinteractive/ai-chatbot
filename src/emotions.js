@@ -1,4 +1,4 @@
-const emotions = {
+const Emotions = {
     angry: {
         colors: {
             fg: '#e97070',
@@ -19,7 +19,7 @@ const emotions = {
         },
         particles: {
             aperture: 3,
-            blending: 'LessDepth',
+            blending: 2,
             color: { r: 233, g: 112, b: 112, a: 1 },
             curl: 0.35,
             focus: 4.5,
@@ -48,7 +48,7 @@ const emotions = {
         },
         particles: {
             aperture: 0,
-            blending: 'GreaterEqualDepth',
+            blending: 5,
             color: { r: 182, g: 161, b: 222, a: 1 },
             curl: 0.3,
             focus: 4.5,
@@ -77,7 +77,7 @@ const emotions = {
         },
         particles: {
             aperture: 0.3,
-            blending: 'NormalBlending',
+            blending: 1,
             color: { r: 255, g: 233, b: 72, a: 1 },
             curl: 0.25,
             focus: 4,
@@ -106,7 +106,7 @@ const emotions = {
         },
         particles: {
             aperture: 2,
-            blending: 'LessDepth',
+            blending: 2,
             color: { r: 189, g: 113, b: 160, a: 1 },
             curl: 0.35,
             focus: 5,
@@ -135,7 +135,7 @@ const emotions = {
         },
         particles: {
             aperture: 0,
-            blending: 'LessDepth',
+            blending: 2,
             color: { r: 249, g: 255, b: 137, a: 1 },
             curl: 0.25,
             focus: 4.3,
@@ -164,7 +164,7 @@ const emotions = {
         },
         particles: {
             aperture: 1,
-            blending: 'NormalBlending',
+            blending: 1,
             color: { r: 255, g: 255, b: 255, a: 1 },
             curl: 0.3,
             focus: 5,
@@ -193,7 +193,7 @@ const emotions = {
         },
         particles: {
             aperture: 1,
-            blending: 'LessDepth',
+            blending: 2,
             color: { r: 209, g: 232, b: 154, a: 1 },
             curl: 0.3,
             focus: 5,
@@ -222,7 +222,7 @@ const emotions = {
         },
         particles: {
             aperture: 4.5,
-            blending: 'GreaterEqualDepth',
+            blending: 5,
             color: { r: 142, g: 187, b: 236, a: 1 },
             curl: 0.3,
             focus: 4.95,
@@ -251,7 +251,7 @@ const emotions = {
         },
         particles: {
             aperture: 1,
-            blending: 'LessDepth',
+            blending: 2,
             color: { r: 255, g: 192, b: 145, a: 1 },
             curl: 0.2,
             focus: 4,
@@ -280,7 +280,7 @@ const emotions = {
         },
         particles: {
             aperture: 1.4,
-            blending: 'NormalBlending',
+            blending: 1,
             color: { r: 204, g: 222, b: 240, a: 1 },
             curl: 0.36,
             focus: 3.73,
@@ -309,7 +309,7 @@ const emotions = {
         },
         particles: {
             aperture: 1.5,
-            blending: 'NormalBlending',
+            blending: 1,
             color: { r: 241, g: 231, b: 255, a: 1 },
             curl: 0.5,
             focus: 3.5,
@@ -338,7 +338,7 @@ const emotions = {
         },
         particles: {
             aperture: 1.5,
-            blending: 'GreaterEqualDepth',
+            blending: 5,
             color: { r: 195, g: 239, b: 251, a: 1 },
             curl: 0.35,
             focus: 4.75,
@@ -367,7 +367,7 @@ const emotions = {
         },
         particles: {
             aperture: 0,
-            blending: 'LessDepth',
+            blending: 2,
             color: { r: 145, g: 113, b: 206, a: 1 },
             curl: 0.5,
             focus: 4.8,
@@ -396,7 +396,7 @@ const emotions = {
         },
         particles: {
             aperture: 0.1,
-            blending: 'LessDepth',
+            blending: 2,
             color: { r: 254, g: 158, b: 91, a: 1 },
             curl: 0.25,
             focus: 5,
@@ -405,4 +405,6 @@ const emotions = {
             speed: 4,
         }
     },
-}
+};
+
+export default Emotions;
