@@ -6,7 +6,7 @@ export default function BotMessage({ fetchMessage }) {
 
   const el = useRef(null);
     useEffect(() => {
-        el.current.scrollIntoView({ block: "end", behavior: "smooth" });
+      el.current.scrollIntoView({ block: "end", behavior: "smooth" });
     });
 
   useEffect(() => {

@@ -17,14 +17,14 @@ export default function Input({ onSend }) {
     if (e.target.scrollHeight > e.target.clientHeight && !$input.classList.contains('tall')) {
       $input.classList.add('tall');
       $messages.classList.add('short');
+      updateScroll();
     }
 
     if (e.target.value === '' && $input.classList.contains('tall')) {
       $input.classList.remove('tall');
       $messages.classList.remove('short');
+      updateScroll();
     }
-
-    updateScroll();
   };
 
   const handleKeyDown = e => {

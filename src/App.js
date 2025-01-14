@@ -60,7 +60,7 @@ export default function App() {
     async function loadWelcomeMessage() {
       setMessages([
         <BotMessage
-          key="0"
+          key="1"
           fetchMessage={async () => await API.GetChatbotResponse("hi")}
         />
       ]);
@@ -76,6 +76,7 @@ export default function App() {
         fetchMessage={async () => await API.GetChatbotResponse(text)}
       />
     );
+
     setMessages(newMessages);
   }
 
