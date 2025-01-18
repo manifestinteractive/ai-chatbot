@@ -6,6 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
+    "dev": "DEBUG=* react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
@@ -35,6 +36,7 @@
     "leva": "0.9.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^9.0.3",
     "react-scripts": "5.0.1",
     "three": "0.142.0",
     "v8": "0.1.0"

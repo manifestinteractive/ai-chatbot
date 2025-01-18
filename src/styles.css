@@ -177,7 +177,7 @@ canvas {
 
 .chat-ui .input {
   bottom: 32px;
-  background: rgba(var(--input-color-bg), 0.85);
+  background: rgba(var(--input-color-bg), 0.9);
   box-shadow: rgba(255, 255, 255, 0) 0 0 0 0;
   position: absolute;
   width: calc(100% - 64px);
@@ -307,21 +307,33 @@ canvas {
 
 .bot-message {
   float: left;
-  padding: 12px 20px;
+  padding: 0 20px;
   margin: 5px;
   border-radius: 24px 24px 24px 0;
   min-width: 40px;
-  background: rgba(var(--input-color-text), 0.85);
+  background: rgba(var(--input-color-text), 0.90);
   color: rgb(var(--input-color-bg));
+}
+
+.bot-message ul {
+  padding-left: 18px;
+}
+
+.bot-message ol {
+  padding-left: 14px;
+}
+
+.bot-message li {
+  padding-bottom: 4px;
 }
 
 .user-message {
   float: right;
-  padding: 12px 20px;
+  padding: 0 20px;
   margin: 5px;
   border-radius: 24px 24px 0 24px;
   min-width: 40px;
-  background: rgba(var(--input-color-bg), 0.85);
+  background: rgba(var(--input-color-bg), 0.90);
   color: rgb(var(--input-color-text));
 }
 

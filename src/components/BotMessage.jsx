@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import ReactMarkdown from 'react-markdown';
 
 export default function BotMessage({ fetchMessage }) {
   const [isLoading, setLoading] = useState(true);
@@ -21,7 +22,11 @@ export default function BotMessage({ fetchMessage }) {
 
   return (
     <div className="message-container">
-      <div className="bot-message" ref={el}>{isLoading ? "..." : message}</div>
+      <div className="bot-message" ref={el}>
+        <ReactMarkdown>
+          {isLoading ? "..." : message}
+        </ReactMarkdown>
+        </div>
     </div>
   );
 }
