@@ -37,15 +37,7 @@ class DofPointsMaterial extends THREE.ShaderMaterial {
         uBlur: { value: 30 }
       },
       transparent: true,
-      // blending: THREE.NormalBlending,
-      // blending: THREE.GreaterEqualDepth,
-      // blending: THREE.LessDepth,
-      // blending: THREE.AlwaysDepth,
-      // blending: THREE.CullFaceFront,
-      // blending: THREE.CullFaceBack,
-      // blending: THREE.AdditiveBlending,
-      // blending: THREE.DoubleSide,
-      blending: THREE.BackSide,
+      blending: 5,
       depthWrite: false
     })
   }

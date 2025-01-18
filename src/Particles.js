@@ -30,12 +30,12 @@ export function Particles({ speed, fov, aperture, focus, curl, color, size = 512
     }
     return particles
   }, [size])
-  
+
   // Listen for Color Change
-  const [colorChanged, setColorChanged] = useState(false);
+  const [colorChanged, setColorChanged] = useState(false)
   useEffect(() => {
-    setColorChanged(true);
-  }, [color]);
+    setColorChanged(true)
+  }, [color])
 
   // Update FBO and pointcloud every frame
   useFrame((state) => {
@@ -43,8 +43,8 @@ export function Particles({ speed, fov, aperture, focus, curl, color, size = 512
     state.gl.clear()
     state.gl.render(scene, camera)
     state.gl.setRenderTarget(null)
-    
-    renderRef.current.blending = props.blending; // Set Blending
+
+    renderRef.current.blending = props.blending // Set Blending
     renderRef.current.uniforms.positions.value = target.texture
     renderRef.current.uniforms.uTime.value = state.clock.elapsedTime
     renderRef.current.uniforms.uFocus.value = THREE.MathUtils.lerp(renderRef.current.uniforms.uFocus.value, focus, 0.1)
@@ -52,8 +52,8 @@ export function Particles({ speed, fov, aperture, focus, curl, color, size = 512
     renderRef.current.uniforms.uBlur.value = THREE.MathUtils.lerp(renderRef.current.uniforms.uBlur.value, (5.6 - aperture) * 9, 0.1)
 
     if (colorChanged) {
-      setColorChanged(false);
-      const colors = new THREE.Color(color.r / 255, color.g / 255, color.b / 255);
+      setColorChanged(false)
+      const colors = new THREE.Color(color.r / 255, color.g / 255, color.b / 255)
       renderRef.current.fragmentShader = `uniform float uOpacity;
       varying float vDistance;
       void main() {
@@ -61,7 +61,7 @@ export function Particles({ speed, fov, aperture, focus, curl, color, size = 512
         if (dot(cxy, cxy) > 1.0) discard;
         gl_FragColor = vec4(${colors.r}, ${colors.g}, ${colors.b}, (1.04 - clamp(vDistance * 1.5, 0.25, 1.0)));
       }`
-      renderRef.current.needsUpdate = true;
+      renderRef.current.needsUpdate = true
     }
 
     simRef.current.uniforms.uTime.value = state.clock.elapsedTime * speed

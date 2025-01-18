@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react'
 
 export default function Messages({ messages }) {
-  const el = useRef(null);
+  const el = useRef(null)
   useEffect(() => {
-    el.current.scrollIntoView({ block: "end", behavior: "smooth" });
-  });
+    el.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
+  })
   return (
     <div className="messages">
       {messages}
-      <div id={"el"} ref={el} />
+      <div id={'el'} ref={el} />
     </div>
-  );
+  )
 }

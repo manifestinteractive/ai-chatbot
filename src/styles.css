@@ -137,7 +137,9 @@
   --transition: 0.25s;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -148,7 +150,7 @@ body {
   height: 100%;
   min-height: 100%;
   transition: background 2s;
-  font-family: "Open Sans", serif;
+  font-family: 'Open Sans', serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
@@ -166,7 +168,8 @@ canvas {
 
 /* CHAT */
 
-.chat-ui, .chat-ui > div {
+.chat-ui,
+.chat-ui > div {
   width: 100%;
   height: 100%;
   display: flex;
@@ -205,7 +208,7 @@ canvas {
   font-weight: lighter;
   height: 30px;
   vertical-align: middle;
-  font-family: "Open Sans", serif;
+  font-family: 'Open Sans', serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
@@ -238,7 +241,8 @@ canvas {
   opacity: 0.5;
   transition: opacity 0.25s;
 }
-.input > form > button:hover, .input > form > button:focus {
+.input > form > button:hover,
+.input > form > button:focus {
   opacity: 1;
 }
 
@@ -277,26 +281,27 @@ canvas {
   transition: opacity 0.25s;
 }
 
-.messages .message-container:nth-last-child(n+4) {
+.messages .message-container:nth-last-child(n + 4) {
   opacity: 0.8;
 }
-.messages .message-container:nth-last-child(n+6) {
-  opacity: 0.60;
+.messages .message-container:nth-last-child(n + 6) {
+  opacity: 0.6;
 }
-.messages .message-container:nth-last-child(n+8) {
-  opacity: 0.40;
+.messages .message-container:nth-last-child(n + 8) {
+  opacity: 0.4;
 }
-.messages .message-container:nth-last-child(n+10) {
-  opacity: 0.20;
+.messages .message-container:nth-last-child(n + 10) {
+  opacity: 0.2;
 }
-.messages .message-container:nth-last-child(n+12) {
-  opacity: 0.10;
+.messages .message-container:nth-last-child(n + 12) {
+  opacity: 0.1;
 }
-.messages .message-container:nth-last-child(n+14) {
+.messages .message-container:nth-last-child(n + 14) {
   opacity: 0.05;
 }
 
-.messages .message-container:hover, .messages .message-container:focus {
+.messages .message-container:hover,
+.messages .message-container:focus {
   opacity: 1;
 }
 
@@ -311,7 +316,7 @@ canvas {
   margin: 5px;
   border-radius: 24px 24px 24px 0;
   min-width: 40px;
-  background: rgba(var(--input-color-text), 0.90);
+  background: rgba(var(--input-color-text), 0.9);
   color: rgb(var(--input-color-bg));
 }
 
@@ -333,7 +338,7 @@ canvas {
   margin: 5px;
   border-radius: 24px 24px 0 24px;
   min-width: 40px;
-  background: rgba(var(--input-color-bg), 0.90);
+  background: rgba(var(--input-color-bg), 0.9);
   color: rgb(var(--input-color-text));
 }
 

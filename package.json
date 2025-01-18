@@ -9,7 +9,10 @@
     "dev": "DEBUG=* react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
     "@react-three/fiber": "8.2.2",
     "babel-plugin-glsl": "1.0.0",
     "babel-plugin-macros": "3.1.0",
+    "canvas-sketch-util": "^1.10.0",
     "glsl-curl-noise2": "0.0.4",
     "glsl-noise": "0.0.0",
     "leva": "0.9.29",
@@ -45,7 +49,15 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off"
+    },
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "jest": true
+    }
   },
   "browserslist": {
     "production": [
@@ -60,6 +72,10 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "prettier": "^3.4.2",
     "web-vitals": "^4.2.4"
   }
 }

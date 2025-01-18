@@ -1,11 +1,3 @@
 {
-    "cSpell.words": [
-        "drei",
-        "glsl",
-        "glslify",
-        "lerp",
-        "loglevel",
-        "manifestinteractive",
-        "pointcloud"
-    ]
+  "cSpell.words": ["drei", "glsl", "glslify", "lerp", "loglevel", "manifestinteractive", "Phong", "pointcloud"]
 }
