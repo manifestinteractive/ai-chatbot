@@ -146,6 +146,20 @@ body,
   padding: 0;
 }
 
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: cornflowerblue;
+}
+
+a:hover,
+a:visited:hover,
+a:active:hover,
+a:focus {
+  text-decoration: underline;
+}
+
 body {
   height: 100%;
   min-height: 100%;
@@ -179,6 +193,7 @@ canvas {
 }
 
 .chat-ui .input {
+  --border-width: 1px;
   bottom: 32px;
   background: rgba(var(--input-color-bg), 0.9);
   box-shadow: rgba(255, 255, 255, 0) 0 0 0 0;
@@ -190,6 +205,26 @@ canvas {
   padding: 0 10px 0 30px;
   white-space: no-wrap;
   transition: all 0.25s;
+}
+
+.chat-ui .input::after {
+  position: absolute;
+  content: '';
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  animation: moveGradient 2s alternate infinite;
+  border-radius: 25px;
+  transition: all 0.25s;
+}
+
+.chat-ui .input.loading::after {
+  background: linear-gradient(60deg, #ffffff, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), #ffffff);
 }
 
 .chat-ui .input:focus-within {
@@ -218,10 +253,15 @@ canvas {
   resize: none;
   line-height: 26px;
   white-space: normal;
+  transition: all 0.25s;
 }
 
 .chat-ui .input > form > textarea::placeholder {
   color: rgba(var(--input-color-text), 0.75);
+}
+
+.chat-ui .input > form > textarea.loading {
+  color: rgba(var(--input-color-text), 0.5);
 }
 
 .input > form > textarea:focus {
@@ -882,5 +922,10 @@ body.victory .gradient-bg.victory .g5 {
   }
   100% {
     transform: translateX(-50%) translateY(-10%);
+  }
+}
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
   }
 }

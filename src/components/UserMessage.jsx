@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export default function UserMessage({ text }) {
   return (
@@ -8,5 +8,5 @@ export default function UserMessage({ text }) {
         <ReactMarkdown>{text}</ReactMarkdown>
       </div>
     </div>
-  )
+  );
 }

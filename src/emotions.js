@@ -405,6 +405,6 @@ const Emotions = {
       speed: 4
     }
   }
-}
+};
 
-export default Emotions
+export default Emotions;
