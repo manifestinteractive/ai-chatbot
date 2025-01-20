@@ -19,7 +19,6 @@ export default function BotMessage({ text }) {
   }, [text]);
 
   function LinkRenderer(props) {
-    console.log({ props });
     return (
       <a href={props.href} target="_blank" rel="noreferrer">
         {props.children}

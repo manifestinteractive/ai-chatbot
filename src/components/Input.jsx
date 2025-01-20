@@ -40,13 +40,13 @@ export default function Input({ onSubmit, loading }) {
     e.preventDefault();
     if (!text || text === '') return;
     onSubmit(text);
+    setText('');
+    document.querySelector('div.input').classList.remove('tall');
+    document.querySelector('div.messages').classList.remove('short');
   };
 
   useEffect(() => {
     if (!loading) {
-      setText('');
-      document.querySelector('div.input').classList.remove('tall');
-      document.querySelector('div.messages').classList.remove('short');
       inputRef.current.focus();
     }
   }, [loading]);
@@ -55,18 +55,19 @@ export default function Input({ onSubmit, loading }) {
     <div className={loading ? 'input loading' : 'input ready'}>
       <form onSubmit={handleSubmit}>
         <textarea
+          autoFocus
           ref={inputRef}
           className={loading ? 'loading' : 'ready'}
           type="text"
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           value={text}
-          placeholder="Enter your message here"
+          placeholder={loading ? 'Sending message' : 'Enter your message here'}
           disabled={loading}
         />
         <button type="submit" disabled={loading}>
           {loading ? (
-            <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 100">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="38" height="48" viewBox="0 0 100 100">
               <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
                 <animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin="0.1"></animate>
               </circle>

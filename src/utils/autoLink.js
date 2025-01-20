@@ -54,10 +54,10 @@ const autoLink = (text) => {
   const replaceBulk = (str, findArray, replaceArray) => {
     // Skip if nothing to find or replace
     if (findArray.length === 0 || replaceArray.length === 0) {
-      console.log('AutLink', 'Bulk Replace initiated with empty values');
+      console.warn('AutLink', 'Bulk Replace initiated with empty values');
       return str;
     } else if (findArray.length !== replaceArray.length) {
-      console.log('AutLink', 'Bulk Replace initiated different lengths for find and replace');
+      console.warn('AutLink', 'Bulk Replace initiated different lengths for find and replace');
       return str;
     }
 

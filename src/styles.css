@@ -144,6 +144,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 a,
@@ -207,7 +208,7 @@ canvas {
   transition: all 0.25s;
 }
 
-.chat-ui .input::after {
+.chat-ui .input.loading::after {
   position: absolute;
   content: '';
   top: calc(-1 * var(--border-width));
@@ -215,16 +216,27 @@ canvas {
   z-index: -1;
   width: calc(100% + var(--border-width) * 2);
   height: calc(100% + var(--border-width) * 2);
-  background: linear-gradient(60deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+  background: linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(269, 85%, 66%),
+    hsl(314, 85%, 66%),
+    hsl(359, 85%, 66%),
+    hsl(44, 85%, 66%),
+    hsl(89, 85%, 66%),
+    hsl(134, 85%, 66%),
+    hsl(179, 85%, 66%)
+  );
   background-size: 300% 300%;
   background-position: 0 50%;
-  animation: moveGradient 2s alternate infinite;
   border-radius: 25px;
-  transition: all 0.25s;
+  animation: moveGradient 4s alternate infinite;
 }
 
-.chat-ui .input.loading::after {
-  background: linear-gradient(60deg, #ffffff, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), #ffffff);
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .chat-ui .input:focus-within {
@@ -260,8 +272,8 @@ canvas {
   color: rgba(var(--input-color-text), 0.75);
 }
 
-.chat-ui .input > form > textarea.loading {
-  color: rgba(var(--input-color-text), 0.5);
+.chat-ui .input > form > textarea.loading::placeholder {
+  color: rgba(var(--input-color-text), 0.35);
 }
 
 .input > form > textarea:focus {
@@ -924,8 +936,14 @@ body.victory .gradient-bg.victory .g5 {
     transform: translateX(-50%) translateY(-10%);
   }
 }
-@keyframes moveGradient {
-  50% {
-    background-position: 100% 50%;
+
+@media all and (display-mode: standalone) {
+  html,
+  body,
+  #root {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
   }
 }
