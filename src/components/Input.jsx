@@ -1,8 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { PaperAirplaneIcon, MicrophoneIcon as MicrophoneIconSolid } from '@heroicons/react/24/solid';
+import { MicrophoneIcon as MicrophoneIconOutline } from '@heroicons/react/24/outline';
 
 export default function Input({ onSubmit, loading }) {
   const [text, setText] = useState('');
+
   const inputRef = useRef(null);
+
+  const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
   const updateScroll = () => {
     const nodes = document.querySelectorAll('.message-container');
@@ -36,13 +42,31 @@ export default function Input({ onSubmit, loading }) {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!text || text === '') return;
-    onSubmit(text);
+  const handleSubmit = useCallback(
+    (e) => {
+      if (e) {
+        e.preventDefault();
+      }
+
+      if (!text || text === '') return;
+      onSubmit(text);
+      setText('');
+      resetTranscript();
+      document.querySelector('div.input').classList.remove('tall');
+      document.querySelector('div.messages').classList.remove('short');
+    },
+    [onSubmit, text, resetTranscript]
+  );
+
+  const startListening = () => {
     setText('');
-    document.querySelector('div.input').classList.remove('tall');
-    document.querySelector('div.messages').classList.remove('short');
+    resetTranscript();
+    SpeechRecognition.startListening({ continuous: false, language: 'en-US' });
+  };
+
+  const stopListening = () => {
+    SpeechRecognition.stopListening();
+    handleSubmit();
   };
 
   useEffect(() => {
@@ -51,9 +75,28 @@ export default function Input({ onSubmit, loading }) {
     }
   }, [loading]);
 
+  useEffect(() => {
+    setText(transcript);
+  }, [transcript]);
+
+  useEffect(() => {
+    if (!listening && transcript) {
+      handleSubmit();
+    }
+  }, [listening, transcript, handleSubmit]);
+
   return (
-    <div className={loading ? 'input loading' : 'input ready'}>
+    <div className={`input ${loading ? 'loading' : 'ready'} ${browserSupportsSpeechRecognition ? 'mic-supported' : 'mic-unsupported'}`}>
       <form onSubmit={handleSubmit}>
+        {browserSupportsSpeechRecognition && (
+          <button type="button" className={`mic-button ${listening ? 'listening' : 'not-listening'}`} disabled={loading}>
+            {listening ? (
+              <MicrophoneIconSolid width="28" height="28" onClick={() => stopListening()} />
+            ) : (
+              <MicrophoneIconOutline width="28" height="28" onClick={() => startListening()} />
+            )}
+          </button>
+        )}
         <textarea
           autoFocus
           ref={inputRef}
@@ -79,13 +122,7 @@ export default function Input({ onSubmit, loading }) {
               </circle>
             </svg>
           ) : (
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 500 500">
-              <g>
-                <g>
-                  <polygon fill="currentColor" points="0,497.25 535.5,267.75 0,38.25 0,216.75 382.5,267.75 0,318.75" />
-                </g>
-              </g>
-            </svg>
+            <PaperAirplaneIcon width="28" height="28" />
           )}
         </button>
       </form>

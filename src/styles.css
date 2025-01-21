@@ -181,6 +181,109 @@ canvas {
   z-index: 5;
 }
 
+/* LOGIN */
+
+.login-ui,
+.login-ui > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-ui form {
+  background: rgba(var(--input-color-bg), 0.9);
+  box-shadow: rgba(255, 255, 255, 0) 0 0 0 0;
+  position: absolute;
+  width: 300px;
+  border-radius: 25px;
+  height: 50px;
+  padding: 0 10px 0 30px;
+  white-space: no-wrap;
+  transition: all 0.25s;
+  padding: 10px 16px;
+  margin: 0;
+}
+
+.login-ui form:focus-within {
+  background: rgba(var(--input-color-bg), 1);
+  box-shadow: rgba(255, 255, 255, 0.65) 0 0 6px 1px;
+}
+
+.login-ui form.invalid {
+  background: #400000;
+  box-shadow: rgba(255, 0, 0, 0.65) 0 0 6px 1px;
+}
+
+.login-ui form.invalid:focus-within {
+  background: #400000;
+  box-shadow: rgba(255, 0, 0, 0.65) 0 0 6px 1px;
+}
+
+.login-ui input {
+  font-size: 16px;
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: rgb(var(--input-color-text));
+  width: calc(100% - 30px);
+  font-weight: lighter;
+  height: 30px;
+  vertical-align: middle;
+  font-family: 'Open Sans', serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  padding: 10px;
+  margin: 0;
+  pointer-events: all;
+  resize: none;
+  line-height: 26px;
+  white-space: normal;
+  transition: all 0.25s;
+}
+
+.login-ui input:focus {
+  outline: none;
+}
+
+.login-ui input::placeholder {
+  color: rgba(var(--input-color-text), 0.75);
+}
+
+.login-ui button {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  color: rgb(var(--input-color-text));
+  font-size: 20px;
+  cursor: pointer;
+  vertical-align: middle;
+  pointer-events: all;
+  opacity: 0.5;
+  transition: opacity 0.25s;
+  margin: 0;
+  padding: 0;
+}
+.login-ui button:hover,
+.login-ui button:focus {
+  opacity: 1;
+}
+
+.login-ui button:focus {
+  outline: none;
+}
+
+.login-ui span.invalid {
+  position: relative;
+  top: 40px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
 /* CHAT */
 
 .chat-ui,
@@ -244,6 +347,11 @@ canvas {
   box-shadow: rgba(255, 255, 255, 0.65) 0 0 6px 1px;
 }
 
+.chat-ui .input > form {
+  padding: 0;
+  margin: 0;
+}
+
 .chat-ui .input > form > textarea {
   padding: 10px;
   font-size: 16px;
@@ -268,12 +376,16 @@ canvas {
   transition: all 0.25s;
 }
 
-.chat-ui .input > form > textarea::placeholder {
-  color: rgba(var(--input-color-text), 0.75);
+.chat-ui .input.mic-supported {
+  padding: 0 10px 0 6px;
 }
 
-.chat-ui .input > form > textarea.loading::placeholder {
-  color: rgba(var(--input-color-text), 0.35);
+.chat-ui .input.mic-supported > form > textarea {
+  width: calc(100% - 100px);
+}
+
+.chat-ui .input > form > textarea::placeholder {
+  color: rgba(var(--input-color-text), 0.75);
 }
 
 .input > form > textarea:focus {
@@ -292,6 +404,8 @@ canvas {
   pointer-events: all;
   opacity: 0.5;
   transition: opacity 0.25s;
+  margin: 0;
+  padding: 0;
 }
 .input > form > button:hover,
 .input > form > button:focus {

@@ -1,3 +1,5 @@
+import md5 from 'md5';
+
 /**
  * App Configuration
  */
@@ -16,6 +18,9 @@ const Config = {
 
   // Temperature for the LLM response
   API_TEMPERATURE: parseFloat(process.env.REACT_APP_API_TEMPERATURE) || 0.7,
+
+  // Password to access the chat interface ( md5 hashed )
+  APP_PASSWORD: process.env.REACT_APP_PASSWORD ? md5(process.env.REACT_APP_PASSWORD) : null,
 
   // How long the chat history is kept for in milliseconds ( messages older than this will be purged )
   HISTORY_MAX_AGE: process.env.REACT_APP_HISTORY_MAX_AGE ? parseInt(process.env.REACT_APP_HISTORY_MAX_AGE) : 3600000,

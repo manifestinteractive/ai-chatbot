@@ -65,7 +65,7 @@ export function Dust({ count }) {
       <pointLight ref={light} distance="0" intensity="1000" color="#ffffff" decay="1" position={[0, 0, -1000]} />
       <instancedMesh ref={mesh} args={[null, null, count]}>
         <sphereGeometry args={[0.25, 16, 16]} />
-        <meshPhongMaterial color="#ffffff" flatShading="true" transparent="true" opacity="0.25" />
+        <meshPhongMaterial color="#ffffff" flatShading="true" transparent="true" opacity="0.15" />
       </instancedMesh>
     </>
   );

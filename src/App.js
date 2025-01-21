@@ -1,6 +1,9 @@
 import { Html } from '@react-three/drei';
 import { OrbitControls, CameraShake } from '@react-three/drei';
 import { useState, useEffect, useRef } from 'react';
+import { LockOpenIcon } from '@heroicons/react/24/outline';
+
+import md5 from 'md5';
 
 import { Dust } from './Dust';
 import { Particles } from './Particles';
@@ -21,11 +24,20 @@ export default function App() {
 
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
+  const [login, setLogin] = useState('');
+  const [loginInvalid, setLoginInvalid] = useState(false);
 
   useEffect(() => {
     const storedMessages = localStorage.getItem('chatHistory');
+    const isVerified = localStorage.getItem('isVerified');
+
     if (storedMessages) {
       setMessages(JSON.parse(storedMessages));
+    }
+
+    if (isVerified && isVerified === Config.APP_PASSWORD) {
+      setIsVerified(true);
     }
   }, []);
 
@@ -228,16 +240,51 @@ export default function App() {
     return () => clearInterval(interval);
   }, [messages]);
 
+  const checkPw = (e) => {
+    e.preventDefault();
+    if (!login || login === '') return;
+
+    const hashed = md5(login);
+
+    if (hashed === Config.APP_PASSWORD) {
+      setLoginInvalid(false);
+      setIsVerified(true);
+      localStorage.setItem('isVerified', hashed);
+    } else {
+      setLoginInvalid(true);
+    }
+
+    setLogin('');
+  };
+
+  const handleLoginChange = (e) => {
+    setLogin(e.target.value);
+  };
+
   return (
     <>
-      <OrbitControls makeDefault zoomSpeed={0.1} {...orbit} />
-      <CameraShake {...camera} />
-      <Particles {...particles} />
-      <Html wrapperClass="chat-ui" zIndexRange={[100, 0]} calculatePosition={() => [0, 0]}>
-        <Messages messages={messages} />
-        <Input onSubmit={handleSubmit} loading={loading} />
-      </Html>
-      <Dust {...particles} count={2500} />
+      {isVerified ? (
+        <>
+          <OrbitControls makeDefault zoomSpeed={0.1} {...orbit} />
+          <CameraShake {...camera} />
+          <Particles {...particles} />
+          <Html wrapperClass="chat-ui" zIndexRange={[100, 0]} calculatePosition={() => [0, 0]}>
+            <Messages messages={messages} />
+            <Input onSubmit={handleSubmit} loading={loading} />
+          </Html>
+          <Dust {...particles} count={2500} />
+        </>
+      ) : (
+        <Html wrapperClass="login-ui" zIndexRange={[100, 0]} calculatePosition={() => [0, 0]}>
+          <form onSubmit={checkPw} className={`login-form ${loginInvalid ? 'invalid' : 'valid'}`}>
+            <input id="password" type="password" placeholder="Enter password" value={login} onChange={handleLoginChange} />
+            <button type="submit">
+              <LockOpenIcon width="24" height="24" />
+            </button>
+          </form>
+          {loginInvalid && <span className="invalid">Invalid Password</span>}
+        </Html>
+      )}
     </>
   );
 }
