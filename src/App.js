@@ -35,14 +35,29 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [login, setLogin] = useState('');
   const [loginInvalid, setLoginInvalid] = useState(false);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      role: 'assistant',
+      emotion: 'neutral',
+      content: 'How can I assist you today?',
+      timestamp: new Date().getTime(),
+      permanent: true
+    }
+  ]);
 
   useEffect(() => {
     const storedMessages = localStorage.getItem('chatHistory');
     const isVerified = localStorage.getItem('isVerified');
 
     if (storedMessages) {
-      setMessages(JSON.parse(storedMessages));
+      try {
+        const parsedMessages = JSON.parse(storedMessages);
+        if (parsedMessages && parsedMessages.length > 1) {
+          setMessages(parsedMessages);
+        }
+      } catch (error) {
+        console.error('Error parsing chat history:', error);
+      }
     }
 
     if (isVerified && isVerified === config.appPassword) {
@@ -163,25 +178,10 @@ export default function App() {
   };
 
   useEffect(() => {
-    const now = new Date().getTime();
-
-    if (prompt.length > 0 && messages.length === 0) {
-      const newMessages = [
-        {
-          role: 'assistant',
-          emotion: 'neutral',
-          content: 'How can I assist you today?',
-          timestamp: now,
-          permanent: true
-        }
-      ];
-
-      setMessages(newMessages);
-      localStorage.setItem('chatHistory', JSON.stringify(newMessages));
-    } else {
+    if (messages.length > 1) {
       localStorage.setItem('chatHistory', JSON.stringify(messages));
     }
-  }, [messages, prompt]);
+  }, [messages]);
 
   // Cleanup Old Messages every five minutes ( 300000ms )
   useEffect(() => {

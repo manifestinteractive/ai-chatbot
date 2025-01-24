@@ -29,7 +29,7 @@ const config = {
   historyMaxLength: process.env.REACT_APP_HISTORY_MAX_LENGTH ? parseInt(process.env.REACT_APP_HISTORY_MAX_LENGTH) : 25,
 
   // Personality for the prompt
-  promptPersonality: process.env.REACT_APP_PROMPT_PERSONALITY || 'ISTP',
+  promptPersonality: process.env.REACT_APP_PROMPT_PERSONALITY || 'INFP',
 
   // Default location to use for the prompt
   promptLocation: process.env.REACT_APP_PROMPT_LOCATION || 'Seattle, WA USA',
