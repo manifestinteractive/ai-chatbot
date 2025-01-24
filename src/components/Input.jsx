@@ -108,6 +108,9 @@ export default function Input({ onSubmit, loading }) {
           ref={inputRef}
           className={loading ? 'loading' : 'ready'}
           type="text"
+          onClick={() => {
+            SpeechRecognition.stopListening();
+          }}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           value={text}
