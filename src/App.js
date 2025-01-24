@@ -1,32 +1,41 @@
+// NPM Dependencies
 import { Html } from '@react-three/drei';
-import { OrbitControls, CameraShake } from '@react-three/drei';
-import { useState, useEffect, useRef } from 'react';
 import { LockOpenIcon } from '@heroicons/react/24/outline';
+import { OrbitControls, CameraShake } from '@react-three/drei';
+import { ToastContainer } from 'react-toastify';
+import { useState, useEffect, useRef } from 'react';
 
 import md5 from 'md5';
 
-import { Dust } from './Dust';
-import { Particles } from './Particles';
-
+// React Components
 import Input from './components/Input';
 import Messages from './components/Messages';
 
-import API from './ChatbotAPI';
-import Config from './Config';
-import Emotions from './Emotions';
+// Configuration
+import config from './config';
+
+// Utilities
+import { api, emotions, createPrompt } from './utils';
+
+// WebGL Assets
+import { Dust } from './webgl/Dust';
+import { Particles } from './webgl/Particles';
 
 export default function App() {
-  // Listen for Emotion Change
-  const props = Emotions['neutral'];
+  // Loading initial neutral emotion
+  const props = emotions.getProps('neutral');
+
+  // Manage State for WebGL
   const [camera, setCamera] = useState(props.camera);
   const [orbit, setOrbit] = useState(props.orbit);
   const [particles, setParticles] = useState(props.particles);
 
-  const [messages, setMessages] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // Manage State for Chat
   const [isVerified, setIsVerified] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [login, setLogin] = useState('');
   const [loginInvalid, setLoginInvalid] = useState(false);
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     const storedMessages = localStorage.getItem('chatHistory');
@@ -36,38 +45,23 @@ export default function App() {
       setMessages(JSON.parse(storedMessages));
     }
 
-    if (isVerified && isVerified === Config.APP_PASSWORD) {
+    if (isVerified && isVerified === config.appPassword) {
       setIsVerified(true);
     }
   }, []);
 
   // Fetch Prompt
-  const [prompt, setPrompt] = useState('');
+  const prompt = createPrompt();
 
   const messagesRef = useRef();
   const loadingRef = useRef();
 
-  const supportedEmotions = [
-    'angry',
-    'bored',
-    'happy',
-    'jealous',
-    'love',
-    'neutral',
-    'relaxed',
-    'sad',
-    'serious',
-    'shy',
-    'sleep',
-    'surprised',
-    'suspicious',
-    'victory'
-  ];
-
   messagesRef.current = messages;
   loadingRef.current = loading;
 
-  const handleSubmit = async (text) => {
+  const handleSubmit = async (input) => {
+    const text = input.trim();
+
     if (text === '') return false;
 
     setLoading(true);
@@ -75,35 +69,16 @@ export default function App() {
     const updateEmotion = (emotion) => {
       const body = document.querySelector('body');
 
-      supportedEmotions.forEach((cls) => {
+      emotions.supported.forEach((cls) => {
         body.classList.remove(cls);
       });
 
       body.classList.add(emotion);
 
-      const props = Emotions[emotion];
+      const props = emotions.getProps(emotion);
       setCamera(props.camera);
       setOrbit(props.orbit);
       setParticles(props.particles);
-    };
-
-    const parseEmotion = (text) => {
-      let content = text;
-      const match = content.match(/^@([a-z]+)\n?\n?\s?/g);
-      if (match) {
-        let emotion = match[0].replace('@', '').replace('\n\n', '').replace(' ', '').trim();
-        content = content.replace(match[0], '');
-
-        if (!supportedEmotions.includes(emotion)) {
-          emotion = 'neutral';
-        }
-
-        updateEmotion(emotion);
-
-        return { content, emotion };
-      }
-
-      return { content, emotion: 'neutral' };
     };
 
     // Handle Clear Command
@@ -126,6 +101,7 @@ export default function App() {
       return;
     }
 
+    // Create User Message
     let newMessages = messagesRef.current.concat({
       role: 'user',
       emotion: null,
@@ -134,14 +110,15 @@ export default function App() {
       permanent: false
     });
 
+    // Update Messages State with new user message
     setMessages(newMessages);
 
-    if (Config.API_STREAM) {
+    if (config.apiStream) {
       const handleStream = (content) => {
         if (!content || content === '') return;
 
         if (loadingRef.current && loadingRef.current === true) {
-          const parts = parseEmotion(content);
+          const parts = emotions.parse(content);
           newMessages = messagesRef.current.concat({
             role: 'assistant',
             emotion: parts.emotion,
@@ -150,24 +127,26 @@ export default function App() {
             permanent: false
           });
 
+          updateEmotion(parts.emotion);
           setMessages(newMessages);
           setLoading(false);
         } else {
           let streamedMessages = [...messagesRef.current];
           const updated = { ...streamedMessages[streamedMessages.length - 1] };
-          const parts = parseEmotion(content);
+          const parts = emotions.parse(content);
 
           updated.content = parts.content;
           updated.emotion = parts.emotion;
           streamedMessages[streamedMessages.length - 1] = updated;
+          updateEmotion(parts.emotion);
           setMessages(streamedMessages);
         }
       };
 
-      await API.GetChatbotResponse(newMessages, prompt, handleStream);
+      await api.get(newMessages, prompt, handleStream);
     } else {
-      const message = await API.GetChatbotResponse(newMessages, prompt);
-      const parts = parseEmotion(message);
+      const message = await api.get(newMessages, prompt);
+      const parts = emotions.parse(message);
 
       newMessages = newMessages.concat({
         role: 'assistant',
@@ -177,19 +156,11 @@ export default function App() {
         permanent: false
       });
 
+      updateEmotion(parts.emotion);
       setMessages(newMessages);
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    fetch('assets/prompt.md')
-      .then((response) => response.text())
-      .then((data) => {
-        setPrompt(data);
-      })
-      .catch((error) => console.error('Error fetching text file:', error));
-  }, []);
 
   useEffect(() => {
     const now = new Date().getTime();
@@ -221,8 +192,8 @@ export default function App() {
       // Filter out messages older than the max age
       messages.forEach((message, index) => {
         if (
-          (message.permanent || now - message.timestamp < Config.HISTORY_MAX_AGE) &&
-          (message.permanent || messages.length - index <= Config.HISTORY_MAX_LENGTH)
+          (message.permanent || now - message.timestamp < config.historyMaxAge) &&
+          (message.permanent || messages.length - index <= config.historyMaxLength)
         ) {
           newMessages.push(message);
         }
@@ -246,7 +217,7 @@ export default function App() {
 
     const hashed = md5(login);
 
-    if (hashed === Config.APP_PASSWORD) {
+    if (hashed === config.appPassword) {
       setLoginInvalid(false);
       setIsVerified(true);
       localStorage.setItem('isVerified', hashed);
@@ -268,14 +239,16 @@ export default function App() {
           <OrbitControls makeDefault zoomSpeed={0.1} {...orbit} />
           <CameraShake {...camera} />
           <Particles {...particles} />
-          <Html wrapperClass="chat-ui" zIndexRange={[100, 0]} calculatePosition={() => [0, 0]}>
+          <Html wrapperClass="chat-ui" zIndexRange={[1000, 0]} calculatePosition={() => [0, 0]}>
             <Messages messages={messages} />
             <Input onSubmit={handleSubmit} loading={loading} />
+            <ToastContainer />
           </Html>
           <Dust {...particles} count={2500} />
         </>
       ) : (
-        <Html wrapperClass="login-ui" zIndexRange={[100, 0]} calculatePosition={() => [0, 0]}>
+        <Html wrapperClass="login-ui" zIndexRange={[1000, 0]} calculatePosition={() => [0, 0]}>
+          <ToastContainer />
           <form onSubmit={checkPw} className={`login-form ${loginInvalid ? 'invalid' : 'valid'}`}>
             <input id="password" type="password" placeholder="Enter password" value={login} onChange={handleLoginChange} />
             <button type="submit">

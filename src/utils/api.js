@@ -1,7 +1,7 @@
-import Config from './Config';
+import config from '../config';
 
-const API = {
-  GetChatbotResponse: async (messages, prompt, handleStream) => {
+const api = {
+  get: async (messages, prompt, handleStream) => {
     // Prepare the messages for the API request
     let chatMessages = [
       {
@@ -19,24 +19,24 @@ const API = {
     });
 
     // Make the API request
-    const response = await fetch(`${Config.API_BASE}/api/v1/openai/chat/completions`, {
+    const response = await fetch(`${config.apiBase}/api/v1/openai/chat/completions`, {
       method: 'POST',
       headers: {
         mode: 'cors',
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${Config.API_KEY}`
+        Authorization: `Bearer ${config.apiKey}`
       },
       body: JSON.stringify({
         messages: chatMessages,
-        model: Config.API_MODEL,
-        stream: Config.API_STREAM,
-        temperature: Config.API_TEMPERATURE
+        model: config.apiModel,
+        stream: config.apiStream,
+        temperature: config.apiTemperature
       })
     });
 
     // Stream the response if enabled
-    if (Config.API_STREAM) {
+    if (config.apiStream) {
       const reader = response.body.getReader();
       let content = '';
 
@@ -64,4 +64,4 @@ const API = {
   }
 };
 
-export default API;
+export default api;

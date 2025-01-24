@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { useMemo, useState, useRef, useEffect } from 'react';
 import { createPortal, useFrame } from '@react-three/fiber';
 import { useFBO } from '@react-three/drei';
+
 import './shaders/simulationMaterial';
 import './shaders/dofPointsMaterial';
 

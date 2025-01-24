@@ -1,5 +1,30 @@
 {
-  "cSpell.words": ["drei", "glsl", "glslify", "lerp", "loglevel", "manifestinteractive", "Phong", "pointcloud"],
+  "cSpell.words": [
+    "drei",
+    "enfj",
+    "enfp",
+    "entj",
+    "entp",
+    "esfj",
+    "esfp",
+    "estj",
+    "estp",
+    "glsl",
+    "glslify",
+    "infj",
+    "infp",
+    "intj",
+    "intp",
+    "isfj",
+    "isfp",
+    "istj",
+    "istp",
+    "lerp",
+    "loglevel",
+    "manifestinteractive",
+    "phong",
+    "pointcloud"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

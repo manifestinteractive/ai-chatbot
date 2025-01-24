@@ -1,4 +1,4 @@
-const Emotions = {
+const webgl = {
   angry: {
     colors: {
       fg: '#e97070',
@@ -407,4 +407,56 @@ const Emotions = {
   }
 };
 
-export default Emotions;
+const supportedEmotions = [
+  'angry',
+  'bored',
+  'happy',
+  'jealous',
+  'love',
+  'neutral',
+  'relaxed',
+  'sad',
+  'serious',
+  'shy',
+  'sleep',
+  'surprised',
+  'suspicious',
+  'victory'
+];
+
+const emotions = {
+  getProps: (emotion) => {
+    return webgl[emotion] || webgl.neutral;
+  },
+  parse: (message) => {
+    // Initial Content
+    let content = message;
+    let emotion = 'neutral';
+
+    // Regular expressions to match emotions depending on where they appear
+    const regexStart = new RegExp(`^@(${supportedEmotions.join('|')})`, 'gi');
+    const regexAny = new RegExp(`@(${supportedEmotions.join('|')})`, 'gi');
+
+    // Match the emotion at the start of the message or anywhere in the message
+    const matchStart = content.match(regexStart);
+    const matchAny = content.match(regexAny);
+
+    // If a match is found at start, remove it from the content
+    if (matchStart) {
+      // Strip the emotion from the message
+      emotion = matchStart[0].replace('@', '').trim();
+      content = content.replace(matchStart[0], '');
+    }
+
+    // If a match is found anywhere else, replace the tag with the emotion
+    if (matchAny) {
+      emotion = matchStart[0].replace('@', '').trim();
+      content = content.replace(matchStart[0], emotion);
+    }
+
+    return { content, emotion };
+  },
+  supported: supportedEmotions
+};
+
+export default emotions;

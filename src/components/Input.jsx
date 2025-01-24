@@ -10,10 +10,16 @@ export default function Input({ onSubmit, loading }) {
 
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
+  // Update scroll position
   const updateScroll = () => {
-    const nodes = document.querySelectorAll('.message-container');
-    const last = nodes[nodes.length - 1];
-    last.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    // Get Messages container
+    const messages = document.querySelector('.messages');
+
+    // Scroll messages to bottom
+    messages.scrollTo(0, messages.scrollHeight);
+
+    // Scroll to bottom of page ( for mobile devices that might have keyboard open )
+    window.scrollTo(0, document.body.scrollHeight);
   };
 
   const handleInputChange = (e) => {

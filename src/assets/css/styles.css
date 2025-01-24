@@ -445,6 +445,7 @@ canvas {
 .messages .message-container {
   opacity: 1;
   transition: opacity 0.25s;
+  position: relative;
 }
 
 .messages .message-container:nth-last-child(n + 4) {
@@ -474,6 +475,36 @@ canvas {
 .messages.short {
   max-height: calc(100% - 166px);
   bottom: 166px;
+}
+
+.Toastify,
+.Toastify__toast,
+.Toastify__toast-container {
+  z-index: 5000 !important;
+  backface-visibility: visible !important;
+}
+
+.copy-button {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: #fff;
+  left: -28px;
+  top: calc(50% - 12px);
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+  width: 32px;
+  height: 32px;
+}
+
+.messages .message-container:hover .copy-button,
+.messages .message-container:focus .copy-button {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .bot-message {

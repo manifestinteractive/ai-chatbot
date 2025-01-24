@@ -1,8 +1,12 @@
+// NPM Dependencies
 import * as THREE from 'three';
 import { createRoot, events, extend } from '@react-three/fiber';
-import './styles.css';
+
+// Static Assets
+import './assets/css/styles.css';
+
+// React Components
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 extend(THREE);
 
@@ -10,6 +14,7 @@ extend(THREE);
 const $canvas = document.querySelector('#ai-bot');
 const root = createRoot($canvas);
 
+// Camera Settings for WebGL
 const getCameraSettings = () => {
   const w = window.innerWidth;
   const h = window.innerHeight;
@@ -40,6 +45,7 @@ const getCameraSettings = () => {
   };
 };
 
+// Create WebGL Camera
 const camera = getCameraSettings();
 
 // Configure the root, inject events optionally, set camera, etc
@@ -74,5 +80,3 @@ window.addEventListener('resize', () => {
 
 // Render entry point
 root.render(<App />);
-
-reportWebVitals(console.log);

@@ -7,11 +7,11 @@ export default function Messages({ messages }) {
   const el = useRef(null);
 
   useEffect(() => {
-    el.current.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    el.current.scrollTo(0, el.current.scrollHeight);
   });
 
   return (
-    <div className="messages">
+    <div className="messages" ref={el}>
       {messages.map((message, index) => {
         if (message.role === 'assistant') {
           return <BotMessage key={index} text={message.content} />;
@@ -20,7 +20,6 @@ export default function Messages({ messages }) {
         }
         return null;
       })}
-      <div id={'el'} ref={el} />
     </div>
   );
 }

@@ -3,30 +3,39 @@ import md5 from 'md5';
 /**
  * App Configuration
  */
-const Config = {
+const config = {
   // AnythingLLM API Base URL
-  API_BASE: process.env.REACT_APP_API_BASE || 'http://127.0.0.1:3001',
+  apiBase: process.env.REACT_APP_API_BASE || 'http://127.0.0.1:3001',
 
   // AnythingLLM API Key ( Instance Settings > Tools > Developer API > API Key)
-  API_KEY: process.env.REACT_APP_API_KEY,
+  apiKey: process.env.REACT_APP_API_KEY,
 
   // AnythingLLM Workspace Slug ( via /v1/workspaces API Endpoint )
-  API_MODEL: process.env.REACT_APP_API_MODEL || 'local-ai',
+  apiModel: process.env.REACT_APP_API_MODEL || 'local-ai',
 
   // Whether to stream the response or not
-  API_STREAM: process.env.REACT_APP_API_STREAM ? process.env.REACT_APP_API_STREAM === 'true' : false,
+  apiStream: process.env.REACT_APP_API_STREAM ? process.env.REACT_APP_API_STREAM === 'true' : false,
 
   // Temperature for the LLM response
-  API_TEMPERATURE: parseFloat(process.env.REACT_APP_API_TEMPERATURE) || 0.7,
+  apiTemperature: parseFloat(process.env.REACT_APP_API_TEMPERATURE) || 0.7,
 
   // Password to access the chat interface ( md5 hashed )
-  APP_PASSWORD: process.env.REACT_APP_PASSWORD ? md5(process.env.REACT_APP_PASSWORD) : null,
+  appPassword: process.env.REACT_APP_PASSWORD ? md5(process.env.REACT_APP_PASSWORD) : null,
 
   // How long the chat history is kept for in milliseconds ( messages older than this will be purged )
-  HISTORY_MAX_AGE: process.env.REACT_APP_HISTORY_MAX_AGE ? parseInt(process.env.REACT_APP_HISTORY_MAX_AGE) : 3600000,
+  historyMaxAge: process.env.REACT_APP_HISTORY_MAX_AGE ? parseInt(process.env.REACT_APP_HISTORY_MAX_AGE) : 3600000,
 
   // How many messages to keep in chat history ( messages past this this will be purged )
-  HISTORY_MAX_LENGTH: process.env.REACT_APP_HISTORY_MAX_LENGTH ? parseInt(process.env.REACT_APP_HISTORY_MAX_LENGTH) : 10
+  historyMaxLength: process.env.REACT_APP_HISTORY_MAX_LENGTH ? parseInt(process.env.REACT_APP_HISTORY_MAX_LENGTH) : 25,
+
+  // Personality for the prompt
+  promptPersonality: process.env.REACT_APP_PROMPT_PERSONALITY || 'ISTP',
+
+  // Default location to use for the prompt
+  promptLocation: process.env.REACT_APP_PROMPT_LOCATION || 'Seattle, WA USA',
+
+  // Default unit of measure to use for the prompt
+  promptMeasureUnit: process.env.REACT_APP_PROMPT_MEASURE_UNIT || 'Imperial System'
 };
 
-export default Config;
+export default config;
