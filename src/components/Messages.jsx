@@ -7,11 +7,15 @@ export default function Messages({ messages }) {
   const el = useRef(null);
 
   useEffect(() => {
-    el.current.scrollIntoView();
+    setTimeout(() => {
+      el.current.scrollIntoView();
+    }, 1);
   });
 
   useEffect(() => {
-    el.current.scrollIntoView();
+    setTimeout(() => {
+      el.current.scrollIntoView();
+    }, 1);
   }, [messages]);
 
   return (

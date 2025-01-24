@@ -3,6 +3,8 @@
 }
 
 :root {
+  --font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
   --angry-color-fg: #e97070;
   --angry-color-bg1: 75, 12, 12;
   --angry-color-bg2: 22, 3, 3;
@@ -165,7 +167,7 @@ body {
   height: 100%;
   min-height: 100%;
   transition: background 2s;
-  font-family: 'Open Sans', serif;
+  font-family: var(--font-family);
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
@@ -232,7 +234,7 @@ canvas {
   font-weight: lighter;
   height: 30px;
   vertical-align: middle;
-  font-family: 'Open Sans', serif;
+  font-family: var(--font-family);
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
@@ -364,7 +366,7 @@ canvas {
   font-weight: lighter;
   height: 30px;
   vertical-align: middle;
-  font-family: 'Open Sans', serif;
+  font-family: var(--font-family);
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
