@@ -46,6 +46,33 @@ export default function App() {
     }
   ]);
 
+  // Fetch Prompt
+  const prompt = createPrompt();
+
+  // Create some references we can use in our callbacks
+  const messagesRef = useRef();
+  const loadingRef = useRef();
+  const timeoutRef = useRef();
+
+  messagesRef.current = messages;
+  loadingRef.current = loading;
+
+  // Function to handle changing UI based on emotion
+  const updateEmotion = (emotion) => {
+    const body = document.querySelector('body');
+
+    emotions.supported.forEach((cls) => {
+      body.classList.remove(cls);
+    });
+
+    body.classList.add(emotion);
+
+    const props = emotions.getProps(emotion);
+    setCamera(props.camera);
+    setOrbit(props.orbit);
+    setParticles(props.particles);
+  };
+
   // Load Initial Chat History and Verification
   useEffect(() => {
     const storedMessages = localStorage.getItem('chatHistory');
@@ -65,17 +92,15 @@ export default function App() {
     if (isVerified && isVerified === config.appPassword) {
       setIsVerified(true);
     }
+
+    // Switch to sleep mode after a minute of inactivity
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      updateEmotion('sleep');
+    }, 60000);
   }, []);
-
-  // Fetch Prompt
-  const prompt = createPrompt();
-
-  // Create some references we can use in our callbacks
-  const messagesRef = useRef();
-  const loadingRef = useRef();
-
-  messagesRef.current = messages;
-  loadingRef.current = loading;
 
   // Handle Submit of User Input
   const handleSubmit = async (input) => {
@@ -88,21 +113,13 @@ export default function App() {
     // Show loading indicator around input
     setLoading(true);
 
-    // Function to handle changing UI based on emotion
-    const updateEmotion = (emotion) => {
-      const body = document.querySelector('body');
-
-      emotions.supported.forEach((cls) => {
-        body.classList.remove(cls);
-      });
-
-      body.classList.add(emotion);
-
-      const props = emotions.getProps(emotion);
-      setCamera(props.camera);
-      setOrbit(props.orbit);
-      setParticles(props.particles);
-    };
+    // Switch to sleep mode after a minute of inactivity
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      updateEmotion('sleep');
+    }, 60000);
 
     // Check if the input is an emotion command ( this is really only used for testing)
     const testEmotion = new RegExp(`^@(${emotions.supported.join('|')})$`, 'gi');
