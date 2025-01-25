@@ -326,9 +326,15 @@ export default function App() {
             <Messages messages={messages} />
             <Input
               onFocus={() => {
+                // Switch to happy mode when the user interacts with the chat
                 if (timeoutRef.current && document.querySelector('body').classList.contains('sleep')) {
-                  clearTimeout(timeoutRef.current);
                   updateEmotion('happy');
+
+                  // Reset the timeout to switch to sleep mode
+                  timeoutRef.current = setTimeout(() => {
+                    updateEmotion('sleep');
+                    clearTimeout(timeoutRef.current);
+                  }, 60000);
                 }
               }}
               onSubmit={handleSubmit}
