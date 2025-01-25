@@ -18,167 +18,18 @@
     <!-- AI Bot Figure -->
     <canvas id="ai-bot"></canvas>
 
+    <!-- Background Filter -->
     <svg xmlns="http://www.w3.org/2000/svg" id="gradient-overlay">
       <defs>
-        <filter id="goo">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <filter id="goo" color-interpolation-filters="sRGB" width="150%" height="150%" x="-25%" y="-25%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" />
           <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
           <feBlend in="SourceGraphic" in2="goo" />
         </filter>
       </defs>
     </svg>
 
-    <!-- Animated Background -->
-    <div class="gradient-bg angry">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg bored">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg happy">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg jealous">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg love">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg neutral">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg relaxed">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg sad">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg serious">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg shy">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg sleep">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg surprised">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg suspicious">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <div class="gradient-bg victory">
-      <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
-      </div>
-    </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', (event) => {
-        // we can move only if we are not in a browser's tab
-        isBrowser = matchMedia('(display-mode: browser)').matches;
-
-        // Resize if a standalone app
-        if (!isBrowser) {
-          window.resizeTo(800, 1200);
-        }
-      });
-    </script>
+    <!-- Non-React Scripts -->
+    <script src="%PUBLIC_URL%/script.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "brainshark",
     "drei",
     "enfj",
     "enfp",
@@ -23,7 +24,9 @@
     "loglevel",
     "manifestinteractive",
     "phong",
-    "pointcloud"
+    "pointcloud",
+    "talkspace",
+    "toastify"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {

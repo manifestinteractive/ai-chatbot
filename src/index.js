@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { createRoot, events, extend } from '@react-three/fiber';
 
 // Static Assets
-import './assets/css/styles.css';
+import './assets/css/styles.scss';
 
 // React Components
 import App from './App';
@@ -56,8 +56,10 @@ root.configure({
   gl: new THREE.WebGLRenderer({
     canvas: $canvas,
     antialias: true,
+    depth: true,
     alpha: true,
-    powerPreference: 'high-performance'
+    powerPreference: 'low-power',
+    precision: 'lowp'
   }),
   size: {
     width: window.innerWidth,

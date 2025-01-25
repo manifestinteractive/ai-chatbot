@@ -47,17 +47,17 @@ const autoLink = (text) => {
       linkedText = linkedText.replaceAll(match[1], `[${match[1]}](mailto:${match[1]})`);
     });
   } catch (err) {
-    console.error('AutLink', err);
+    console.error('AutoLink', err);
   }
 
   // Bulk replacement for find and replace
   const replaceBulk = (str, findArray, replaceArray) => {
     // Skip if nothing to find or replace
     if (findArray.length === 0 || replaceArray.length === 0) {
-      console.warn('AutLink', 'Bulk Replace initiated with empty values');
+      console.warn('AutoLink', 'Bulk Replace initiated with empty values');
       return str;
     } else if (findArray.length !== replaceArray.length) {
-      console.warn('AutLink', 'Bulk Replace initiated different lengths for find and replace');
+      console.warn('AutoLink', 'Bulk Replace initiated different lengths for find and replace');
       return str;
     }
 
@@ -87,7 +87,7 @@ const autoLink = (text) => {
       linkedText = linkedText.replace(link, key);
     });
   } catch (err) {
-    console.error('AutLink', err);
+    console.error('AutoLink', err);
   }
 
   // Temporarily remove existing links as link text might contain the words we want to replace
@@ -102,7 +102,7 @@ const autoLink = (text) => {
       linkedText = linkedText.replace(link, key);
     });
   } catch (err) {
-    console.error('AutLink', err);
+    console.error('AutoLink', err);
   }
 
   // Extract Link Maps for replacement
@@ -113,7 +113,7 @@ const autoLink = (text) => {
   try {
     linkedText = replaceBulk(linkedText, words, links);
   } catch (err) {
-    console.error('AutLink', err);
+    console.error('AutoLink', err);
   }
 
   // Put the links back

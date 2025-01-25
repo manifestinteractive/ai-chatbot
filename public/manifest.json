@@ -2,6 +2,9 @@
   "short_name": "AI Chatbot",
   "name": "AI Chatbot",
   "version": "1.0.0",
+  "lang": "en-US",
+  "categories": ["personalization", "productivity", "utilities"],
+  "description": "AI Chatbot for Personal Home Use.",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -15,5 +18,6 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone"
+  "display": "standalone",
+  "display_override": ["window-control-overlay", "minimal-ui"]
 }

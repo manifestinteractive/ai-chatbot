@@ -37,9 +37,11 @@ const api = {
 
     // Stream the response if enabled
     if (config.apiStream) {
+      // Create a stream reader
       const reader = response.body.getReader();
       let content = '';
 
+      // Read the stream
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
@@ -58,6 +60,7 @@ const api = {
         }
       }
     } else {
+      // No stream, return the response
       const data = await response.json();
       return data.choices[0].message.content;
     }

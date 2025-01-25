@@ -4,6 +4,7 @@ import { LockOpenIcon } from '@heroicons/react/24/outline';
 import { OrbitControls, CameraShake } from '@react-three/drei';
 import { ToastContainer } from 'react-toastify';
 import { useState, useEffect, useRef } from 'react';
+import { toast, Slide } from 'react-toastify';
 
 import md5 from 'md5';
 
@@ -45,6 +46,7 @@ export default function App() {
     }
   ]);
 
+  // Load Initial Chat History and Verification
   useEffect(() => {
     const storedMessages = localStorage.getItem('chatHistory');
     const isVerified = localStorage.getItem('isVerified');
@@ -68,19 +70,25 @@ export default function App() {
   // Fetch Prompt
   const prompt = createPrompt();
 
+  // Create some references we can use in our callbacks
   const messagesRef = useRef();
   const loadingRef = useRef();
 
   messagesRef.current = messages;
   loadingRef.current = loading;
 
+  // Handle Submit of User Input
   const handleSubmit = async (input) => {
+    // Remove leading/trailing whitespace
     const text = input.trim();
 
+    // If the input is empty, don't do anything
     if (text === '') return false;
 
+    // Show loading indicator around input
     setLoading(true);
 
+    // Function to handle changing UI based on emotion
     const updateEmotion = (emotion) => {
       const body = document.querySelector('body');
 
@@ -96,8 +104,33 @@ export default function App() {
       setParticles(props.particles);
     };
 
-    // Handle Clear Command
-    if (text.toLowerCase() === 'clear') {
+    // Check if the input is an emotion command ( this is really only used for testing)
+    const testEmotion = new RegExp(`^@(${emotions.supported.join('|')})$`, 'gi');
+    const emotionInput = text.match(testEmotion);
+
+    // Handle Custom Commands
+    if (emotionInput) {
+      // User wants to test a specific emotion
+      setTimeout(() => {
+        const emotion = emotionInput[0].replace('@', '').toLowerCase();
+        updateEmotion(emotion);
+        setLoading(false);
+
+        toast.success(`Switching to Emotion: @${emotion}`, {
+          position: 'top-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          theme: 'light',
+          transition: Slide
+        });
+      }, 100);
+
+      return;
+    } else if (text.toLowerCase() === 'clear') {
+      // User wants to clear the chat history
       setTimeout(() => {
         setMessages([
           {
@@ -108,7 +141,6 @@ export default function App() {
             permanent: true
           }
         ]);
-
         updateEmotion('neutral');
         setLoading(false);
       }, 100);
@@ -128,12 +160,19 @@ export default function App() {
     // Update Messages State with new user message
     setMessages(newMessages);
 
+    // Fetch Response from API
     if (config.apiStream) {
+      // Handle Streamed Responses
       const handleStream = (content) => {
+        // If the content is empty, don't do anything
         if (!content || content === '') return;
 
+        // If we are still loading, this is the first response
         if (loadingRef.current && loadingRef.current === true) {
+          // Parse the response to determine the emotion
           const parts = emotions.parse(content);
+
+          // Update the message with the parsed content
           newMessages = messagesRef.current.concat({
             role: 'assistant',
             emotion: parts.emotion,
@@ -142,27 +181,41 @@ export default function App() {
             permanent: false
           });
 
+          // Update the UI with the new messages
           updateEmotion(parts.emotion);
           setMessages(newMessages);
           setLoading(false);
         } else {
+          // If we are not loading, we are streaming
           let streamedMessages = [...messagesRef.current];
+
+          // Fetch the last message we started for the stream
           const updated = { ...streamedMessages[streamedMessages.length - 1] };
+
+          // Parse the response to determine the emotion
           const parts = emotions.parse(content);
 
+          // Update the last message with the new content
           updated.content = parts.content;
           updated.emotion = parts.emotion;
           streamedMessages[streamedMessages.length - 1] = updated;
+
+          // Update the UI with the new messages
           updateEmotion(parts.emotion);
           setMessages(streamedMessages);
         }
       };
 
+      // Fetch response using Stream API
       await api.get(newMessages, prompt, handleStream);
     } else {
+      // Fetch response
       const message = await api.get(newMessages, prompt);
+
+      // Parse the response to determine the emotion
       const parts = emotions.parse(message);
 
+      // Update the message with the parsed content
       newMessages = newMessages.concat({
         role: 'assistant',
         emotion: parts.emotion,
@@ -171,14 +224,16 @@ export default function App() {
         permanent: false
       });
 
+      // Update the UI with the new messages
       updateEmotion(parts.emotion);
       setMessages(newMessages);
       setLoading(false);
     }
   };
 
+  // Save Chat History to Local Storage when it changes
   useEffect(() => {
-    if (messages.length > 1) {
+    if (messages.length > 0) {
       localStorage.setItem('chatHistory', JSON.stringify(messages));
     }
   }, [messages]);
@@ -205,18 +260,25 @@ export default function App() {
       }
     };
 
+    // Run the cleanup process every five minutes
     const interval = setInterval(cleanHistory, 300000);
     cleanHistory();
 
+    // Cleanup the interval when the component is unmounted
     return () => clearInterval(interval);
   }, [messages]);
 
+  // Handle Password Check
   const checkPw = (e) => {
     e.preventDefault();
+
+    // Exit if the login is empty
     if (!login || login === '') return;
 
+    // Hash the login
     const hashed = md5(login);
 
+    // Check if the password is correct
     if (hashed === config.appPassword) {
       setLoginInvalid(false);
       setIsVerified(true);
@@ -225,9 +287,11 @@ export default function App() {
       setLoginInvalid(true);
     }
 
+    // Reset the login field
     setLogin('');
   };
 
+  // Handle Login Change
   const handleLoginChange = (e) => {
     setLogin(e.target.value);
   };

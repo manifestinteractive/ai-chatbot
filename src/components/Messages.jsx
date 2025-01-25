@@ -1,17 +1,21 @@
+// NPM Dependencies
 import React, { useEffect, useRef } from 'react';
 
+// React Components
 import BotMessage from './BotMessage';
 import UserMessage from './UserMessage';
 
 export default function Messages({ messages }) {
   const el = useRef(null);
 
+  // Scroll to bottom of messages on load
   useEffect(() => {
     setTimeout(() => {
       el.current.scrollIntoView();
     }, 1);
   });
 
+  // Scroll to bottom of messages after update
   useEffect(() => {
     setTimeout(() => {
       el.current.scrollIntoView();

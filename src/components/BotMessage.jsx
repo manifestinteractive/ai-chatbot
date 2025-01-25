@@ -1,11 +1,12 @@
+// NPM Dependencies
+import copy from 'copy-to-clipboard';
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import copy from 'copy-to-clipboard';
 
 import { DocumentDuplicateIcon } from '@heroicons/react/24/outline';
-
 import { toast, Slide } from 'react-toastify';
 
+// Utilities
 import autoLink from '../utils/autoLink';
 
 export default function BotMessage({ text }) {
@@ -17,6 +18,7 @@ export default function BotMessage({ text }) {
     }
   }, [text]);
 
+  // Custom Link Renderer to open links in new tab
   function LinkRenderer(props) {
     return (
       <a href={props.href} target="_blank" rel="noreferrer">
@@ -25,6 +27,7 @@ export default function BotMessage({ text }) {
     );
   }
 
+  // Copy to Clipboard Notification
   const notify = () =>
     toast.success('Copied to Clipboard!', {
       position: 'top-center',
@@ -37,6 +40,7 @@ export default function BotMessage({ text }) {
       transition: Slide
     });
 
+  // Copy to Clipboard Function
   const copyToClipboard = async () => {
     if ('clipboard' in navigator) {
       await navigator.clipboard.writeText(message);

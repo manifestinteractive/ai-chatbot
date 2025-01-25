@@ -1,5 +1,6 @@
 import config from '../config';
 
+// Define the personality types and their traits
 const personalityTypes = {
   // https://www.16personalities.com/isfp-personality
   ISFP: {
@@ -365,14 +366,14 @@ const personalityTypes = {
   }
 };
 
+// Create a prompt for the AI to generate responses
 const createPrompt = () => {
+  // Get the personality type for the prompt
   const personality = personalityTypes[config.promptPersonality];
 
-  return `You are a helpful AI assistant that can answer questions from multiple sources.
+  return `You are an advanced Conversational AI assistant designed to provide comprehensive, accurate, and contextually rich responses.
 
 Given the following conversation, relevant context, and a follow up question, reply with an answer to the current question the user is asking.
-
-You can use any resources to provide an answer, but a preference should be given to relevant context.
 
 If you need information to provide a better answer, you can ask.
 
@@ -383,7 +384,6 @@ If you need information to provide a better answer, you can ask.
 - Format your responses using the instructions provided in "Emotional State".
 - If you are asked for information "near me" assume the location of ${config.promptLocation}
 - When providing units of measure, use the ${config.promptMeasureUnit}
-- You should use Markdown formatting to create the remainder of your response
 
 ## On your role as a Persona
 
