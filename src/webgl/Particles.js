@@ -20,6 +20,7 @@ export function Particles({ speed, fov, aperture, focus, curl, color, size = 512
     format: THREE.RGBAFormat,
     type: THREE.FloatType
   });
+
   // Normalize points
   const particles = useMemo(() => {
     const length = size * size;

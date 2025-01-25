@@ -99,6 +99,7 @@ export default function App() {
     }
     timeoutRef.current = setTimeout(() => {
       updateEmotion('sleep');
+      clearTimeout(timeoutRef.current);
     }, 60000);
   }, []);
 
@@ -119,6 +120,7 @@ export default function App() {
     }
     timeoutRef.current = setTimeout(() => {
       updateEmotion('sleep');
+      clearTimeout(timeoutRef.current);
     }, 60000);
 
     // Check if the input is an emotion command ( this is really only used for testing)
@@ -322,7 +324,16 @@ export default function App() {
           <Particles {...particles} />
           <Html wrapperClass="chat-ui" zIndexRange={[1000, 0]} calculatePosition={() => [0, 0]}>
             <Messages messages={messages} />
-            <Input onSubmit={handleSubmit} loading={loading} />
+            <Input
+              onFocus={() => {
+                if (timeoutRef.current && document.querySelector('body').classList.contains('sleep')) {
+                  clearTimeout(timeoutRef.current);
+                  updateEmotion('happy');
+                }
+              }}
+              onSubmit={handleSubmit}
+              loading={loading}
+            />
             <ToastContainer />
           </Html>
           <Dust {...particles} count={2500} />
