@@ -73,6 +73,17 @@ export default function App() {
     setParticles(props.particles);
   };
 
+  const startSleeper = () => {
+    // Switch to sleep mode after 5 minutes of inactivity
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      updateEmotion('sleep');
+      clearTimeout(timeoutRef.current);
+    }, 300000);
+  };
+
   // Load Initial Chat History and Verification
   useEffect(() => {
     const storedMessages = localStorage.getItem('chatHistory');
@@ -92,18 +103,12 @@ export default function App() {
     if (isVerified && isVerified === config.appPassword) {
       setIsVerified(true);
     }
-  }, []);
 
-  const startSleeper = () => {
-    // Switch to sleep mode after 5 minutes of inactivity
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
     timeoutRef.current = setTimeout(() => {
       updateEmotion('sleep');
       clearTimeout(timeoutRef.current);
     }, 300000);
-  };
+  }, []);
 
   // Handle Submit of User Input
   const handleSubmit = async (input) => {
