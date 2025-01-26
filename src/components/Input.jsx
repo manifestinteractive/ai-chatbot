@@ -5,8 +5,9 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { MicrophoneIcon as MicrophoneIconOutline } from '@heroicons/react/24/outline';
 import { PaperAirplaneIcon, MicrophoneIcon as MicrophoneIconSolid } from '@heroicons/react/24/solid';
 
-export default function Input({ onSubmit, loading, onFocus }) {
+export default function Input({ onSubmit, loading, onFocus, onChange }) {
   const [text, setText] = useState('');
+  const [hasFocus, setHasFocus] = useState(false);
 
   const inputRef = useRef(null);
 
@@ -26,6 +27,8 @@ export default function Input({ onSubmit, loading, onFocus }) {
 
   // Handle Input Change
   const handleInputChange = (e) => {
+    onChange();
+
     // Update text state
     setText(e.target.value);
 
@@ -92,10 +95,10 @@ export default function Input({ onSubmit, loading, onFocus }) {
 
   // Focus on Input when loading is done
   useEffect(() => {
-    if (!loading) {
+    if (!loading && hasFocus) {
       inputRef.current.focus();
     }
-  }, [loading]);
+  }, [loading, hasFocus]);
 
   // Update Text when Speech is detected
   useEffect(() => {
@@ -124,7 +127,6 @@ export default function Input({ onSubmit, loading, onFocus }) {
         )}
         {/* Chat Input */}
         <textarea
-          autoFocus={true}
           ref={inputRef}
           className={loading ? 'loading' : 'ready'}
           type="text"
@@ -132,6 +134,7 @@ export default function Input({ onSubmit, loading, onFocus }) {
             SpeechRecognition.stopListening();
           }}
           onFocus={() => {
+            setHasFocus(true);
             onFocus();
           }}
           onChange={handleInputChange}

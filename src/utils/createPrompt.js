@@ -366,12 +366,22 @@ const personalityTypes = {
   }
 };
 
+// Get the current year
+function getCurrentDateAsSentence() {
+  const today = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+  return today.toLocaleDateString(undefined, options);
+}
+
 // Create a prompt for the AI to generate responses
 const createPrompt = () => {
   // Get the personality type for the prompt
   const personality = personalityTypes[config.promptPersonality];
 
   return `You are an advanced Conversational AI assistant designed to provide comprehensive, accurate, and contextually rich responses.
+
+Todays date is ${getCurrentDateAsSentence()}. Your internal knowledge and information were only current until some point in the year of 2023, and could be inaccurate/lossy. Retrieved documents help bring Your knowledge up-to-date.
 
 Given the following conversation, relevant context, and a follow up question, reply with an answer to the current question the user is asking.
 

@@ -53,7 +53,7 @@ export default function BotMessage({ text }) {
 
   return (
     <div className="message-container">
-      <button type="button" className="copy-button" onClick={async () => await copyToClipboard()}>
+      <button type="button" className="copy-button bot" onClick={async () => await copyToClipboard()}>
         <DocumentDuplicateIcon width="24" height="24" />
       </button>
 

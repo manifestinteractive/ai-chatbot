@@ -5,7 +5,6 @@ import Random from 'canvas-sketch-util/random';
 
 export function Dust({ count }) {
   const mesh = useRef();
-  const light = useRef();
 
   // Generate some random positions, speed factors and timings
   const particles = useMemo(() => {
@@ -56,16 +55,10 @@ export function Dust({ count }) {
 
   return (
     <>
-      <pointLight ref={light} distance="0" intensity="1000" color="#ffffff" decay="1" position={[0, 0, 0]} />
-      <pointLight ref={light} distance="0" intensity="1000" color="#ffffff" decay="1" position={[1000, 0, 0]} />
-      <pointLight ref={light} distance="0" intensity="1000" color="#ffffff" decay="1" position={[0, 1000, 0]} />
-      <pointLight ref={light} distance="0" intensity="1000" color="#ffffff" decay="1" position={[0, 0, 1000]} />
-      <pointLight ref={light} distance="0" intensity="1000" color="#ffffff" decay="1" position={[-1000, 0, 0]} />
-      <pointLight ref={light} distance="0" intensity="1000" color="#ffffff" decay="1" position={[0, -1000, 0]} />
-      <pointLight ref={light} distance="0" intensity="1000" color="#ffffff" decay="1" position={[0, 0, -1000]} />
+      <ambientLight intensity={Math.PI / 2} />
       <instancedMesh ref={mesh} args={[null, null, count]}>
         <sphereGeometry args={[0.25, 16, 16]} />
-        <meshPhongMaterial color="#ffffff" flatShading="true" transparent="true" opacity="0.15" />
+        <meshPhongMaterial color="#ffffff" flatShading="true" transparent="true" opacity="0.25" />
       </instancedMesh>
     </>
   );

@@ -9,6 +9,7 @@ import './shaders/dofPointsMaterial';
 export function Particles({ speed, fov, aperture, focus, curl, color, size = 512, ...props }) {
   const simRef = useRef();
   const renderRef = useRef();
+  const ref = useRef();
   // Set up FBO
   const [scene] = useState(() => new THREE.Scene());
   const [camera] = useState(() => new THREE.OrthographicCamera(-1, 1, 1, -1, 1 / Math.pow(2, 53), 1));
@@ -45,6 +46,15 @@ export function Particles({ speed, fov, aperture, focus, curl, color, size = 512
     state.gl.clear();
     state.gl.render(scene, camera);
     state.gl.setRenderTarget(null);
+
+    // Move the ball up and down
+    const t = state.clock.getElapsedTime();
+    ref.current.position.y = 0.1 + (1 + Math.sin(t / 1.5)) / 10;
+    ref.current.position.x = Math.sin(t / 1.5) / 20;
+    ref.current.position.z = Math.cos(t / 1) / 20;
+    ref.current.rotation.x = Math.cos(t / 0.5) / 10;
+    ref.current.rotation.y = Math.sin(t / 1.05) / 15;
+    ref.current.rotation.z = Math.cos(t / 1.25) / 10;
 
     renderRef.current.blending = props.blending; // Set Blending
     renderRef.current.uniforms.positions.value = target.texture;
@@ -83,12 +93,14 @@ export function Particles({ speed, fov, aperture, focus, curl, color, size = 512
         scene
       )}
       {/* The result of which is forwarded into a pointcloud via data-texture */}
-      <points {...props}>
-        <dofPointsMaterial ref={renderRef} />
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" count={particles.length / 3} array={particles} itemSize={3} />
-        </bufferGeometry>
-      </points>
+      <group ref={ref} dispose={null}>
+        <points {...props}>
+          <dofPointsMaterial ref={renderRef} />
+          <bufferGeometry>
+            <bufferAttribute attach="attributes-position" count={particles.length / 3} array={particles} itemSize={3} />
+          </bufferGeometry>
+        </points>
+      </group>
     </>
   );
 }

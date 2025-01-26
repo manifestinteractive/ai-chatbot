@@ -434,12 +434,13 @@ const emotions = {
     let emotion = 'neutral';
 
     // Regular expressions to match emotions depending on where they appear
-    const regexStart = new RegExp(`^@(${supportedEmotions.join('|')})`, 'gi');
     const regexAny = new RegExp(`@(${supportedEmotions.join('|')})`, 'gi');
+    const regexStart = new RegExp(`^@(${supportedEmotions.join('|')})\n?\n?`, 'gi');
 
     // Match the emotion at the start of the message or anywhere in the message
     const matchStart = content.match(regexStart);
     const matchAny = content.match(regexAny);
+    const matchUnsupported = content.match(/^@[a-z]+\n?\n?/gi);
 
     // If a match is found at start, remove it from the content
     if (matchStart) {
@@ -450,8 +451,20 @@ const emotions = {
 
     // If a match is found anywhere else, replace the tag with the emotion
     if (matchAny) {
-      emotion = matchStart[0].replace('@', '').trim();
+      emotion = matchStart[0].replace('@', '').replace('\n', '').trim();
       content = content.replace(matchStart[0], emotion);
+    }
+
+    // If an unsupported emotion is found, strip it from the message
+    if (matchUnsupported) {
+      const unsupported = matchUnsupported[0].replace('@', '').replace('\n', '').trim();
+      content = content.replace(matchUnsupported[0], '');
+
+      if (unsupported) {
+        console.log(`Unsupported emotion: ${unsupported}`);
+      }
+
+      // TODO: Handle unsupported emotions
     }
 
     return { content, emotion };

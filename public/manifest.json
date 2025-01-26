@@ -19,5 +19,5 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "display_override": ["window-control-overlay", "minimal-ui"]
+  "display_override": ["minimal-ui"]
 }

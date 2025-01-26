@@ -476,8 +476,6 @@ canvas {
     background: transparent;
     border: none;
     color: #fff;
-    left: -10px;
-    top: calc(50% - 12px);
     margin: 0;
     padding: 0;
     cursor: pointer;
@@ -486,6 +484,18 @@ canvas {
     transition: all 0.25s;
     width: 32px;
     height: 32px;
+    transition-delay: 500ms;
+    transition-property: all;
+
+    &.bot {
+      left: -10px;
+      top: calc(50% - 12px);
+    }
+
+    &.user {
+      right: -10px;
+      top: calc(50% - 16px);
+    }
   }
 
   .message-container {
@@ -521,9 +531,15 @@ canvas {
     &:focus {
       opacity: 1;
 
-      .copy-button {
+      .copy-button.bot {
         opacity: 1;
         left: -28px;
+        pointer-events: all;
+      }
+
+      .copy-button.user {
+        opacity: 1;
+        right: -28px;
         pointer-events: all;
       }
     }
@@ -1152,17 +1168,5 @@ body.victory {
   }
   100% {
     transform: translateY(-50%);
-  }
-}
-
-/* STANDALONE APP */
-@media all and (display-mode: standalone) {
-  html,
-  body,
-  #root {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
   }
 }

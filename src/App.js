@@ -92,19 +92,23 @@ export default function App() {
     if (isVerified && isVerified === config.appPassword) {
       setIsVerified(true);
     }
+  }, []);
 
-    // Switch to sleep mode after a minute of inactivity
+  const startSleeper = () => {
+    // Switch to sleep mode after 5 minutes of inactivity
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
     timeoutRef.current = setTimeout(() => {
       updateEmotion('sleep');
       clearTimeout(timeoutRef.current);
-    }, 60000);
-  }, []);
+    }, 300000);
+  };
 
   // Handle Submit of User Input
   const handleSubmit = async (input) => {
+    startSleeper();
+
     // Remove leading/trailing whitespace
     const text = input.trim();
 
@@ -113,15 +117,6 @@ export default function App() {
 
     // Show loading indicator around input
     setLoading(true);
-
-    // Switch to sleep mode after a minute of inactivity
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      updateEmotion('sleep');
-      clearTimeout(timeoutRef.current);
-    }, 60000);
 
     // Check if the input is an emotion command ( this is really only used for testing)
     const testEmotion = new RegExp(`^@(${emotions.supported.join('|')})$`, 'gi');
@@ -257,7 +252,7 @@ export default function App() {
     }
   }, [messages]);
 
-  // Cleanup Old Messages every five minutes ( 300000ms )
+  // Cleanup Old Messages if enabled
   useEffect(() => {
     const cleanHistory = () => {
       let newMessages = [];
@@ -280,11 +275,13 @@ export default function App() {
     };
 
     // Run the cleanup process every five minutes
-    const interval = setInterval(cleanHistory, 300000);
-    cleanHistory();
+    if (config.chatResetTimeout && config.chatResetTimeout > 0) {
+      const interval = setInterval(cleanHistory, config.chatResetTimeout);
+      cleanHistory();
 
-    // Cleanup the interval when the component is unmounted
-    return () => clearInterval(interval);
+      // Cleanup the interval when the component is unmounted
+      return () => clearInterval(interval);
+    }
   }, [messages]);
 
   // Handle Password Check
@@ -329,20 +326,18 @@ export default function App() {
                 // Switch to happy mode when the user interacts with the chat
                 if (timeoutRef.current && document.querySelector('body').classList.contains('sleep')) {
                   updateEmotion('happy');
-
-                  // Reset the timeout to switch to sleep mode
-                  timeoutRef.current = setTimeout(() => {
-                    updateEmotion('sleep');
-                    clearTimeout(timeoutRef.current);
-                  }, 60000);
+                  startSleeper();
                 }
+              }}
+              onChange={() => {
+                startSleeper();
               }}
               onSubmit={handleSubmit}
               loading={loading}
             />
             <ToastContainer />
           </Html>
-          <Dust {...particles} count={2500} />
+          <Dust {...particles} count={5000} />
         </>
       ) : (
         <Html wrapperClass="login-ui" zIndexRange={[1000, 0]} calculatePosition={() => [0, 0]}>

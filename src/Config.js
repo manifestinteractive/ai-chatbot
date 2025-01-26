@@ -22,6 +22,9 @@ const config = {
   // Password to access the chat interface ( md5 hashed )
   appPassword: process.env.REACT_APP_PASSWORD ? md5(process.env.REACT_APP_PASSWORD) : null,
 
+  // How often in milliseconds to clean up chat history using `historyMaxAge` and `historyMaxLength`
+  chatResetTimeout: process.env.REACT_APP_CHAT_RESET_TIMEOUT ? parseInt(process.env.REACT_APP_CHAT_RESET_TIMEOUT) : 300000,
+
   // How long the chat history is kept for in milliseconds ( messages older than this will be purged )
   historyMaxAge: process.env.REACT_APP_HISTORY_MAX_AGE ? parseInt(process.env.REACT_APP_HISTORY_MAX_AGE) : 3600000,
 
