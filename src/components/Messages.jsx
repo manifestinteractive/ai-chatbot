@@ -26,7 +26,7 @@ export default function Messages({ messages }) {
     <div className="messages">
       {messages.map((message, index) => {
         if (message.role === 'assistant') {
-          return <BotMessage key={index} text={message.content} />;
+          return <BotMessage key={index} text={message.content} sources={message.sources} />;
         } else if (message.role === 'user') {
           return <UserMessage key={index} text={message.content} />;
         }

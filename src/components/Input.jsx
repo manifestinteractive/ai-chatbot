@@ -5,7 +5,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { MicrophoneIcon as MicrophoneIconOutline } from '@heroicons/react/24/outline';
 import { PaperAirplaneIcon, MicrophoneIcon as MicrophoneIconSolid } from '@heroicons/react/24/solid';
 
-export default function Input({ onSubmit, loading, onFocus, onChange }) {
+export default function Input({ onSubmit, loading }) {
   const [text, setText] = useState('');
   const [hasFocus, setHasFocus] = useState(false);
 
@@ -27,8 +27,6 @@ export default function Input({ onSubmit, loading, onFocus, onChange }) {
 
   // Handle Input Change
   const handleInputChange = (e) => {
-    onChange();
-
     // Update text state
     setText(e.target.value);
 
@@ -135,7 +133,6 @@ export default function Input({ onSubmit, loading, onFocus, onChange }) {
           }}
           onFocus={() => {
             setHasFocus(true);
-            onFocus();
           }}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}

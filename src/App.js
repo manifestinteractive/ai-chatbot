@@ -1,20 +1,19 @@
 // NPM Dependencies
 import { Html, OrbitControls, CameraShake } from '@react-three/drei';
-import { LockOpenIcon } from '@heroicons/react/24/outline';
 import { toast, Slide, ToastContainer } from 'react-toastify';
-import { useState, useEffect, useRef } from 'react';
-
-import md5 from 'md5';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 // React Components
 import Input from './components/Input';
 import Messages from './components/Messages';
+import Login from './components/Login';
+import User from './components/User';
 
 // Configuration
 import config from './config';
 
 // Utilities
-import { api, emotions, createPrompt } from './utils';
+import { api, emotions } from './utils';
 
 // WebGL Assets
 import { Dust } from './webgl/Dust';
@@ -31,9 +30,8 @@ export default function App() {
 
   // Manage State for Chat
   const [isVerified, setIsVerified] = useState(false);
+  const [userName, setUserName] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [login, setLogin] = useState('');
-  const [loginInvalid, setLoginInvalid] = useState(false);
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
@@ -44,19 +42,16 @@ export default function App() {
     }
   ]);
 
-  // Fetch Prompt
-  const prompt = createPrompt();
-
   // Create some references we can use in our callbacks
   const messagesRef = useRef();
   const loadingRef = useRef();
-  const timeoutRef = useRef();
 
   messagesRef.current = messages;
   loadingRef.current = loading;
 
   // Function to handle changing UI based on emotion
   const updateEmotion = (emotion) => {
+    console.log('Updating Emotion:', emotion);
     const body = document.querySelector('body');
 
     emotions.supported.forEach((cls) => {
@@ -71,47 +66,36 @@ export default function App() {
     setParticles(props.particles);
   };
 
-  const startSleeper = () => {
-    // Switch to sleep mode after 5 minutes of inactivity
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+  const fetchHistory = useCallback(async () => {
+    const history = await api.getHistory(userName);
+    if (!history) {
+      await api.createThread(userName);
+    } else if (history.length > 0) {
+      setMessages(history);
     }
-    timeoutRef.current = setTimeout(() => {
-      updateEmotion('sleep');
-      clearTimeout(timeoutRef.current);
-    }, 300000);
-  };
+  }, [userName]);
 
   // Load Initial Chat History and Verification
   useEffect(() => {
-    const storedMessages = localStorage.getItem('chatHistory');
     const isVerified = localStorage.getItem('isVerified');
-
-    if (storedMessages) {
-      try {
-        const parsedMessages = JSON.parse(storedMessages);
-        if (parsedMessages && parsedMessages.length > 1) {
-          setMessages(parsedMessages);
-        }
-      } catch (error) {
-        console.error('Error parsing chat history:', error);
-      }
-    }
+    const userName = localStorage.getItem('userName');
 
     if (isVerified && isVerified === config.appPassword) {
       setIsVerified(true);
     }
 
-    timeoutRef.current = setTimeout(() => {
-      updateEmotion('sleep');
-      clearTimeout(timeoutRef.current);
-    }, 300000);
-  }, []);
+    if (userName) {
+      setUserName(userName);
+    }
+  }, [fetchHistory]);
+
+  // Listen for change in Username
+  useEffect(() => {
+    fetchHistory();
+  }, [userName, fetchHistory]);
 
   // Handle Submit of User Input
   const handleSubmit = async (input) => {
-    startSleeper();
-
     // Remove leading/trailing whitespace
     const text = input.trim();
 
@@ -146,16 +130,13 @@ export default function App() {
       }, 100);
 
       return;
-    } else if (text.toLowerCase() === 'clear') {
+    } else if (text.toLowerCase() === 'clear' || text.toLowerCase() === '/reset') {
       // User wants to clear the chat history
       setTimeout(() => {
         setMessages([
           {
             role: 'assistant',
-            emotion: 'neutral',
-            content: 'How can I assist you today?',
-            timestamp: new Date().getTime(),
-            permanent: true
+            content: 'How can I assist you today?'
           }
         ]);
         updateEmotion('neutral');
@@ -168,10 +149,7 @@ export default function App() {
     // Create User Message
     let newMessages = messagesRef.current.concat({
       role: 'user',
-      emotion: null,
-      content: text,
-      timestamp: new Date().getTime(),
-      permanent: false
+      content: text
     });
 
     // Update Messages State with new user message
@@ -180,26 +158,19 @@ export default function App() {
     // Fetch Response from API
     if (config.apiStream) {
       // Handle Streamed Responses
-      const handleStream = (content) => {
+      const handleStream = async (content, done, sources) => {
         // If the content is empty, don't do anything
         if (!content || content === '') return;
 
         // If we are still loading, this is the first response
         if (loadingRef.current && loadingRef.current === true) {
-          // Parse the response to determine the emotion
-          const parts = emotions.parse(content);
-
           // Update the message with the parsed content
           newMessages = messagesRef.current.concat({
             role: 'assistant',
-            emotion: parts.emotion,
-            content: parts.content,
-            timestamp: new Date().getTime(),
-            permanent: false
+            content: content
           });
 
           // Update the UI with the new messages
-          updateEmotion(parts.emotion);
           setMessages(newMessages);
           setLoading(false);
         } else {
@@ -209,135 +180,55 @@ export default function App() {
           // Fetch the last message we started for the stream
           const updated = { ...streamedMessages[streamedMessages.length - 1] };
 
-          // Parse the response to determine the emotion
-          const parts = emotions.parse(content);
+          if (done) {
+            // Parse the response to determine the emotion
+            const emotion = await emotions.classify(content);
+
+            // Update the UI with the new messages
+            updateEmotion(emotion);
+          }
 
           // Update the last message with the new content
-          updated.content = parts.content;
-          updated.emotion = parts.emotion;
+          updated.content = content;
+          updated.sources = sources;
           streamedMessages[streamedMessages.length - 1] = updated;
 
-          // Update the UI with the new messages
-          updateEmotion(parts.emotion);
           setMessages(streamedMessages);
         }
       };
 
       // Fetch response using Stream API
-      await api.get(newMessages, prompt, handleStream);
+      await api.streamChat(userName, text, handleStream);
     } else {
       // Fetch response
-      const message = await api.get(newMessages, prompt);
+      const message = await api.chat(userName, text);
 
       // Parse the response to determine the emotion
-      const parts = emotions.parse(message);
+      const emotion = emotions.classify(message.textResponse);
 
       // Update the message with the parsed content
       newMessages = newMessages.concat({
         role: 'assistant',
-        emotion: parts.emotion,
-        content: parts.message,
-        timestamp: new Date().getTime(),
-        permanent: false
+        content: message.textResponse
       });
 
       // Update the UI with the new messages
-      updateEmotion(parts.emotion);
+      updateEmotion(emotion);
       setMessages(newMessages);
       setLoading(false);
     }
   };
 
-  // Save Chat History to Local Storage when it changes
-  useEffect(() => {
-    if (messages.length > 0) {
-      localStorage.setItem('chatHistory', JSON.stringify(messages));
-    }
-  }, [messages]);
-
-  // Cleanup Old Messages if enabled
-  useEffect(() => {
-    const cleanHistory = () => {
-      let newMessages = [];
-      const now = new Date().getTime();
-
-      // Filter out messages older than the max age
-      messages.forEach((message, index) => {
-        if (
-          (message.permanent || now - message.timestamp < config.historyMaxAge) &&
-          (message.permanent || messages.length - index <= config.historyMaxLength)
-        ) {
-          newMessages.push(message);
-        }
-      });
-
-      // Update Chat History
-      if (newMessages.length !== messages.length) {
-        setMessages(newMessages);
-      }
-    };
-
-    // Run the cleanup process every five minutes
-    if (config.chatResetTimeout && config.chatResetTimeout > 0) {
-      const interval = setInterval(cleanHistory, config.chatResetTimeout);
-      cleanHistory();
-
-      // Cleanup the interval when the component is unmounted
-      return () => clearInterval(interval);
-    }
-  }, [messages]);
-
-  // Handle Password Check
-  const checkPw = (e) => {
-    e.preventDefault();
-
-    // Exit if the login is empty
-    if (!login || login === '') return;
-
-    // Hash the login
-    const hashed = md5(login);
-
-    // Check if the password is correct
-    if (hashed === config.appPassword) {
-      setLoginInvalid(false);
-      setIsVerified(true);
-      localStorage.setItem('isVerified', hashed);
-    } else {
-      setLoginInvalid(true);
-    }
-
-    // Reset the login field
-    setLogin('');
-  };
-
-  // Handle Login Change
-  const handleLoginChange = (e) => {
-    setLogin(e.target.value);
-  };
-
   return (
     <>
-      {isVerified ? (
+      {isVerified && userName ? (
         <>
           <OrbitControls makeDefault zoomSpeed={0.1} {...orbit} />
           <CameraShake {...camera} />
           <Particles {...particles} />
           <Html wrapperClass="chat-ui" zIndexRange={[1000, 0]} calculatePosition={() => [0, 0]}>
             <Messages messages={messages} />
-            <Input
-              onFocus={() => {
-                // Switch to happy mode when the user interacts with the chat
-                if (timeoutRef.current && document.querySelector('body').classList.contains('sleep')) {
-                  updateEmotion('happy');
-                  startSleeper();
-                }
-              }}
-              onChange={() => {
-                startSleeper();
-              }}
-              onSubmit={handleSubmit}
-              loading={loading}
-            />
+            <Input onSubmit={handleSubmit} loading={loading} />
             <ToastContainer />
           </Html>
           <Dust {...particles} count={5000} />
@@ -345,13 +236,7 @@ export default function App() {
       ) : (
         <Html wrapperClass="login-ui" zIndexRange={[1000, 0]} calculatePosition={() => [0, 0]}>
           <ToastContainer />
-          <form onSubmit={checkPw} className={`login-form ${loginInvalid ? 'invalid' : 'valid'}`}>
-            <input id="password" type="password" placeholder="Enter password" value={login} onChange={handleLoginChange} />
-            <button type="submit">
-              <LockOpenIcon width="24" height="24" />
-            </button>
-          </form>
-          {loginInvalid && <span className="invalid">Invalid Password</span>}
+          {!isVerified ? <Login setIsVerified={setIsVerified} /> : <User setUserName={setUserName} />}
         </Html>
       )}
     </>

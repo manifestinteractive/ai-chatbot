@@ -469,6 +469,13 @@ canvas {
     li {
       padding-bottom: 4px;
     }
+
+    summary {
+      cursor: pointer;
+      color: #999;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
   }
 
   .copy-button {
@@ -503,34 +510,8 @@ canvas {
     transition: opacity 0.25s;
     position: relative;
 
-    &:nth-last-child(n + 4) {
-      opacity: 0.8;
-    }
-
-    &:nth-last-child(n + 6) {
-      opacity: 0.6;
-    }
-
-    &:nth-last-child(n + 8) {
-      opacity: 0.4;
-    }
-
-    &:nth-last-child(n + 10) {
-      opacity: 0.2;
-    }
-
-    &:nth-last-child(n + 12) {
-      opacity: 0.1;
-    }
-
-    &:nth-last-child(n + 14) {
-      opacity: 0.05;
-    }
-
     &:hover,
     &:focus {
-      opacity: 1;
-
       .copy-button.bot {
         opacity: 1;
         left: -28px;

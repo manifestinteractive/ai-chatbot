@@ -10,14 +10,14 @@ const config = {
   // AnythingLLM API Key ( Instance Settings > Tools > Developer API > API Key)
   apiKey: process.env.REACT_APP_API_KEY,
 
-  // AnythingLLM Workspace Slug ( via /v1/workspaces API Endpoint )
-  apiModel: process.env.REACT_APP_API_MODEL || 'local-ai',
-
   // Whether to stream the response or not
   apiStream: process.env.REACT_APP_API_STREAM ? process.env.REACT_APP_API_STREAM === 'true' : false,
 
   // Temperature for the LLM response
   apiTemperature: parseFloat(process.env.REACT_APP_API_TEMPERATURE) || 0.7,
+
+  // AnythingLLM Workspace Slug ( via /v1/workspaces API Endpoint )
+  apiWorkspace: parseFloat(process.env.REACT_APP_API_WORKSPACE) || 'local-ai',
 
   // Password to access the chat interface ( md5 hashed )
   appPassword: process.env.REACT_APP_PASSWORD ? md5(process.env.REACT_APP_PASSWORD) : null,
@@ -30,6 +30,9 @@ const config = {
 
   // How many messages to keep in chat history ( messages past this this will be purged )
   historyMaxLength: process.env.REACT_APP_HISTORY_MAX_LENGTH ? parseInt(process.env.REACT_APP_HISTORY_MAX_LENGTH) : 25,
+
+  // Hugging Face API Token ( https://huggingface.co/settings/tokens > Fine Grained > Inference > Make calls to the serverless Inference API )
+  hfToken: process.env.REACT_APP_HF_TOKEN ? process.env.REACT_APP_HF_TOKEN : null,
 
   // Personality for the prompt
   promptPersonality: process.env.REACT_APP_PROMPT_PERSONALITY || 'INFP',

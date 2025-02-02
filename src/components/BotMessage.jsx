@@ -2,21 +2,27 @@
 import copy from 'copy-to-clipboard';
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 
 import { DocumentDuplicateIcon } from '@heroicons/react/24/outline';
 import { toast, Slide } from 'react-toastify';
 
 // Utilities
 import autoLink from '../utils/autoLink';
+import autoSourceLinks from '../utils/autoSourceLinks';
 
-export default function BotMessage({ text }) {
+export default function BotMessage({ text, sources }) {
   const [message, setMessage] = useState('');
+  const [sourceLinks, setSourceLinks] = useState('');
 
   useEffect(() => {
     if (text) {
       setMessage(autoLink(text));
     }
-  }, [text]);
+    if (sources) {
+      setSourceLinks(autoSourceLinks(sources));
+    }
+  }, [text, sources]);
 
   // Custom Link Renderer to open links in new tab
   function LinkRenderer(props) {
@@ -58,7 +64,7 @@ export default function BotMessage({ text }) {
       </button>
 
       <div className="bot-message">
-        <ReactMarkdown components={{ a: LinkRenderer }}>{message}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]} components={{ a: LinkRenderer }}>{`${message}${sourceLinks}`}</ReactMarkdown>
       </div>
     </div>
   );

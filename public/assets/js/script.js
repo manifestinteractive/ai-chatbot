@@ -8,7 +8,36 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   // List of emotions we need to create UI backgrounds
-  const emotions = ['angry', 'bored', 'happy', 'jealous', 'love', 'neutral', 'relaxed', 'sad', 'serious', 'shy', 'sleep', 'surprised', 'suspicious', 'victory'];
+  const emotions = [
+    'admiration',
+    'amusement',
+    'anger',
+    'annoyance',
+    'approval',
+    'caring',
+    'confusion',
+    'curiosity',
+    'desire',
+    'disappointment',
+    'disapproval',
+    'disgust',
+    'embarrassment',
+    'excitement',
+    'fear',
+    'gratitude',
+    'grief',
+    'joy',
+    'love',
+    'nervousness',
+    'neutral',
+    'optimism',
+    'pride',
+    'realization',
+    'relief',
+    'remorse',
+    'sadness',
+    'surprise'
+  ];
 
   // Create UI backgrounds for each emotion
   emotions.forEach((emotion) => {

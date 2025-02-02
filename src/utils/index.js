@@ -1,6 +1,6 @@
 import api from './api';
 import autoLink from './autoLink';
-import createPrompt from './createPrompt';
 import emotions from './emotions';
+import slugify from './slugify';
 
-export { api, autoLink, createPrompt, emotions };
+export { api, autoLink, emotions, slugify };

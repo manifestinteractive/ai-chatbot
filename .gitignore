@@ -10,3 +10,6 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 .env
+
+public/docs/*
+public/docs/!.gitkeep

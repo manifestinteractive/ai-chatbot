@@ -1,42 +1,131 @@
 import config from '../config';
+import { slugify } from '../utils';
+
+const headers = {
+  mode: 'cors',
+  'Access-Control-Allow-Origin': '*',
+  'Content-Type': 'application/json',
+  Authorization: `Bearer ${config.apiKey}`
+};
 
 const api = {
-  get: async (messages, prompt, handleStream) => {
-    // Prepare the messages for the API request
-    let chatMessages = [
-      {
-        role: 'system',
-        content: prompt
-      }
-    ];
+  createThread: async (userName) => {
+    const slug = slugify(userName);
+    const workspace = slugify(config.apiWorkspace);
 
-    // Add the chat history to the request
-    messages.forEach((message) => {
-      chatMessages.push({
-        role: message.role,
-        content: message.content
-      });
-    });
+    if (!workspace || !userName || !slug) {
+      return null;
+    }
 
     // Make the API request
-    const response = await fetch(`${config.apiBase}/api/v1/openai/chat/completions`, {
-      method: 'POST',
-      headers: {
-        mode: 'cors',
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${config.apiKey}`
-      },
-      body: JSON.stringify({
-        messages: chatMessages,
-        model: config.apiModel,
-        stream: config.apiStream,
-        temperature: config.apiTemperature
-      })
-    });
+    try {
+      const response = await fetch(`${config.apiBase}/api/v1/workspace/${workspace}/thread/new`, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({
+          name: userName,
+          slug: slug,
+          userId: 1
+        })
+      });
 
-    // Stream the response if enabled
-    if (config.apiStream) {
+      if (!response || !response.ok) {
+        console.error('Unable to create workspace thread');
+        return false;
+      }
+
+      return true;
+    } catch (error) {
+      console.error('Error creating workspace thread:', error);
+      return null;
+    }
+  },
+  getHistory: async (userName) => {
+    const thread = slugify(userName);
+    const workspace = slugify(config.apiWorkspace);
+
+    if (!userName || !thread || !workspace) {
+      return null;
+    }
+
+    // Make the API request
+    try {
+      const response = await fetch(`${config.apiBase}/api/v1/workspace/${workspace}/thread/${thread}/chats`, {
+        method: 'GET',
+        headers: headers
+      });
+
+      if (!response || !response.ok) {
+        console.warn('No history found');
+        return null;
+      }
+
+      const data = await response.json();
+      return data.history || [];
+    } catch (error) {
+      console.error('Error fetching chat history:', error);
+      return null;
+    }
+  },
+  chat: async (userName, message) => {
+    const thread = slugify(userName);
+    const workspace = slugify(config.apiWorkspace);
+
+    if (!userName || !thread || !workspace) {
+      return null;
+    }
+
+    // Make the API request
+    try {
+      const response = await fetch(`${config.apiBase}/api/v1/workspace/${workspace}/thread/${thread}/chat`, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({
+          message: message,
+          mode: 'chat',
+          userId: 1,
+          attachments: []
+        })
+      });
+
+      if (!response || !response.ok) {
+        console.warn('No history found');
+        return null;
+      }
+
+      const data = await response.json();
+      return data.history || [];
+    } catch (error) {
+      console.error('Error fetching chat history:', error);
+      return null;
+    }
+  },
+  streamChat: async (userName, message, handleStream) => {
+    const thread = slugify(userName);
+    const workspace = slugify(config.apiWorkspace);
+
+    if (!userName || !thread || !workspace) {
+      return null;
+    }
+
+    // Make the API request
+    try {
+      const response = await fetch(`${config.apiBase}/api/v1/workspace/${workspace}/thread/${thread}/stream-chat`, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({
+          message: message,
+          mode: 'chat',
+          userId: 1,
+          attachments: []
+        })
+      });
+
+      if (!response || !response.ok) {
+        console.warn('No history found');
+        return null;
+      }
+
       // Create a stream reader
       const reader = response.body.getReader();
       let content = '';
@@ -52,17 +141,14 @@ const api = {
         for (const line of lines) {
           if (line.startsWith('data: ')) {
             const data = JSON.parse(line.slice(6));
-            if (data.choices[0].delta.content) {
-              content += data.choices[0].delta.content;
-              handleStream(content);
-            }
+            content += data.textResponse || '';
+            handleStream(content, data.close, data.sources);
           }
         }
       }
-    } else {
-      // No stream, return the response
-      const data = await response.json();
-      return data.choices[0].message.content;
+    } catch (error) {
+      console.error('Error fetching chat history:', error);
+      return null;
     }
   }
 };
