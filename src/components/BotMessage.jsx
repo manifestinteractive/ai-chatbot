@@ -33,6 +33,27 @@ export default function BotMessage({ text, sources }) {
     );
   }
 
+  // Custom Summary Renderer to scroll to Source Links
+  function SummaryRenderer(props) {
+    return (
+      <summary
+        onClick={() => {
+          // Scroll to Source Links after it has had time to expand/collapse
+          setTimeout(() => {
+            const $elm = document.getElementById(props['data-trigger']);
+            if (typeof $elm.scrollIntoViewIfNeeded === 'function') {
+              $elm.scrollIntoViewIfNeeded();
+            } else {
+              $elm.scrollIntoView();
+            }
+          }, 100);
+        }}
+      >
+        {props.children}
+      </summary>
+    );
+  }
+
   // Copy to Clipboard Notification
   const notify = () =>
     toast.success('Copied to Clipboard!', {
@@ -64,7 +85,7 @@ export default function BotMessage({ text, sources }) {
       </button>
 
       <div className="bot-message">
-        <ReactMarkdown rehypePlugins={[rehypeRaw]} components={{ a: LinkRenderer }}>{`${message}${sourceLinks}`}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]} components={{ a: LinkRenderer, summary: SummaryRenderer }}>{`${message}${sourceLinks}`}</ReactMarkdown>
       </div>
     </div>
   );

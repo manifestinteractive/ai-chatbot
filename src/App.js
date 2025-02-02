@@ -71,6 +71,13 @@ export default function App() {
       await api.createThread(userName);
     } else if (history.length > 0) {
       setMessages(history);
+    } else if (history.length === 0) {
+      setMessages([
+        {
+          role: 'assistant',
+          content: 'How can I assist you today?'
+        }
+      ]);
     }
   }, [userName]);
 
