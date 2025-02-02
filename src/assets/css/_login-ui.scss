@@ -1,0 +1,136 @@
+/* LOGIN */
+
+.login-ui,
+.login-ui > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-ui {
+  --border-width: 1px;
+
+  form {
+    background: rgba(var(--input-color-bg), 0.9);
+    box-shadow: rgba(255, 255, 255, 0) 0 0 0 0;
+    position: absolute;
+    width: 300px;
+    border-radius: 25px;
+    height: 50px;
+    padding: 0 10px 0 30px;
+    white-space: no-wrap;
+    transition: all var(--transition);
+    padding: 10px 16px;
+    margin: 0;
+
+    &:focus-within {
+      background: rgba(var(--input-color-bg), 1);
+      box-shadow: rgba(255, 255, 255, 0.65) 0 0 6px 1px;
+    }
+
+    &.invalid {
+      background: #400000;
+      box-shadow: rgba(255, 0, 0, 0.65) 0 0 6px 1px;
+    }
+
+    &.invalid:focus-within {
+      background: #400000;
+      box-shadow: rgba(255, 0, 0, 0.65) 0 0 6px 1px;
+    }
+  }
+
+  input {
+    font-size: 16px;
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: rgb(var(--input-color-text));
+    width: calc(100% - 30px);
+    font-weight: lighter;
+    height: 30px;
+    vertical-align: middle;
+    font-family: var(--font-family);
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding: 10px;
+    margin: 0;
+    pointer-events: all;
+    resize: none;
+    line-height: 26px;
+    white-space: normal;
+    transition: all var(--transition);
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgba(var(--input-color-text), 0.75);
+    }
+  }
+
+  button {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    color: rgb(var(--input-color-text));
+    font-size: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+    pointer-events: all;
+    opacity: 0.5;
+    transition: opacity var(--transition);
+    margin: 0;
+    padding: 0;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  span.invalid {
+    position: relative;
+    top: 40px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  &.loading form {
+    pointer-events: none;
+  }
+
+  &.loading form::after {
+    position: absolute;
+    content: '';
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: 25px;
+    animation: moveGradient 4s alternate infinite;
+  }
+}

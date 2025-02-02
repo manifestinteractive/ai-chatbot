@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --input-color-text: 255, 255, 255;
+  --input-color-bg: 0, 0, 0;
+
+  --circle-size: 100%;
+  --blending: hard-light;
+  --transition: 0.25s;
+
+  --size-scrollbar: 6.5px;
+  --color-scrollbar-thumb: fade(#fff, 25%);
+  --color-scrollbar-thumb-hover: fade(#fff, 35%);
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: cornflowerblue;
+}
+
+a:hover,
+a:visited:hover,
+a:active:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+body {
+  height: 100%;
+  min-height: 100%;
+  transition: background 2s;
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  overflow: hidden;
+}

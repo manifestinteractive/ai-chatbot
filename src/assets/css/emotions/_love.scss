@@ -1,0 +1,46 @@
+:root {
+  --love-color-fg: #dce258;
+  --love-color-bg1: 110, 78, 141;
+  --love-color-bg2: 78, 42, 91;
+  --love-color1: 255, 0, 158;
+  --love-color2: 255, 129, 159;
+  --love-color3: 254, 160, 255;
+  --love-color4: 255, 178, 215;
+  --love-color5: 203, 178, 255;
+}
+
+/* love */
+body.love {
+  background: rgb(var(--love-color-bg2));
+
+  .gradient-bg.love {
+    background: linear-gradient(40deg, rgb(var(--love-color-bg1)), rgb(var(--love-color-bg2)));
+    opacity: 1;
+    z-index: 2;
+
+    div {
+      animation-play-state: running;
+
+      &.g1 {
+        background: radial-gradient(circle at center, rgba(var(--love-color1), 0.8) 0, rgba(var(--love-color1), 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba(var(--love-color2), 0.8) 0, rgba(var(--love-color2), 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba(var(--love-color3), 0.8) 0, rgba(var(--love-color3), 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba(var(--love-color4), 0.8) 0, rgba(var(--love-color4), 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba(var(--love-color5), 0.8) 0, rgba(var(--love-color5), 0) 50%) no-repeat;
+      }
+    }
+
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      display: block;
+    }
+  }
+}

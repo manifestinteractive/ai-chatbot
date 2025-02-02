@@ -1,0 +1,137 @@
+/* CHAT */
+
+.chat-ui,
+.chat-ui > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.chat-ui {
+  .input {
+    --border-width: 1px;
+    bottom: 32px;
+    background: rgba(var(--input-color-bg), 0.95);
+    box-shadow: rgba(255, 255, 255, 0) 0 0 0 0;
+    position: absolute;
+    width: calc(100% - 64px);
+    max-width: 768px;
+    border-radius: 25px;
+    height: 50px;
+    padding: 0 10px 0 30px;
+    white-space: no-wrap;
+    transition: all var(--transition);
+
+    &.loading::after {
+      position: absolute;
+      content: '';
+      top: calc(-1 * var(--border-width));
+      left: calc(-1 * var(--border-width));
+      z-index: -1;
+      width: calc(100% + var(--border-width) * 2);
+      height: calc(100% + var(--border-width) * 2);
+      background: linear-gradient(
+        60deg,
+        hsl(224, 85%, 66%),
+        hsl(269, 85%, 66%),
+        hsl(314, 85%, 66%),
+        hsl(359, 85%, 66%),
+        hsl(44, 85%, 66%),
+        hsl(89, 85%, 66%),
+        hsl(134, 85%, 66%),
+        hsl(179, 85%, 66%)
+      );
+      background-size: 300% 300%;
+      background-position: 0 50%;
+      border-radius: 25px;
+      animation: moveGradient 4s alternate infinite;
+    }
+
+    &:focus-within {
+      background: rgba(var(--input-color-bg), 1);
+      box-shadow: rgba(255, 255, 255, 0.65) 0 0 6px 1px;
+    }
+
+    form {
+      padding: 0;
+      margin: 0;
+    }
+
+    textarea {
+      padding: 10px;
+      font-size: 16px;
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: rgb(var(--input-color-text));
+      width: calc(100% - 50px);
+      font-weight: lighter;
+      height: 30px;
+      vertical-align: middle;
+      font-family: var(--font-family);
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: normal;
+      padding: 2px 0 0 0;
+      margin: 0;
+      pointer-events: all;
+      resize: none;
+      line-height: 26px;
+      white-space: normal;
+      transition: all var(--transition);
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: rgba(var(--input-color-text), 0.75);
+      }
+    }
+
+    button {
+      width: 50px;
+      height: 50px;
+      background: transparent;
+      border: none;
+      color: rgb(var(--input-color-text));
+      font-size: 20px;
+      cursor: pointer;
+      vertical-align: middle;
+      pointer-events: all;
+      opacity: 0.5;
+      transition: opacity var(--transition);
+      margin: 0;
+      padding: 0;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &.mic-supported {
+      padding: 0 10px 0 6px;
+
+      textarea {
+        width: calc(100% - 100px);
+      }
+    }
+
+    &.tall {
+      height: 120px;
+      padding-top: 10px;
+
+      textarea {
+        height: 100px;
+      }
+    }
+  }
+}

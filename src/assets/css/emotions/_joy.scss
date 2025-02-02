@@ -1,0 +1,46 @@
+:root {
+  --joy-color-fg: #ffe948;
+  --joy-color-bg1: 46, 107, 9;
+  --joy-color-bg2: 15, 43, 46;
+  --joy-color1: 249, 226, 78;
+  --joy-color2: 247, 183, 43;
+  --joy-color3: 246, 127, 30;
+  --joy-color4: 241, 82, 30;
+  --joy-color5: 224, 41, 59;
+}
+
+/* joy */
+body.joy {
+  background: rgb(var(--joy-color-bg2));
+
+  .gradient-bg.joy {
+    background: linear-gradient(40deg, rgb(var(--joy-color-bg1)), rgb(var(--joy-color-bg2)));
+    opacity: 1;
+    z-index: 2;
+
+    div {
+      animation-play-state: running;
+
+      &.g1 {
+        background: radial-gradient(circle at center, rgba(var(--joy-color1), 0.8) 0, rgba(var(--joy-color1), 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba(var(--joy-color2), 0.8) 0, rgba(var(--joy-color2), 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba(var(--joy-color3), 0.8) 0, rgba(var(--joy-color3), 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba(var(--joy-color4), 0.8) 0, rgba(var(--joy-color4), 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba(var(--joy-color5), 0.8) 0, rgba(var(--joy-color5), 0) 50%) no-repeat;
+      }
+    }
+
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      display: block;
+    }
+  }
+}

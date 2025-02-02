@@ -27,7 +27,7 @@ export default function BotMessage({ text, sources }) {
   // Custom Link Renderer to open links in new tab
   function LinkRenderer(props) {
     return (
-      <a href={props.href} target="_blank" rel="noreferrer">
+      <a href={props.href} target="_blank" rel="noopener noreferrer">
         {props.children}
       </a>
     );

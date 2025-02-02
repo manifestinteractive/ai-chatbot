@@ -1,0 +1,46 @@
+:root {
+  --optimism-color-fg: #ffc091;
+  --optimism-color-bg1: 59, 104, 135;
+  --optimism-color-bg2: 36, 76, 127;
+  --optimism-color1: 106, 156, 220;
+  --optimism-color2: 174, 210, 234;
+  --optimism-color3: 242, 229, 161;
+  --optimism-color4: 247, 161, 161;
+  --optimism-color5: 240, 140, 0;
+}
+
+/* optimism */
+body.optimism {
+  background: rgb(var(--optimism-color-bg2));
+
+  .gradient-bg.optimism {
+    background: linear-gradient(40deg, rgb(var(--optimism-color-bg1)), rgb(var(--optimism-color-bg2)));
+    opacity: 1;
+    z-index: 2;
+
+    div {
+      animation-play-state: running;
+
+      &.g1 {
+        background: radial-gradient(circle at center, rgba(var(--optimism-color1), 0.8) 0, rgba(var(--optimism-color1), 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba(var(--optimism-color2), 0.8) 0, rgba(var(--optimism-color2), 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba(var(--optimism-color3), 0.8) 0, rgba(var(--optimism-color3), 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba(var(--optimism-color4), 0.8) 0, rgba(var(--optimism-color4), 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba(var(--optimism-color5), 0.8) 0, rgba(var(--optimism-color5), 0) 50%) no-repeat;
+      }
+    }
+
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      display: block;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { HfInference } from '@huggingface/inference';
 
 import config from '../config';
-import webgl from './webgl';
+import * as webgl from '../webgl/emotions';
 
 const supportedEmotions = [
   'admiration',
@@ -36,7 +36,7 @@ const supportedEmotions = [
 
 const emotions = {
   classify: async (text) => {
-    if (config.useEmotion) {
+    if (config.hfToken && config.hfToken.startsWith('hf_')) {
       try {
         const client = new HfInference(config.hfToken);
         const output = await client.textClassification({
@@ -45,7 +45,7 @@ const emotions = {
           provider: 'hf-inference'
         });
 
-        return output?.[0]?.[0]?.label || 'neutral';
+        return output?.[0]?.label || 'neutral';
       } catch (error) {
         console.error('Error classifying emotion:', error);
       }

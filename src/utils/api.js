@@ -40,6 +40,32 @@ const api = {
       return null;
     }
   },
+  deleteThread: async (userName) => {
+    const thread = slugify(userName);
+    const workspace = slugify(config.apiWorkspace);
+
+    if (!workspace || !userName || !thread) {
+      return null;
+    }
+
+    // Make the API request
+    try {
+      const response = await fetch(`${config.apiBase}/api/v1/workspace/${workspace}/thread/${thread}`, {
+        method: 'DELETE',
+        headers: headers
+      });
+
+      if (!response || !response.ok) {
+        console.error('Unable to delete workspace thread');
+        return false;
+      }
+
+      return true;
+    } catch (error) {
+      console.error('Error deleting workspace thread:', error);
+      return null;
+    }
+  },
   getHistory: async (userName) => {
     const thread = slugify(userName);
     const workspace = slugify(config.apiWorkspace);

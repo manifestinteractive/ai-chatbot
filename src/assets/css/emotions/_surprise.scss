@@ -1,0 +1,46 @@
+:root {
+  --surprise-color-fg: #c3effb;
+  --surprise-color-bg1: 36, 88, 112;
+  --surprise-color-bg2: 19, 44, 94;
+  --surprise-color1: 255, 236, 61;
+  --surprise-color2: 255, 153, 0;
+  --surprise-color3: 255, 87, 36;
+  --surprise-color4: 244, 64, 52;
+  --surprise-color5: 233, 32, 99;
+}
+
+/* surprise */
+body.surprise {
+  background: rgb(var(--surprise-color-bg2));
+
+  .gradient-bg.surprise {
+    background: linear-gradient(40deg, rgb(var(--surprise-color-bg1)), rgb(var(--surprise-color-bg2)));
+    opacity: 1;
+    z-index: 2;
+
+    div {
+      animation-play-state: running;
+
+      &.g1 {
+        background: radial-gradient(circle at center, rgba(var(--surprise-color1), 0.8) 0, rgba(var(--surprise-color1), 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba(var(--surprise-color2), 0.8) 0, rgba(var(--surprise-color2), 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba(var(--surprise-color3), 0.8) 0, rgba(var(--surprise-color3), 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba(var(--surprise-color4), 0.8) 0, rgba(var(--surprise-color4), 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba(var(--surprise-color5), 0.8) 0, rgba(var(--surprise-color5), 0) 50%) no-repeat;
+      }
+    }
+
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      display: block;
+    }
+  }
+}

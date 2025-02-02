@@ -17,7 +17,35 @@
       "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display_override": ["window-control-overlay", "minimal-ui"],
   "display": "standalone",
-  "display_override": ["minimal-ui"]
+  "screenshots": [
+    {
+      "src": "/assets/img/screenshot-narrow-1.png",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/assets/img/screenshot-narrow-2.png",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/assets/img/screenshot-wide-1.png",
+      "type": "image/png",
+      "sizes": "720x540",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/assets/img/screenshot-wide-2.png",
+      "type": "image/png",
+      "sizes": "720x540",
+      "form_factor": "wide"
+    }
+  ]
 }

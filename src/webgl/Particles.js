@@ -49,12 +49,12 @@ export function Particles({ speed, fov, aperture, focus, curl, color, size = 512
 
     // Move the ball up and down
     const t = state.clock.getElapsedTime();
-    ref.current.position.y = 0.1 + (1 + Math.sin(t / 1.5)) / 10;
-    ref.current.position.x = Math.sin(t / 1.5) / 20;
-    ref.current.position.z = Math.cos(t / 1) / 20;
-    ref.current.rotation.x = Math.cos(t / 0.5) / 10;
-    ref.current.rotation.y = Math.sin(t / 1.05) / 15;
-    ref.current.rotation.z = Math.cos(t / 1.25) / 10;
+    ref.current.position.x = Math.sin(t / props.p.x.a) / props.p.x.b;
+    ref.current.position.y = 0.1 + (1 + Math.sin(t / props.p.y.a)) / props.p.y.b;
+    ref.current.position.z = Math.cos(t / props.p.z.a) / props.p.z.b;
+    ref.current.rotation.x = Math.cos(t / props.r.x.a) / props.r.x.b;
+    ref.current.rotation.y = Math.sin(t / props.r.y.a) / props.r.y.b;
+    ref.current.rotation.z = Math.cos(t / props.r.z.a) / props.r.z.b;
 
     renderRef.current.blending = props.blending; // Set Blending
     renderRef.current.uniforms.positions.value = target.texture;

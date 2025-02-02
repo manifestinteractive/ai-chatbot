@@ -1,0 +1,46 @@
+:root {
+  --realization-color-fg: #9171ce;
+  --realization-color-bg1: 70, 35, 108;
+  --realization-color-bg2: 47, 22, 106;
+  --realization-color1: 61, 41, 46;
+  --realization-color2: 123, 76, 78;
+  --realization-color3: 183, 123, 126;
+  --realization-color4: 243, 180, 195;
+  --realization-color5: 239, 197, 195;
+}
+
+/* realization */
+body.realization {
+  background: rgb(var(--realization-color-bg2));
+
+  .gradient-bg.realization {
+    background: linear-gradient(40deg, rgb(var(--realization-color-bg1)), rgb(var(--realization-color-bg2)));
+    opacity: 1;
+    z-index: 2;
+
+    div {
+      animation-play-state: running;
+
+      &.g1 {
+        background: radial-gradient(circle at center, rgba(var(--realization-color1), 0.8) 0, rgba(var(--realization-color1), 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba(var(--realization-color2), 0.8) 0, rgba(var(--realization-color2), 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba(var(--realization-color3), 0.8) 0, rgba(var(--realization-color3), 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba(var(--realization-color4), 0.8) 0, rgba(var(--realization-color4), 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba(var(--realization-color5), 0.8) 0, rgba(var(--realization-color5), 0) 50%) no-repeat;
+      }
+    }
+
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      display: block;
+    }
+  }
+}

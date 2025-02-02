@@ -1,0 +1,6 @@
+.Toastify,
+.Toastify__toast,
+.Toastify__toast-container {
+  z-index: 5000 !important;
+  backface-visibility: visible !important;
+}

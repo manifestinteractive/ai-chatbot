@@ -1,0 +1,131 @@
+/* MESSAGES */
+
+.messages {
+  bottom: 96px;
+  position: absolute;
+  width: 100%;
+  max-width: 768px;
+  max-height: calc(100% - 96px);
+  overflow: auto;
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  pointer-events: all;
+  transition: all;
+  padding: 0 32px;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: var(--size-scrollbar);
+    height: var(--size-scrollbar);
+  }
+  &::-webkit-scrollbar-track {
+    width: var(--size-scrollbar);
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--size-scrollbar);
+    background: var(--color-scrollbar-thumb);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scrollbar-thumb-hover);
+  }
+
+  &.short {
+    max-height: calc(100% - 166px);
+    bottom: 166px;
+  }
+
+  .bot-message {
+    float: left;
+    padding: 0 20px;
+    margin: 5px;
+    border-radius: 24px 24px 24px 0;
+    min-width: 40px;
+    background: rgba(var(--input-color-text), 0.95);
+    color: rgb(var(--input-color-bg));
+
+    ul {
+      padding-left: 18px;
+    }
+
+    ol {
+      padding-left: 14px;
+    }
+
+    li {
+      padding-bottom: 4px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: #999;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: color var(--transition);
+
+      &:hover,
+      &:focus {
+        color: #000;
+      }
+    }
+  }
+
+  .copy-button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition);
+    width: 32px;
+    height: 32px;
+    transition-delay: 500ms;
+    transition-property: all;
+
+    &.bot {
+      left: -10px;
+      top: calc(50% - 12px);
+    }
+
+    &.user {
+      right: -10px;
+      top: calc(50% - 16px);
+    }
+  }
+
+  .message-container {
+    opacity: 1;
+    transition: opacity var(--transition);
+    position: relative;
+
+    &:hover,
+    &:focus {
+      .copy-button.bot {
+        opacity: 1;
+        left: -28px;
+        pointer-events: all;
+      }
+
+      .copy-button.user {
+        opacity: 1;
+        right: -28px;
+        pointer-events: all;
+      }
+    }
+  }
+
+  .user-message {
+    float: right;
+    padding: 0 20px;
+    margin: 5px;
+    border-radius: 24px 24px 0 24px;
+    min-width: 40px;
+    background: rgba(var(--input-color-bg), 0.95);
+    color: rgb(var(--input-color-text));
+  }
+}

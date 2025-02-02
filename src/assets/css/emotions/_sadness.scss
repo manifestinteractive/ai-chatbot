@@ -1,0 +1,46 @@
+:root {
+  --sadness-color-fg: #8ebbec;
+  --sadness-color-bg1: 26, 53, 81;
+  --sadness-color-bg2: 17, 38, 80;
+  --sadness-color1: 62, 92, 152;
+  --sadness-color2: 92, 122, 153;
+  --sadness-color3: 143, 168, 183;
+  --sadness-color4: 215, 193, 202;
+  --sadness-color5: 241, 177, 195;
+}
+
+/* sadness */
+body.sadness {
+  background: rgb(var(--sadness-color-bg2));
+
+  .gradient-bg.sadness {
+    background: linear-gradient(40deg, rgb(var(--sadness-color-bg1)), rgb(var(--sadness-color-bg2)));
+    opacity: 1;
+    z-index: 2;
+
+    div {
+      animation-play-state: running;
+
+      &.g1 {
+        background: radial-gradient(circle at center, rgba(var(--sadness-color1), 0.8) 0, rgba(var(--sadness-color1), 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba(var(--sadness-color2), 0.8) 0, rgba(var(--sadness-color2), 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba(var(--sadness-color3), 0.8) 0, rgba(var(--sadness-color3), 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba(var(--sadness-color4), 0.8) 0, rgba(var(--sadness-color4), 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba(var(--sadness-color5), 0.8) 0, rgba(var(--sadness-color5), 0) 50%) no-repeat;
+      }
+    }
+
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+:root {
+  --neutral-color-fg: #ffffff;
+  --neutral-color-bg1: 108, 0, 162;
+  --neutral-color-bg2: 0, 17, 82;
+  --neutral-color1: 18, 113, 255;
+  --neutral-color2: 221, 74, 255;
+  --neutral-color3: 100, 220, 255;
+  --neutral-color4: 200, 50, 50;
+  --neutral-color5: 180, 180, 50;
+}
+
+/* neutral */
+body.neutral {
+  background: rgb(var(--neutral-color-bg2));
+
+  .gradient-bg.neutral {
+    background: linear-gradient(40deg, rgb(var(--neutral-color-bg1)), rgb(var(--neutral-color-bg2)));
+    opacity: 1;
+    z-index: 2;
+
+    div {
+      animation-play-state: running;
+
+      &.g1 {
+        background: radial-gradient(circle at center, rgba(var(--neutral-color1), 0.8) 0, rgba(var(--neutral-color1), 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba(var(--neutral-color2), 0.8) 0, rgba(var(--neutral-color2), 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba(var(--neutral-color3), 0.8) 0, rgba(var(--neutral-color3), 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba(var(--neutral-color4), 0.8) 0, rgba(var(--neutral-color4), 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba(var(--neutral-color5), 0.8) 0, rgba(var(--neutral-color5), 0) 50%) no-repeat;
+      }
+    }
+
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      display: block;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 // NPM Dependencies
 import { Html, OrbitControls, CameraShake } from '@react-three/drei';
-import { toast, Slide, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 // React Components
@@ -35,10 +35,7 @@ export default function App() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      emotion: 'neutral',
-      content: 'How can I assist you today?',
-      timestamp: new Date().getTime(),
-      permanent: true
+      content: 'How can I assist you today?'
     }
   ]);
 
@@ -51,14 +48,16 @@ export default function App() {
 
   // Function to handle changing UI based on emotion
   const updateEmotion = (emotion) => {
-    console.log('Updating Emotion:', emotion);
-    const body = document.querySelector('body');
+    const $body = document.querySelector('body');
+    const $bg = document.querySelector('.gradient-bg');
 
     emotions.supported.forEach((cls) => {
-      body.classList.remove(cls);
+      $body.classList.remove(cls);
+      $bg.classList.remove(cls);
     });
 
-    body.classList.add(emotion);
+    $body.classList.add(emotion);
+    $bg.classList.add(emotion);
 
     const props = emotions.getProps(emotion);
     setCamera(props.camera);
@@ -116,32 +115,30 @@ export default function App() {
         const emotion = emotionInput[0].replace('@', '').toLowerCase();
         updateEmotion(emotion);
         setLoading(false);
-
-        toast.success(`Switching to Emotion: @${emotion}`, {
-          position: 'top-center',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: false,
-          theme: 'light',
-          transition: Slide
-        });
       }, 100);
 
       return;
-    } else if (text.toLowerCase() === 'clear' || text.toLowerCase() === '/reset') {
-      // User wants to clear the chat history
-      setTimeout(() => {
-        setMessages([
-          {
-            role: 'assistant',
-            content: 'How can I assist you today?'
-          }
-        ]);
-        updateEmotion('neutral');
-        setLoading(false);
-      }, 100);
+    } else if (text.toLowerCase() === 'clear' || text.toLowerCase() === 'reset' || text.toLowerCase() === '/reset') {
+      // Delete our old thread and create a new one
+      await api.deleteThread(userName);
+      await api.createThread(userName);
+
+      setMessages([
+        {
+          role: 'assistant',
+          content: 'How can I assist you today?'
+        }
+      ]);
+
+      updateEmotion('neutral');
+      setLoading(false);
+
+      return;
+    } else if (text.toLowerCase() === 'sync' || text.toLowerCase() === '/sync') {
+      // Delete our old thread and create a new one
+      fetchHistory();
+      updateEmotion('neutral');
+      setLoading(false);
 
       return;
     }
@@ -181,6 +178,9 @@ export default function App() {
           const updated = { ...streamedMessages[streamedMessages.length - 1] };
 
           if (done) {
+            // Wait for the stream to finish before adding sources
+            updated.sources = sources;
+
             // Parse the response to determine the emotion
             const emotion = await emotions.classify(content);
 
@@ -190,7 +190,6 @@ export default function App() {
 
           // Update the last message with the new content
           updated.content = content;
-          updated.sources = sources;
           streamedMessages[streamedMessages.length - 1] = updated;
 
           setMessages(streamedMessages);
@@ -209,7 +208,8 @@ export default function App() {
       // Update the message with the parsed content
       newMessages = newMessages.concat({
         role: 'assistant',
-        content: message.textResponse
+        content: message.textResponse,
+        sources: message.sources
       });
 
       // Update the UI with the new messages
