@@ -27,7 +27,7 @@ export default function BotMessage({ text, sources }) {
   // Custom Link Renderer to open links in new tab
   function LinkRenderer(props) {
     return (
-      <a href={props.href} target="_blank" rel="noopener noreferrer">
+      <a href={`//${window.location.host}${props.href}`} target="_blank" rel="noopener noreferrer">
         {props.children}
       </a>
     );
@@ -85,7 +85,9 @@ export default function BotMessage({ text, sources }) {
       </button>
 
       <div className="bot-message">
-        <ReactMarkdown rehypePlugins={[rehypeRaw]} components={{ a: LinkRenderer, summary: SummaryRenderer }}>{`${message}${sourceLinks}`}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]} components={{ a: LinkRenderer, summary: SummaryRenderer }}>
+          {`${message}${sourceLinks}`}
+        </ReactMarkdown>
       </div>
     </div>
   );

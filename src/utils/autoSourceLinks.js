@@ -1,7 +1,7 @@
 const autoSourceLinks = (sources) => {
   if (sources && sources.length > 0) {
     const randomId = Math.random().toString(36).substring(2, 15);
-    let sourceLinks = `<details id="source-${randomId}"><summary data-trigger="source-${randomId}">Sources</summary>\n`;
+    let sourceLinks = `\n\n<details id="source-${randomId}"><summary data-trigger="source-${randomId}">Sources</summary>\n\n`;
 
     // Remove duplicates
     const dedupe = sources.reduce((p, c) => {

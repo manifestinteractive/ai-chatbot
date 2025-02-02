@@ -17,9 +17,9 @@
       "type": "image/png"
     }
   ],
-  "id": "/?source=pwa",
-  "start_url": "/?source=pwa",
-  "scope": "/",
+  "id": "/index.html?source=pwa",
+  "start_url": "/index.html?source=pwa",
+  "scope": "/index.html",
   "display_override": ["window-control-overlay", "minimal-ui"],
   "display": "standalone",
   "screenshots": [
