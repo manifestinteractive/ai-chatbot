@@ -1,0 +1,35 @@
+$amusement-color: #ffc091;
+$amusement-color-bg1: #b36b00;
+$amusement-color-bg2: #b53b30;
+$amusement-color1: #ff6e61;
+$amusement-color2: #ffcb5c;
+$amusement-color3: #88d8b0;
+$amusement-color4: #ff9900;
+$amusement-color5: #6a5bcd;
+
+/* amusement */
+body.amusement {
+  background: $amusement-color-bg1;
+
+  .gradient-bg.amusement {
+    background: $amusement-color-bg2;
+
+    div {
+      &.g1 {
+        background: radial-gradient(circle at center, rgba($amusement-color1, 0.8) 0, rgba($amusement-color1, 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba($amusement-color2, 0.8) 0, rgba($amusement-color2, 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba($amusement-color3, 0.8) 0, rgba($amusement-color3, 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba($amusement-color4, 0.8) 0, rgba($amusement-color4, 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba($amusement-color5, 0.8) 0, rgba($amusement-color5, 0) 50%) no-repeat;
+      }
+    }
+  }
+}

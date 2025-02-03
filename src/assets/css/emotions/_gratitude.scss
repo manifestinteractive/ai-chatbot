@@ -1,0 +1,35 @@
+$gratitude-color: #bd71a0;
+$gratitude-color-bg1: #5a8221;
+$gratitude-color-bg2: #155b2f;
+$gratitude-color1: #f5b042;
+$gratitude-color2: #f6cba7;
+$gratitude-color3: #e9eab8;
+$gratitude-color4: #a3d55d;
+$gratitude-color5: #3b9b5e;
+
+/* gratitude */
+body.gratitude {
+  background: $gratitude-color-bg1;
+
+  .gradient-bg.gratitude {
+    background: $gratitude-color-bg2;
+
+    div {
+      &.g1 {
+        background: radial-gradient(circle at center, rgba($gratitude-color1, 0.8) 0, rgba($gratitude-color1, 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba($gratitude-color2, 0.8) 0, rgba($gratitude-color2, 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba($gratitude-color3, 0.8) 0, rgba($gratitude-color3, 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba($gratitude-color4, 0.8) 0, rgba($gratitude-color4, 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba($gratitude-color5, 0.8) 0, rgba($gratitude-color5, 0) 50%) no-repeat;
+      }
+    }
+  }
+}

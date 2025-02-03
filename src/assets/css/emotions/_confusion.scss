@@ -1,0 +1,35 @@
+$confusion-color: #ffffff;
+$confusion-color-bg1: #9c362b;
+$confusion-color-bg2: #4d2d28;
+$confusion-color1: #684e4a;
+$confusion-color2: #d65f51;
+$confusion-color3: #f7b5a1;
+$confusion-color4: #f0e5c7;
+$confusion-color5: #d4e09a;
+
+/* confusion */
+body.confusion {
+  background: $confusion-color-bg1;
+
+  .gradient-bg.confusion {
+    background: $confusion-color-bg2;
+
+    div {
+      &.g1 {
+        background: radial-gradient(circle at center, rgba($confusion-color1, 0.8) 0, rgba($confusion-color1, 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba($confusion-color2, 0.8) 0, rgba($confusion-color2, 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba($confusion-color3, 0.8) 0, rgba($confusion-color3, 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba($confusion-color4, 0.8) 0, rgba($confusion-color4, 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba($confusion-color5, 0.8) 0, rgba($confusion-color5, 0) 50%) no-repeat;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+$fear-color: #5dc27e;
+$fear-color-bg1: #3a5359;
+$fear-color-bg2: #1b2c2b;
+$fear-color1: #65b3a1;
+$fear-color2: #4e7e7e;
+$fear-color3: #3a5359;
+$fear-color4: #2b3f40;
+$fear-color5: #1b2c2b;
+
+/* fear */
+body.fear {
+  background: $fear-color-bg1;
+
+  .gradient-bg.fear {
+    background: $fear-color-bg2;
+
+    div {
+      &.g1 {
+        background: radial-gradient(circle at center, rgba($fear-color1, 0.8) 0, rgba($fear-color1, 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba($fear-color2, 0.8) 0, rgba($fear-color2, 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba($fear-color3, 0.8) 0, rgba($fear-color3, 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba($fear-color4, 0.8) 0, rgba($fear-color4, 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba($fear-color5, 0.8) 0, rgba($fear-color5, 0) 50%) no-repeat;
+      }
+    }
+  }
+}

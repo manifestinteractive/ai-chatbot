@@ -1,0 +1,35 @@
+$approval-color: #d1e89a;
+$approval-color-bg1: #578523;
+$approval-color-bg2: #237626;
+$approval-color1: #4cae4f;
+$approval-color2: #8bc34b;
+$approval-color3: #cbdc38;
+$approval-color4: #ffec3d;
+$approval-color5: #ffc105;
+
+/* approval */
+body.approval {
+  background: $approval-color-bg1;
+
+  .gradient-bg.approval {
+    background: $approval-color-bg2;
+
+    div {
+      &.g1 {
+        background: radial-gradient(circle at center, rgba($approval-color1, 0.8) 0, rgba($approval-color1, 0) 50%) no-repeat;
+      }
+      &.g2 {
+        background: radial-gradient(circle at center, rgba($approval-color2, 0.8) 0, rgba($approval-color2, 0) 50%) no-repeat;
+      }
+      &.g3 {
+        background: radial-gradient(circle at center, rgba($approval-color3, 0.8) 0, rgba($approval-color3, 0) 50%) no-repeat;
+      }
+      &.g4 {
+        background: radial-gradient(circle at center, rgba($approval-color4, 0.8) 0, rgba($approval-color4, 0) 50%) no-repeat;
+      }
+      &.g5 {
+        background: radial-gradient(circle at center, rgba($approval-color5, 0.8) 0, rgba($approval-color5, 0) 50%) no-repeat;
+      }
+    }
+  }
+}
