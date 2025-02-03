@@ -1,8 +1,4 @@
 const nervousness = {
-  colors: {
-    fg: '#ccdef0',
-    bg: '#032c49'
-  },
   camera: {
     intensity: 0,
     maxPitch: 0,
@@ -14,7 +10,7 @@ const nervousness = {
   },
   orbit: {
     autoRotate: true,
-    autoRotateSpeed: 0.05
+    autoRotateSpeed: 0.5
   },
   particles: {
     aperture: 1.4,
@@ -26,14 +22,14 @@ const nervousness = {
     size: 412,
     speed: 0.1,
     p: {
-      x: { a: 1.5, b: 20 },
-      y: { a: 1.5, b: 10 },
-      z: { a: 1, b: 20 }
+      x: { a: 1.5, b: 15 },
+      y: { a: 1.5, b: 7.5 },
+      z: { a: 1, b: 15 }
     },
     r: {
-      x: { a: 0.5, b: 10 },
-      y: { a: 1.05, b: 15 },
-      z: { a: 1.25, b: 10 }
+      x: { a: 0.5, b: 7.5 },
+      y: { a: 1.05, b: 10 },
+      z: { a: 1.25, b: 7.5 }
     }
   }
 };

@@ -1,8 +1,4 @@
 const remorse = {
-  colors: {
-    fg: '#f1e7ff',
-    bg: '#113545'
-  },
   camera: {
     intensity: 3,
     maxPitch: 3,

@@ -1,4 +1,4 @@
-const curiosity = {
+const admiration = {
   camera: {
     intensity: 0,
     maxPitch: 0,
@@ -10,16 +10,16 @@ const curiosity = {
   },
   orbit: {
     autoRotate: true,
-    autoRotateSpeed: 0.05
+    autoRotateSpeed: 0.15
   },
   particles: {
-    aperture: 0,
-    blending: 5,
-    color: { r: 182, g: 161, b: 222, a: 1 },
-    curl: 0.3,
+    aperture: 3,
+    blending: 2,
+    color: { r: 76, g: 174, b: 79, a: 1 },
+    curl: 0.5,
     focus: 4.5,
-    fov: 300,
-    size: 512,
+    fov: 10,
+    size: 300,
     speed: 1,
     p: {
       x: { a: 1.5, b: 10 },
@@ -28,10 +28,10 @@ const curiosity = {
     },
     r: {
       x: { a: 0.5, b: 5 },
-      y: { a: 1.05, b: 7.5 },
+      y: { a: 1.05, b: 7 },
       z: { a: 1.25, b: 5 }
     }
   }
 };
 
-export default curiosity;
+export default admiration;

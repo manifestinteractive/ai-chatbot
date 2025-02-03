@@ -1,8 +1,4 @@
 const love = {
-  colors: {
-    fg: '#f9ff89',
-    bg: '#4e2a5b'
-  },
   camera: {
     intensity: 2,
     maxPitch: 2,

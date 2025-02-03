@@ -1,8 +1,4 @@
 const surprise = {
-  colors: {
-    fg: '#c3effb',
-    bg: '#006185'
-  },
   camera: {
     intensity: 5,
     maxPitch: 5,
@@ -14,7 +10,7 @@ const surprise = {
   },
   orbit: {
     autoRotate: true,
-    autoRotateSpeed: 5
+    autoRotateSpeed: 2.5
   },
   particles: {
     aperture: 1.5,
@@ -26,14 +22,14 @@ const surprise = {
     size: 425,
     speed: 50,
     p: {
-      x: { a: 1.5, b: 20 },
-      y: { a: 1.5, b: 10 },
-      z: { a: 1, b: 20 }
+      x: { a: 1.5, b: 15 },
+      y: { a: 1.5, b: 7.5 },
+      z: { a: 1, b: 15 }
     },
     r: {
-      x: { a: 0.5, b: 10 },
-      y: { a: 1.05, b: 15 },
-      z: { a: 1.25, b: 10 }
+      x: { a: 0.5, b: 7.5 },
+      y: { a: 1.05, b: 10 },
+      z: { a: 1.25, b: 7.5 }
     }
   }
 };

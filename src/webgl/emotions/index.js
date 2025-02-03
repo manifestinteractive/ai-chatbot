@@ -1,4 +1,4 @@
-// import admiration from './admiration';
+import admiration from './admiration';
 // import amusement from './amusement';
 import anger from './anger';
 // import annoyance from './annoyance';
@@ -17,7 +17,7 @@ import excitement from './excitement';
 // import grief from './grief';
 import joy from './joy';
 import love from './love';
-// import nervousness from './nervousness';
+import nervousness from './nervousness';
 import neutral from './neutral';
 import optimism from './optimism';
 // import pride from './pride';
@@ -28,7 +28,7 @@ import sadness from './sadness';
 import surprise from './surprise';
 
 export {
-  //   admiration,
+  admiration,
   //   amusement,
   anger,
   //   annoyance,
@@ -47,7 +47,7 @@ export {
   //   grief,
   joy,
   love,
-  //   nervousness,
+  nervousness,
   neutral,
   optimism,
   //   pride,

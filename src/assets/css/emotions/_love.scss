@@ -1,46 +1,35 @@
-:root {
-  --love-color-fg: #dce258;
-  --love-color-bg1: 110, 78, 141;
-  --love-color-bg2: 78, 42, 91;
-  --love-color1: 255, 0, 158;
-  --love-color2: 255, 129, 159;
-  --love-color3: 254, 160, 255;
-  --love-color4: 255, 178, 215;
-  --love-color5: 203, 178, 255;
-}
+$love-color: #dce258;
+$love-color-bg1: #6e4e8d;
+$love-color-bg2: #4e2a5b;
+$love-color1: #ff009e;
+$love-color2: #ff819f;
+$love-color3: #fea0ff;
+$love-color4: #ffb2d7;
+$love-color5: #cbb2ff;
 
 /* love */
 body.love {
-  background: rgb(var(--love-color-bg2));
+  background: $love-color-bg1;
 
   .gradient-bg.love {
-    background: linear-gradient(40deg, rgb(var(--love-color-bg1)), rgb(var(--love-color-bg2)));
-    opacity: 1;
-    z-index: 2;
+    background: $love-color-bg2;
 
     div {
-      animation-play-state: running;
-
       &.g1 {
-        background: radial-gradient(circle at center, rgba(var(--love-color1), 0.8) 0, rgba(var(--love-color1), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color1, 0.8) 0, rgba($love-color1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba(var(--love-color2), 0.8) 0, rgba(var(--love-color2), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color2, 0.8) 0, rgba($love-color2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba(var(--love-color3), 0.8) 0, rgba(var(--love-color3), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color3, 0.8) 0, rgba($love-color3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba(var(--love-color4), 0.8) 0, rgba(var(--love-color4), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color4, 0.8) 0, rgba($love-color4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba(var(--love-color5), 0.8) 0, rgba(var(--love-color5), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color5, 0.8) 0, rgba($love-color5, 0) 50%) no-repeat;
       }
-    }
-
-    .gradients-container {
-      filter: url(#goo) blur(40px);
-      display: block;
     }
   }
 }

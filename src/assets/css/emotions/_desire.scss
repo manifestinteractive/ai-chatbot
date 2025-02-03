@@ -1,46 +1,35 @@
-:root {
-  --desire-color-fg: #bd71a0;
-  --desire-color-bg1: 135, 79, 131;
-  --desire-color-bg2: 45, 29, 63;
-  --desire-color1: 75, 61, 92;
-  --desire-color2: 141, 109, 156;
-  --desire-color3: 195, 167, 193;
-  --desire-color4: 244, 215, 217;
-  --desire-color5: 242, 181, 197;
-}
+$desire-color: #bd71a0;
+$desire-color-bg1: #874f83;
+$desire-color-bg2: #2d1d3f;
+$desire-color1: #4b3d5c;
+$desire-color2: #8d6d9c;
+$desire-color3: #c3a7c1;
+$desire-color4: #f4d7d9;
+$desire-color5: #f2b5c5;
 
 /* desire */
 body.desire {
-  background: rgb(var(--desire-color-bg2));
+  background: $desire-color-bg1;
 
   .gradient-bg.desire {
-    background: linear-gradient(40deg, rgb(var(--desire-color-bg1)), rgb(var(--desire-color-bg2)));
-    opacity: 1;
-    z-index: 2;
+    background: $desire-color-bg2;
 
     div {
-      animation-play-state: running;
-
       &.g1 {
-        background: radial-gradient(circle at center, rgba(var(--desire-color1), 0.8) 0, rgba(var(--desire-color1), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color1, 0.8) 0, rgba($desire-color1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba(var(--desire-color2), 0.8) 0, rgba(var(--desire-color2), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color2, 0.8) 0, rgba($desire-color2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba(var(--desire-color3), 0.8) 0, rgba(var(--desire-color3), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color3, 0.8) 0, rgba($desire-color3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba(var(--desire-color4), 0.8) 0, rgba(var(--desire-color4), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color4, 0.8) 0, rgba($desire-color4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba(var(--desire-color5), 0.8) 0, rgba(var(--desire-color5), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color5, 0.8) 0, rgba($desire-color5, 0) 50%) no-repeat;
       }
-    }
-
-    .gradients-container {
-      filter: url(#goo) blur(40px);
-      display: block;
     }
   }
 }

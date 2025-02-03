@@ -1,8 +1,4 @@
 const joy = {
-  colors: {
-    fg: '#ffe948',
-    bg: '#2a494c'
-  },
   camera: {
     intensity: 1,
     maxPitch: 1,

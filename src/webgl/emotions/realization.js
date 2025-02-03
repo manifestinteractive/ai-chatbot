@@ -1,8 +1,4 @@
 const realization = {
-  colors: {
-    fg: '#9171ce',
-    bg: '#2f166a'
-  },
   camera: {
     intensity: 0,
     maxPitch: 0,
@@ -14,7 +10,7 @@ const realization = {
   },
   orbit: {
     autoRotate: true,
-    autoRotateSpeed: 0.05
+    autoRotateSpeed: 0.15
   },
   particles: {
     aperture: 0,
@@ -31,9 +27,9 @@ const realization = {
       z: { a: 1, b: 20 }
     },
     r: {
-      x: { a: 0.5, b: 10 },
-      y: { a: 1.05, b: 15 },
-      z: { a: 1.25, b: 10 }
+      x: { a: 0.5, b: 5 },
+      y: { a: 1.05, b: 6 },
+      z: { a: 1.25, b: 5 }
     }
   }
 };

@@ -1,46 +1,35 @@
-:root {
-  --excitement-color-fg: #fe9e5b;
-  --excitement-color-bg1: 32, 79, 91;
-  --excitement-color-bg2: 12, 36, 70;
-  --excitement-color1: 28, 63, 109;
-  --excitement-color2: 75, 126, 139;
-  --excitement-color3: 105, 191, 158;
-  --excitement-color4: 255, 184, 77;
-  --excitement-color5: 255, 110, 97;
-}
+$excitement-color: #fe9e5b;
+$excitement-color-bg1: #204f5b;
+$excitement-color-bg2: #0c2446;
+$excitement-color1: #1c3f6d;
+$excitement-color2: #4b7e8b;
+$excitement-color3: #69bf9e;
+$excitement-color4: #ffb84d;
+$excitement-color5: #ff6e61;
 
 /* excitement */
 body.excitement {
-  background: rgb(var(--excitement-color-bg2));
+  background: $excitement-color-bg1;
 
   .gradient-bg.excitement {
-    background: linear-gradient(40deg, rgb(var(--excitement-color-bg1)), rgb(var(--excitement-color-bg2)));
-    opacity: 1;
-    z-index: 2;
+    background: $excitement-color-bg2;
 
     div {
-      animation-play-state: running;
-
       &.g1 {
-        background: radial-gradient(circle at center, rgba(var(--excitement-color1), 0.8) 0, rgba(var(--excitement-color1), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color1, 0.8) 0, rgba($excitement-color1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba(var(--excitement-color2), 0.8) 0, rgba(var(--excitement-color2), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color2, 0.8) 0, rgba($excitement-color2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba(var(--excitement-color3), 0.8) 0, rgba(var(--excitement-color3), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color3, 0.8) 0, rgba($excitement-color3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba(var(--excitement-color4), 0.8) 0, rgba(var(--excitement-color4), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color4, 0.8) 0, rgba($excitement-color4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba(var(--excitement-color5), 0.8) 0, rgba(var(--excitement-color5), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color5, 0.8) 0, rgba($excitement-color5, 0) 50%) no-repeat;
       }
-    }
-
-    .gradients-container {
-      filter: url(#goo) blur(40px);
-      display: block;
     }
   }
 }

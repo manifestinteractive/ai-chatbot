@@ -1,8 +1,4 @@
 const neutral = {
-  colors: {
-    fg: '#FFFFFF',
-    bg: '#000000'
-  },
   camera: {
     intensity: 0,
     maxPitch: 0,

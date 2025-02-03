@@ -1,46 +1,35 @@
-:root {
-  --curiosity-color-fg: #e6d1e6;
-  --curiosity-color-bg1: 82, 60, 119;
-  --curiosity-color-bg2: 46, 29, 93;
-  --curiosity-color1: 97, 77, 153;
-  --curiosity-color2: 124, 112, 164;
-  --curiosity-color3: 175, 162, 195;
-  --curiosity-color4: 212, 179, 213;
-  --curiosity-color5: 239, 164, 181;
-}
+$curiosity-color: #e6d1e6;
+$curiosity-color-bg1: #523c77;
+$curiosity-color-bg2: #2e1d5d;
+$curiosity-color1: #614d99;
+$curiosity-color2: #7c70a4;
+$curiosity-color3: #afa2c3;
+$curiosity-color4: #d4b3d5;
+$curiosity-color5: #efa4b5;
 
 /* curiosity */
 body.curiosity {
-  background: rgb(var(--curiosity-color-bg2));
+  background: $curiosity-color-bg1;
 
   .gradient-bg.curiosity {
-    background: linear-gradient(40deg, rgb(var(--curiosity-color-bg1)), rgb(var(--curiosity-color-bg2)));
-    opacity: 1;
-    z-index: 2;
+    background: $curiosity-color-bg2;
 
     div {
-      animation-play-state: running;
-
       &.g1 {
-        background: radial-gradient(circle at center, rgba(var(--curiosity-color1), 0.8) 0, rgba(var(--curiosity-color1), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color1, 0.8) 0, rgba($curiosity-color1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba(var(--curiosity-color2), 0.8) 0, rgba(var(--curiosity-color2), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color2, 0.8) 0, rgba($curiosity-color2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba(var(--curiosity-color3), 0.8) 0, rgba(var(--curiosity-color3), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color3, 0.8) 0, rgba($curiosity-color3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba(var(--curiosity-color4), 0.8) 0, rgba(var(--curiosity-color4), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color4, 0.8) 0, rgba($curiosity-color4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba(var(--curiosity-color5), 0.8) 0, rgba(var(--curiosity-color5), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color5, 0.8) 0, rgba($curiosity-color5, 0) 50%) no-repeat;
       }
-    }
-
-    .gradients-container {
-      filter: url(#goo) blur(40px);
-      display: block;
     }
   }
 }

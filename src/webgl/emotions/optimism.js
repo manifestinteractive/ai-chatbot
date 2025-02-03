@@ -1,8 +1,4 @@
 const optimism = {
-  colors: {
-    fg: '#ffc091',
-    bg: '#244c7f'
-  },
   camera: {
     intensity: 0,
     maxPitch: 0,
@@ -14,7 +10,7 @@ const optimism = {
   },
   orbit: {
     autoRotate: true,
-    autoRotateSpeed: 0.05
+    autoRotateSpeed: 0.2
   },
   particles: {
     aperture: 1,
@@ -31,9 +27,9 @@ const optimism = {
       z: { a: 1, b: 20 }
     },
     r: {
-      x: { a: 0.5, b: 10 },
-      y: { a: 1.05, b: 15 },
-      z: { a: 1.25, b: 10 }
+      x: { a: 0.85, b: 5 },
+      y: { a: 1.35, b: 7.5 },
+      z: { a: 1.05, b: 5 }
     }
   }
 };

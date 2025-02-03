@@ -1,8 +1,4 @@
 const sadness = {
-  colors: {
-    fg: '#8ebbec',
-    bg: '#112650'
-  },
   camera: {
     intensity: 0,
     maxPitch: 0,

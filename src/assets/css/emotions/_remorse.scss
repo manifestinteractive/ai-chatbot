@@ -1,46 +1,35 @@
-:root {
-  --remorse-color-fg: #f1e7ff;
-  --remorse-color-bg1: 25, 52, 82;
-  --remorse-color-bg2: 9, 36, 47;
-  --remorse-color1: 199, 211, 229;
-  --remorse-color2: 165, 186, 213;
-  --remorse-color3: 125, 151, 181;
-  --remorse-color4: 78, 122, 141;
-  --remorse-color5: 44, 89, 109;
-}
+$remorse-color: #f1e7ff;
+$remorse-color-bg1: #193452;
+$remorse-color-bg2: #09242f;
+$remorse-color1: #c7d3e5;
+$remorse-color2: #a5bad5;
+$remorse-color3: #7d97b5;
+$remorse-color4: #4e7a8d;
+$remorse-color5: #2c596d;
 
 /* remorse */
 body.remorse {
-  background: rgb(var(--remorse-color-bg2));
+  background: $remorse-color-bg1;
 
   .gradient-bg.remorse {
-    background: linear-gradient(40deg, rgb(var(--remorse-color-bg1)), rgb(var(--remorse-color-bg2)));
-    opacity: 1;
-    z-index: 2;
+    background: $remorse-color-bg2;
 
     div {
-      animation-play-state: running;
-
       &.g1 {
-        background: radial-gradient(circle at center, rgba(var(--remorse-color1), 0.8) 0, rgba(var(--remorse-color1), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color1, 0.8) 0, rgba($remorse-color1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba(var(--remorse-color2), 0.8) 0, rgba(var(--remorse-color2), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color2, 0.8) 0, rgba($remorse-color2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba(var(--remorse-color3), 0.8) 0, rgba(var(--remorse-color3), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color3, 0.8) 0, rgba($remorse-color3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba(var(--remorse-color4), 0.8) 0, rgba(var(--remorse-color4), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color4, 0.8) 0, rgba($remorse-color4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba(var(--remorse-color5), 0.8) 0, rgba(var(--remorse-color5), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color5, 0.8) 0, rgba($remorse-color5, 0) 50%) no-repeat;
       }
-    }
-
-    .gradients-container {
-      filter: url(#goo) blur(40px);
-      display: block;
     }
   }
 }

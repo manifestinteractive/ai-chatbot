@@ -1,8 +1,4 @@
 const desire = {
-  colors: {
-    fg: '#bd71a0',
-    bg: '#2d1d3f'
-  },
   camera: {
     intensity: 2,
     maxPitch: 2,
@@ -24,16 +20,16 @@ const desire = {
     focus: 5,
     fov: 25,
     size: 350,
-    speed: 50,
+    speed: 25,
     p: {
       x: { a: 1.5, b: 20 },
       y: { a: 1.5, b: 10 },
       z: { a: 1, b: 20 }
     },
     r: {
-      x: { a: 0.5, b: 10 },
-      y: { a: 1.05, b: 15 },
-      z: { a: 1.25, b: 10 }
+      x: { a: 0.5, b: 5 },
+      y: { a: 1.05, b: 7.5 },
+      z: { a: 1.25, b: 5 }
     }
   }
 };

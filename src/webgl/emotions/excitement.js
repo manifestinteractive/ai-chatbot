@@ -1,8 +1,4 @@
 const excitement = {
-  colors: {
-    fg: '#fe9e5b',
-    bg: '#0c2446'
-  },
   camera: {
     intensity: 4,
     maxPitch: 4,
@@ -31,9 +27,9 @@ const excitement = {
       z: { a: 1, b: 20 }
     },
     r: {
-      x: { a: 0.5, b: 10 },
-      y: { a: 1.05, b: 15 },
-      z: { a: 1.25, b: 10 }
+      x: { a: 0.5, b: 2.5 },
+      y: { a: 1.05, b: 5 },
+      z: { a: 1.25, b: 2.5 }
     }
   }
 };

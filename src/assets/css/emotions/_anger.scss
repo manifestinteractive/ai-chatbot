@@ -1,46 +1,35 @@
-:root {
-  --anger-color-fg: #e97070;
-  --anger-color-bg1: 75, 12, 12;
-  --anger-color-bg2: 22, 3, 3;
-  --anger-color1: 61, 10, 10;
-  --anger-color2: 109, 28, 28;
-  --anger-color3: 182, 43, 43;
-  --anger-color4: 245, 91, 91;
-  --anger-color5: 255, 143, 143;
-}
+$anger-color: #e97070;
+$anger-color-bg1: #4b0c0c;
+$anger-color-bg2: #160303;
+$anger-color1: #3d0a0a;
+$anger-color2: #6d1c1c;
+$anger-color3: #b62b2b;
+$anger-color4: #f55b5b;
+$anger-color5: #ff8f8f;
 
 /* anger */
 body.anger {
-  background: rgb(var(--anger-color-bg2));
+  background: $anger-color-bg1;
 
   .gradient-bg.anger {
-    background: linear-gradient(40deg, rgb(var(--anger-color-bg1)), rgb(var(--anger-color-bg2)));
-    opacity: 1;
-    z-index: 2;
+    background: $anger-color-bg2;
 
     div {
-      animation-play-state: running;
-
       &.g1 {
-        background: radial-gradient(circle at center, rgba(var(--anger-color1), 0.8) 0, rgba(var(--anger-color1), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($anger-color1, 0.8) 0, rgba($anger-color1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba(var(--anger-color2), 0.8) 0, rgba(var(--anger-color2), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($anger-color2, 0.8) 0, rgba($anger-color2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba(var(--anger-color3), 0.8) 0, rgba(var(--anger-color3), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($anger-color3, 0.8) 0, rgba($anger-color3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba(var(--anger-color4), 0.8) 0, rgba(var(--anger-color4), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($anger-color4, 0.8) 0, rgba($anger-color4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba(var(--anger-color5), 0.8) 0, rgba(var(--anger-color5), 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($anger-color5, 0.8) 0, rgba($anger-color5, 0) 50%) no-repeat;
       }
-    }
-
-    .gradients-container {
-      filter: url(#goo) blur(40px);
-      display: block;
     }
   }
 }

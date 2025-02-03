@@ -1,8 +1,4 @@
 const relief = {
-  colors: {
-    fg: '#d1e89a',
-    bg: '#4d7bac'
-  },
   camera: {
     intensity: 0,
     maxPitch: 0,
