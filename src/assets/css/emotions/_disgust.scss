@@ -1,34 +1,30 @@
-$disgust-color: #ffffff;
-$disgust-color-bg1: #824a72;
-$disgust-color-bg2: #392365;
-$disgust-color1: #8f5b80;
-$disgust-color2: #d39e9c;
-$disgust-color3: #e2b98d;
-$disgust-color4: #b6d69f;
-$disgust-color5: #6da2b6;
+$disgust-color-bg: #392365;
+$disgust-color-1: #8f5b80;
+$disgust-color-2: #d39e9c;
+$disgust-color-3: #e2b98d;
+$disgust-color-4: #b6d69f;
+$disgust-color-5: #6da2b6;
 
 /* disgust */
 body.disgust {
-  background: $disgust-color-bg1;
+  background: $disgust-color-bg;
 
   .gradient-bg.disgust {
-    background: $disgust-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($disgust-color1, 0.8) 0, rgba($disgust-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disgust-color-1, 0.8) 0, rgba($disgust-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($disgust-color2, 0.8) 0, rgba($disgust-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disgust-color-2, 0.8) 0, rgba($disgust-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($disgust-color3, 0.8) 0, rgba($disgust-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disgust-color-3, 0.8) 0, rgba($disgust-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($disgust-color4, 0.8) 0, rgba($disgust-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disgust-color-4, 0.8) 0, rgba($disgust-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($disgust-color5, 0.8) 0, rgba($disgust-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disgust-color-5, 0.8) 0, rgba($disgust-color-5, 0) 50%) no-repeat;
       }
     }
   }

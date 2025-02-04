@@ -1,34 +1,30 @@
-$love-color: #dce258;
-$love-color-bg1: #6e4e8d;
-$love-color-bg2: #4e2a5b;
-$love-color1: #ff009e;
-$love-color2: #ff819f;
-$love-color3: #fea0ff;
-$love-color4: #ffb2d7;
-$love-color5: #cbb2ff;
+$love-color-bg: #4e2a5b;
+$love-color-1: #ff009e;
+$love-color-2: #ff819f;
+$love-color-3: #fea0ff;
+$love-color-4: #ffb2d7;
+$love-color-5: #cbb2ff;
 
 /* love */
 body.love {
-  background: $love-color-bg1;
+  background: $love-color-bg;
 
   .gradient-bg.love {
-    background: $love-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($love-color1, 0.8) 0, rgba($love-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color-1, 0.8) 0, rgba($love-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($love-color2, 0.8) 0, rgba($love-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color-2, 0.8) 0, rgba($love-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($love-color3, 0.8) 0, rgba($love-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color-3, 0.8) 0, rgba($love-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($love-color4, 0.8) 0, rgba($love-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color-4, 0.8) 0, rgba($love-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($love-color5, 0.8) 0, rgba($love-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($love-color-5, 0.8) 0, rgba($love-color-5, 0) 50%) no-repeat;
       }
     }
   }

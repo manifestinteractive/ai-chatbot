@@ -1,34 +1,30 @@
-$joy-color: #ffe948;
-$joy-color-bg1: #2f6b09;
-$joy-color-bg2: #0f2b2e;
-$joy-color1: #f9e24e;
-$joy-color2: #f7b62b;
-$joy-color3: #f67f1e;
-$joy-color4: #f1531e;
-$joy-color5: #e0293b;
+$joy-color-bg: #0f2b2e;
+$joy-color-1: #f9e24e;
+$joy-color-2: #f7b62b;
+$joy-color-3: #f67f1e;
+$joy-color-4: #f1531e;
+$joy-color-5: #e0293b;
 
 /* joy */
 body.joy {
-  background: $joy-color-bg1;
+  background: $joy-color-bg;
 
   .gradient-bg.joy {
-    background: $joy-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($joy-color1, 0.8) 0, rgba($joy-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($joy-color-1, 0.8) 0, rgba($joy-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($joy-color2, 0.8) 0, rgba($joy-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($joy-color-2, 0.8) 0, rgba($joy-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($joy-color3, 0.8) 0, rgba($joy-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($joy-color-3, 0.8) 0, rgba($joy-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($joy-color4, 0.8) 0, rgba($joy-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($joy-color-4, 0.8) 0, rgba($joy-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($joy-color5, 0.8) 0, rgba($joy-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($joy-color-5, 0.8) 0, rgba($joy-color-5, 0) 50%) no-repeat;
       }
     }
   }

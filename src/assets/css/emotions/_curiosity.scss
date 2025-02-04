@@ -1,34 +1,30 @@
-$curiosity-color: #e6d1e6;
-$curiosity-color-bg1: #523c77;
-$curiosity-color-bg2: #2e1d5d;
-$curiosity-color1: #614d99;
-$curiosity-color2: #7c70a4;
-$curiosity-color3: #afa2c3;
-$curiosity-color4: #d4b3d5;
-$curiosity-color5: #efa4b5;
+$curiosity-color-bg: #2e1d5d;
+$curiosity-color-1: #614d99;
+$curiosity-color-2: #7c70a4;
+$curiosity-color-3: #afa2c3;
+$curiosity-color-4: #d4b3d5;
+$curiosity-color-5: #efa4b5;
 
 /* curiosity */
 body.curiosity {
-  background: $curiosity-color-bg1;
+  background: $curiosity-color-bg;
 
   .gradient-bg.curiosity {
-    background: $curiosity-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($curiosity-color1, 0.8) 0, rgba($curiosity-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color-1, 0.8) 0, rgba($curiosity-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($curiosity-color2, 0.8) 0, rgba($curiosity-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color-2, 0.8) 0, rgba($curiosity-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($curiosity-color3, 0.8) 0, rgba($curiosity-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color-3, 0.8) 0, rgba($curiosity-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($curiosity-color4, 0.8) 0, rgba($curiosity-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color-4, 0.8) 0, rgba($curiosity-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($curiosity-color5, 0.8) 0, rgba($curiosity-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($curiosity-color-5, 0.8) 0, rgba($curiosity-color-5, 0) 50%) no-repeat;
       }
     }
   }

@@ -1,34 +1,30 @@
-$surprise-color: #c3effb;
-$surprise-color-bg1: #245870;
-$surprise-color-bg2: #132c5e;
-$surprise-color1: #ffec3d;
-$surprise-color2: #ff9900;
-$surprise-color3: #ff5724;
-$surprise-color4: #f44034;
-$surprise-color5: #e92063;
+$surprise-color-bg: #132c5e;
+$surprise-color-1: #ffec3d;
+$surprise-color-2: #ff9900;
+$surprise-color-3: #ff5724;
+$surprise-color-4: #f44034;
+$surprise-color-5: #e92063;
 
 /* surprise */
 body.surprise {
-  background: $surprise-color-bg1;
+  background: $surprise-color-bg;
 
   .gradient-bg.surprise {
-    background: $surprise-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($surprise-color1, 0.8) 0, rgba($surprise-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($surprise-color-1, 0.8) 0, rgba($surprise-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($surprise-color2, 0.8) 0, rgba($surprise-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($surprise-color-2, 0.8) 0, rgba($surprise-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($surprise-color3, 0.8) 0, rgba($surprise-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($surprise-color-3, 0.8) 0, rgba($surprise-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($surprise-color4, 0.8) 0, rgba($surprise-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($surprise-color-4, 0.8) 0, rgba($surprise-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($surprise-color5, 0.8) 0, rgba($surprise-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($surprise-color-5, 0.8) 0, rgba($surprise-color-5, 0) 50%) no-repeat;
       }
     }
   }

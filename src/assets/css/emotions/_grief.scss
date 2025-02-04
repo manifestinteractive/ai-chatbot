@@ -1,34 +1,30 @@
-$grief-color: #1176e3;
-$grief-color-bg1: #07325f;
-$grief-color-bg2: #04192f;
-$grief-color1: #d9eaf7;
-$grief-color2: #a3c7e0;
-$grief-color3: #6ba7c2;
-$grief-color4: #3c7e9a;
-$grief-color5: #1d4e6d;
+$grief-color-bg: #04192f;
+$grief-color-1: #d9eaf7;
+$grief-color-2: #a3c7e0;
+$grief-color-3: #6ba7c2;
+$grief-color-4: #3c7e9a;
+$grief-color-5: #1d4e6d;
 
 /* grief */
 body.grief {
-  background: $grief-color-bg1;
+  background: $grief-color-bg;
 
   .gradient-bg.grief {
-    background: $grief-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($grief-color1, 0.8) 0, rgba($grief-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($grief-color-1, 0.8) 0, rgba($grief-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($grief-color2, 0.8) 0, rgba($grief-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($grief-color-2, 0.8) 0, rgba($grief-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($grief-color3, 0.8) 0, rgba($grief-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($grief-color-3, 0.8) 0, rgba($grief-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($grief-color4, 0.8) 0, rgba($grief-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($grief-color-4, 0.8) 0, rgba($grief-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($grief-color5, 0.8) 0, rgba($grief-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($grief-color-5, 0.8) 0, rgba($grief-color-5, 0) 50%) no-repeat;
       }
     }
   }

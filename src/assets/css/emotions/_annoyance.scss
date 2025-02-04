@@ -1,34 +1,30 @@
-$annoyance-color: #f0a0a0;
-$annoyance-color-bg1: #d46e5e;
-$annoyance-color-bg2: #d55044;
-$annoyance-color1: #ff6e61;
-$annoyance-color2: #ff998a;
-$annoyance-color3: #ffb59e;
-$annoyance-color4: #ffe7b3;
-$annoyance-color5: #fff5e0;
+$annoyance-color-bg: #d55044;
+$annoyance-color-1: #ff6e61;
+$annoyance-color-2: #ff998a;
+$annoyance-color-3: #ffb59e;
+$annoyance-color-4: #ffe7b3;
+$annoyance-color-5: #fff5e0;
 
 /* annoyance */
 body.annoyance {
-  background: $annoyance-color-bg1;
+  background: $annoyance-color-bg;
 
   .gradient-bg.annoyance {
-    background: $annoyance-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($annoyance-color1, 0.8) 0, rgba($annoyance-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($annoyance-color-1, 0.8) 0, rgba($annoyance-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($annoyance-color2, 0.8) 0, rgba($annoyance-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($annoyance-color-2, 0.8) 0, rgba($annoyance-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($annoyance-color3, 0.8) 0, rgba($annoyance-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($annoyance-color-3, 0.8) 0, rgba($annoyance-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($annoyance-color4, 0.8) 0, rgba($annoyance-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($annoyance-color-4, 0.8) 0, rgba($annoyance-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($annoyance-color5, 0.8) 0, rgba($annoyance-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($annoyance-color-5, 0.8) 0, rgba($annoyance-color-5, 0) 50%) no-repeat;
       }
     }
   }

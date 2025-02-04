@@ -1,34 +1,30 @@
-$disappointment-color: #ffffff;
-$disappointment-color-bg1: #184468;
-$disappointment-color-bg2: #0e304e;
-$disappointment-color1: #b1c5e7;
-$disappointment-color2: #4682b4;
-$disappointment-color3: #4169e1;
-$disappointment-color4: #6494ed;
-$disappointment-color5: #00bfff;
+$disappointment-color-bg: #0e304e;
+$disappointment-color-1: #b1c5e7;
+$disappointment-color-2: #4682b4;
+$disappointment-color-3: #4169e1;
+$disappointment-color-4: #6494ed;
+$disappointment-color-5: #00bfff;
 
 /* disappointment */
 body.disappointment {
-  background: $disappointment-color-bg1;
+  background: $disappointment-color-bg;
 
   .gradient-bg.disappointment {
-    background: $disappointment-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($disappointment-color1, 0.8) 0, rgba($disappointment-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disappointment-color-1, 0.8) 0, rgba($disappointment-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($disappointment-color2, 0.8) 0, rgba($disappointment-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disappointment-color-2, 0.8) 0, rgba($disappointment-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($disappointment-color3, 0.8) 0, rgba($disappointment-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disappointment-color-3, 0.8) 0, rgba($disappointment-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($disappointment-color4, 0.8) 0, rgba($disappointment-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disappointment-color-4, 0.8) 0, rgba($disappointment-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($disappointment-color5, 0.8) 0, rgba($disappointment-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disappointment-color-5, 0.8) 0, rgba($disappointment-color-5, 0) 50%) no-repeat;
       }
     }
   }

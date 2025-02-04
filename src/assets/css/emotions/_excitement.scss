@@ -1,34 +1,30 @@
-$excitement-color: #fe9e5b;
-$excitement-color-bg1: #204f5b;
-$excitement-color-bg2: #0c2446;
-$excitement-color1: #1c3f6d;
-$excitement-color2: #4b7e8b;
-$excitement-color3: #69bf9e;
-$excitement-color4: #ffb84d;
-$excitement-color5: #ff6e61;
+$excitement-color-bg: #0c2446;
+$excitement-color-1: #1c3f6d;
+$excitement-color-2: #4b7e8b;
+$excitement-color-3: #69bf9e;
+$excitement-color-4: #ffb84d;
+$excitement-color-5: #ff6e61;
 
 /* excitement */
 body.excitement {
-  background: $excitement-color-bg1;
+  background: $excitement-color-bg;
 
   .gradient-bg.excitement {
-    background: $excitement-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($excitement-color1, 0.8) 0, rgba($excitement-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color-1, 0.8) 0, rgba($excitement-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($excitement-color2, 0.8) 0, rgba($excitement-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color-2, 0.8) 0, rgba($excitement-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($excitement-color3, 0.8) 0, rgba($excitement-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color-3, 0.8) 0, rgba($excitement-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($excitement-color4, 0.8) 0, rgba($excitement-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color-4, 0.8) 0, rgba($excitement-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($excitement-color5, 0.8) 0, rgba($excitement-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($excitement-color-5, 0.8) 0, rgba($excitement-color-5, 0) 50%) no-repeat;
       }
     }
   }

@@ -44,7 +44,15 @@ export default function User({ setUserName }) {
   return (
     <div className={`login-ui ${loading ? 'loading' : ''}`}>
       <form onSubmit={onSubmit} className={`login-form ${nameInvalid ? 'invalid' : 'valid'}`}>
-        <input ref={inputRef} type="text" autoFocus={true} placeholder={loading ? 'Loading' : 'Your first name'} value={name} onChange={handleNameChange} />
+        <input
+          ref={inputRef}
+          type="text"
+          autoFocus={true}
+          placeholder={loading ? 'Loading' : 'Your first name'}
+          value={name}
+          onChange={handleNameChange}
+          enterkeyhint="done"
+        />
         <button type="submit" disabled={loading}>
           {loading ? (
             // Loading Spinner

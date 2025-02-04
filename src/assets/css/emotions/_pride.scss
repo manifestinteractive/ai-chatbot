@@ -1,34 +1,30 @@
-$pride-color: #f2e6f9;
-$pride-color-bg1: #53296a;
-$pride-color-bg2: #34085e;
-$pride-color1: #f2e6f9;
-$pride-color2: #d7b2e6;
-$pride-color3: #a468b1;
-$pride-color4: #9b58b6;
-$pride-color5: #8a2ce2;
+$pride-color-bg: #34085e;
+$pride-color-1: #f2e6f9;
+$pride-color-2: #d7b2e6;
+$pride-color-3: #a468b1;
+$pride-color-4: #9b58b6;
+$pride-color-5: #8a2ce2;
 
 /* pride */
 body.pride {
-  background: $pride-color-bg1;
+  background: $pride-color-bg;
 
   .gradient-bg.pride {
-    background: $pride-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($pride-color1, 0.8) 0, rgba($pride-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($pride-color-1, 0.8) 0, rgba($pride-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($pride-color2, 0.8) 0, rgba($pride-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($pride-color-2, 0.8) 0, rgba($pride-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($pride-color3, 0.8) 0, rgba($pride-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($pride-color-3, 0.8) 0, rgba($pride-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($pride-color4, 0.8) 0, rgba($pride-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($pride-color-4, 0.8) 0, rgba($pride-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($pride-color5, 0.8) 0, rgba($pride-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($pride-color-5, 0.8) 0, rgba($pride-color-5, 0) 50%) no-repeat;
       }
     }
   }

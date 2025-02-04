@@ -1,34 +1,30 @@
-$embarrassment-color: #ffffff;
-$embarrassment-color-bg1: #802d2d;
-$embarrassment-color-bg2: #7e2020;
-$embarrassment-color1: #ffb3b3;
-$embarrassment-color2: #ffd1d1;
-$embarrassment-color3: #ffe5e5;
-$embarrassment-color4: #fff0f0;
-$embarrassment-color5: #ff8080;
+$embarrassment-color-bg: #7e2020;
+$embarrassment-color-1: #ffb3b3;
+$embarrassment-color-2: #ffd1d1;
+$embarrassment-color-3: #ffe5e5;
+$embarrassment-color-4: #fff0f0;
+$embarrassment-color-5: #ff8080;
 
 /* embarrassment */
 body.embarrassment {
-  background: $embarrassment-color-bg1;
+  background: $embarrassment-color-bg;
 
   .gradient-bg.embarrassment {
-    background: $embarrassment-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($embarrassment-color1, 0.8) 0, rgba($embarrassment-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($embarrassment-color-1, 0.8) 0, rgba($embarrassment-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($embarrassment-color2, 0.8) 0, rgba($embarrassment-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($embarrassment-color-2, 0.8) 0, rgba($embarrassment-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($embarrassment-color3, 0.8) 0, rgba($embarrassment-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($embarrassment-color-3, 0.8) 0, rgba($embarrassment-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($embarrassment-color4, 0.8) 0, rgba($embarrassment-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($embarrassment-color-4, 0.8) 0, rgba($embarrassment-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($embarrassment-color5, 0.8) 0, rgba($embarrassment-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($embarrassment-color-5, 0.8) 0, rgba($embarrassment-color-5, 0) 50%) no-repeat;
       }
     }
   }

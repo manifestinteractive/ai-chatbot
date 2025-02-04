@@ -1,34 +1,30 @@
-$remorse-color: #f1e7ff;
-$remorse-color-bg1: #193452;
-$remorse-color-bg2: #09242f;
-$remorse-color1: #c7d3e5;
-$remorse-color2: #a5bad5;
-$remorse-color3: #7d97b5;
-$remorse-color4: #4e7a8d;
-$remorse-color5: #2c596d;
+$remorse-color-bg: #09242f;
+$remorse-color-1: #c7d3e5;
+$remorse-color-2: #a5bad5;
+$remorse-color-3: #7d97b5;
+$remorse-color-4: #4e7a8d;
+$remorse-color-5: #2c596d;
 
 /* remorse */
 body.remorse {
-  background: $remorse-color-bg1;
+  background: $remorse-color-bg;
 
   .gradient-bg.remorse {
-    background: $remorse-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($remorse-color1, 0.8) 0, rgba($remorse-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color-1, 0.8) 0, rgba($remorse-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($remorse-color2, 0.8) 0, rgba($remorse-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color-2, 0.8) 0, rgba($remorse-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($remorse-color3, 0.8) 0, rgba($remorse-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color-3, 0.8) 0, rgba($remorse-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($remorse-color4, 0.8) 0, rgba($remorse-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color-4, 0.8) 0, rgba($remorse-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($remorse-color5, 0.8) 0, rgba($remorse-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($remorse-color-5, 0.8) 0, rgba($remorse-color-5, 0) 50%) no-repeat;
       }
     }
   }

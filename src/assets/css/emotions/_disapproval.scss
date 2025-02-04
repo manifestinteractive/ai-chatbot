@@ -1,34 +1,30 @@
-$disapproval-color: #ffffff;
-$disapproval-color-bg1: #2b6ca1;
-$disapproval-color-bg2: #113f64;
-$disapproval-color1: #e57171;
-$disapproval-color2: #f06090;
-$disapproval-color3: #4eb7ac;
-$disapproval-color4: #65b5f6;
-$disapproval-color5: #bb69c9;
+$disapproval-color-bg: #113f64;
+$disapproval-color-1: #e57171;
+$disapproval-color-2: #f06090;
+$disapproval-color-3: #4eb7ac;
+$disapproval-color-4: #65b5f6;
+$disapproval-color-5: #bb69c9;
 
 /* disapproval */
 body.disapproval {
-  background: $disapproval-color-bg1;
+  background: $disapproval-color-bg;
 
   .gradient-bg.disapproval {
-    background: $disapproval-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($disapproval-color1, 0.8) 0, rgba($disapproval-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disapproval-color-1, 0.8) 0, rgba($disapproval-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($disapproval-color2, 0.8) 0, rgba($disapproval-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disapproval-color-2, 0.8) 0, rgba($disapproval-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($disapproval-color3, 0.8) 0, rgba($disapproval-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disapproval-color-3, 0.8) 0, rgba($disapproval-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($disapproval-color4, 0.8) 0, rgba($disapproval-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disapproval-color-4, 0.8) 0, rgba($disapproval-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($disapproval-color5, 0.8) 0, rgba($disapproval-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($disapproval-color-5, 0.8) 0, rgba($disapproval-color-5, 0) 50%) no-repeat;
       }
     }
   }

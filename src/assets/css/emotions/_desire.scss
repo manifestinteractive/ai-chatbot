@@ -1,34 +1,30 @@
-$desire-color: #bd71a0;
-$desire-color-bg1: #874f83;
-$desire-color-bg2: #2d1d3f;
-$desire-color1: #4b3d5c;
-$desire-color2: #8d6d9c;
-$desire-color3: #c3a7c1;
-$desire-color4: #f4d7d9;
-$desire-color5: #f2b5c5;
+$desire-color-bg: #2d1d3f;
+$desire-color-1: #4b3d5c;
+$desire-color-2: #8d6d9c;
+$desire-color-3: #c3a7c1;
+$desire-color-4: #f4d7d9;
+$desire-color-5: #f2b5c5;
 
 /* desire */
 body.desire {
-  background: $desire-color-bg1;
+  background: $desire-color-bg;
 
   .gradient-bg.desire {
-    background: $desire-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($desire-color1, 0.8) 0, rgba($desire-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color-1, 0.8) 0, rgba($desire-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($desire-color2, 0.8) 0, rgba($desire-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color-2, 0.8) 0, rgba($desire-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($desire-color3, 0.8) 0, rgba($desire-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color-3, 0.8) 0, rgba($desire-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($desire-color4, 0.8) 0, rgba($desire-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color-4, 0.8) 0, rgba($desire-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($desire-color5, 0.8) 0, rgba($desire-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($desire-color-5, 0.8) 0, rgba($desire-color-5, 0) 50%) no-repeat;
       }
     }
   }

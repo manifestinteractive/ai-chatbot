@@ -139,6 +139,7 @@ export default function Input({ onSubmit, loading }) {
           value={text}
           placeholder={loading ? 'Sending message' : 'Enter your message here'}
           disabled={loading}
+          enterkeyhint="send"
         />
         {/* Submit Button */}
         <button type="submit" disabled={loading}>

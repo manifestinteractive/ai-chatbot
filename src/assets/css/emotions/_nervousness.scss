@@ -1,34 +1,30 @@
-$nervousness-color: #ccdef0;
-$nervousness-color-bg1: #074069;
-$nervousness-color-bg2: #032c49;
-$nervousness-color1: #5795c1;
-$nervousness-color2: #3987b1;
-$nervousness-color3: #267aab;
-$nervousness-color4: #136196;
-$nervousness-color5: #094c7c;
+$nervousness-color-bg: #032c49;
+$nervousness-color-1: #5795c1;
+$nervousness-color-2: #3987b1;
+$nervousness-color-3: #267aab;
+$nervousness-color-4: #136196;
+$nervousness-color-5: #094c7c;
 
 /* nervousness */
 body.nervousness {
-  background: $nervousness-color-bg1;
+  background: $nervousness-color-bg;
 
   .gradient-bg.nervousness {
-    background: $nervousness-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($nervousness-color1, 0.8) 0, rgba($nervousness-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($nervousness-color-1, 0.8) 0, rgba($nervousness-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($nervousness-color2, 0.8) 0, rgba($nervousness-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($nervousness-color-2, 0.8) 0, rgba($nervousness-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($nervousness-color3, 0.8) 0, rgba($nervousness-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($nervousness-color-3, 0.8) 0, rgba($nervousness-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($nervousness-color4, 0.8) 0, rgba($nervousness-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($nervousness-color-4, 0.8) 0, rgba($nervousness-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($nervousness-color5, 0.8) 0, rgba($nervousness-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($nervousness-color-5, 0.8) 0, rgba($nervousness-color-5, 0) 50%) no-repeat;
       }
     }
   }

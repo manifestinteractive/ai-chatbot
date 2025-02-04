@@ -1,34 +1,30 @@
-$neutral-color: #ffffff;
-$neutral-color-bg1: #6c00a2;
-$neutral-color-bg2: #001152;
-$neutral-color1: #1271ff;
-$neutral-color2: #dd4aff;
-$neutral-color3: #64dcff;
-$neutral-color4: #c83232;
-$neutral-color5: #b4b432;
+$neutral-color-bg: #001152;
+$neutral-color-1: #1271ff;
+$neutral-color-2: #dd4aff;
+$neutral-color-3: #64dcff;
+$neutral-color-4: #c83232;
+$neutral-color-5: #b4b432;
 
 /* neutral */
 body.neutral {
-  background: $neutral-color-bg1;
+  background: $neutral-color-bg;
 
   .gradient-bg.neutral {
-    background: $neutral-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($neutral-color1, 0.8) 0, rgba($neutral-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($neutral-color-1, 0.8) 0, rgba($neutral-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($neutral-color2, 0.8) 0, rgba($neutral-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($neutral-color-2, 0.8) 0, rgba($neutral-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($neutral-color3, 0.8) 0, rgba($neutral-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($neutral-color-3, 0.8) 0, rgba($neutral-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($neutral-color4, 0.8) 0, rgba($neutral-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($neutral-color-4, 0.8) 0, rgba($neutral-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($neutral-color5, 0.8) 0, rgba($neutral-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($neutral-color-5, 0.8) 0, rgba($neutral-color-5, 0) 50%) no-repeat;
       }
     }
   }

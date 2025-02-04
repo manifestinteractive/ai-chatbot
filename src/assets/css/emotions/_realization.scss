@@ -1,34 +1,30 @@
-$realization-color: #9171ce;
-$realization-color-bg1: #46236c;
-$realization-color-bg2: #2f166a;
-$realization-color1: #3d292e;
-$realization-color2: #7b4c4e;
-$realization-color3: #b77b7e;
-$realization-color4: #f3b4c3;
-$realization-color5: #efc5c3;
+$realization-color-bg: #2f166a;
+$realization-color-1: #3d292e;
+$realization-color-2: #7b4c4e;
+$realization-color-3: #b77b7e;
+$realization-color-4: #f3b4c3;
+$realization-color-5: #efc5c3;
 
 /* realization */
 body.realization {
-  background: $realization-color-bg1;
+  background: $realization-color-bg;
 
   .gradient-bg.realization {
-    background: $realization-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($realization-color1, 0.8) 0, rgba($realization-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($realization-color-1, 0.8) 0, rgba($realization-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($realization-color2, 0.8) 0, rgba($realization-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($realization-color-2, 0.8) 0, rgba($realization-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($realization-color3, 0.8) 0, rgba($realization-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($realization-color-3, 0.8) 0, rgba($realization-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($realization-color4, 0.8) 0, rgba($realization-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($realization-color-4, 0.8) 0, rgba($realization-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($realization-color5, 0.8) 0, rgba($realization-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($realization-color-5, 0.8) 0, rgba($realization-color-5, 0) 50%) no-repeat;
       }
     }
   }

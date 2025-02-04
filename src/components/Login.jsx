@@ -58,6 +58,7 @@ export default function Login({ setIsVerified }) {
           placeholder={loading ? 'Loading' : 'Enter password'}
           value={login}
           onChange={handleLoginChange}
+          enterkeyhint="done"
         />
         <button type="submit" disabled={loading}>
           {loading ? (

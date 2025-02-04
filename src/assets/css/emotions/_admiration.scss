@@ -1,34 +1,30 @@
-$admiration-color: #a1d235;
-$admiration-color-bg1: #1c691e;
-$admiration-color-bg2: #608217;
-$admiration-color1: #ff6e61;
-$admiration-color2: #ffa142;
-$admiration-color3: #ffcc33;
-$admiration-color4: #a8d93f;
-$admiration-color5: #4cae4f;
+$admiration-color-bg: #608217;
+$admiration-color-1: #ff6e61;
+$admiration-color-2: #ffa142;
+$admiration-color-3: #ffcc33;
+$admiration-color-4: #a8d93f;
+$admiration-color-5: #4cae4f;
 
 /* admiration */
 body.admiration {
-  background: $admiration-color-bg1;
+  background: $admiration-color-bg;
 
   .gradient-bg.admiration {
-    background: $admiration-color-bg2;
-
     div {
       &.g1 {
-        background: radial-gradient(circle at center, rgba($admiration-color1, 0.8) 0, rgba($admiration-color1, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($admiration-color-1, 0.8) 0, rgba($admiration-color-1, 0) 50%) no-repeat;
       }
       &.g2 {
-        background: radial-gradient(circle at center, rgba($admiration-color2, 0.8) 0, rgba($admiration-color2, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($admiration-color-2, 0.8) 0, rgba($admiration-color-2, 0) 50%) no-repeat;
       }
       &.g3 {
-        background: radial-gradient(circle at center, rgba($admiration-color3, 0.8) 0, rgba($admiration-color3, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($admiration-color-3, 0.8) 0, rgba($admiration-color-3, 0) 50%) no-repeat;
       }
       &.g4 {
-        background: radial-gradient(circle at center, rgba($admiration-color4, 0.8) 0, rgba($admiration-color4, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($admiration-color-4, 0.8) 0, rgba($admiration-color-4, 0) 50%) no-repeat;
       }
       &.g5 {
-        background: radial-gradient(circle at center, rgba($admiration-color5, 0.8) 0, rgba($admiration-color5, 0) 50%) no-repeat;
+        background: radial-gradient(circle at center, rgba($admiration-color-5, 0.8) 0, rgba($admiration-color-5, 0) 50%) no-repeat;
       }
     }
   }
