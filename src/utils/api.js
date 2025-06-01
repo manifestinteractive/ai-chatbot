@@ -10,6 +10,11 @@ const headers = {
 
 const api = {
   createThread: async (userName) => {
+    // Check if demo mode is enabled
+    if (config.demoMode) {
+      return true;
+    }
+
     const slug = slugify(userName);
     const workspace = slugify(config.apiWorkspace);
 
@@ -41,6 +46,11 @@ const api = {
     }
   },
   deleteThread: async (userName) => {
+    // Check if demo mode is enabled
+    if (config.demoMode) {
+      return true;
+    }
+
     const thread = slugify(userName);
     const workspace = slugify(config.apiWorkspace);
 
@@ -67,6 +77,11 @@ const api = {
     }
   },
   getHistory: async (userName) => {
+    // Check if demo mode is enabled
+    if (config.demoMode) {
+      return null;
+    }
+
     const thread = slugify(userName);
     const workspace = slugify(config.apiWorkspace);
 
@@ -94,6 +109,11 @@ const api = {
     }
   },
   chat: async (userName, message) => {
+    // Check if demo mode is enabled
+    if (config.demoMode) {
+      return null;
+    }
+
     const thread = slugify(userName);
     const workspace = slugify(config.apiWorkspace);
 
@@ -120,7 +140,7 @@ const api = {
       }
 
       const data = await response.json();
-      return data.history || [];
+      return data.textResponse || null;
     } catch (error) {
       console.error('Error fetching chat history:', error);
       return null;

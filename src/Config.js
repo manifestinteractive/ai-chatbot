@@ -19,6 +19,9 @@ const config = {
   // Password to access the chat interface ( md5 hashed )
   appPassword: process.env.REACT_APP_PASSWORD ? md5(process.env.REACT_APP_PASSWORD) : null,
 
+  // Whether to enable demo mode or not ( this will fake conversations and messages )
+  demoMode: process.env.REACT_APP_DEMO_MODE ? process.env.REACT_APP_DEMO_MODE === 'true' : false,
+
   // Hugging Face API Token ( https://huggingface.co/settings/tokens > Fine Grained > Inference > Make calls to the serverless Inference API )
   hfToken: process.env.REACT_APP_HF_TOKEN ? process.env.REACT_APP_HF_TOKEN : null
 };
